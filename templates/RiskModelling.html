@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Prototype</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+    <script src="../lib/echarts-gl.min.js"></script>
+
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
+    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body style='background-color: #30373F'>
+    <div class='wrapper'>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard Prototype</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#">Home</a>
+
+                    <a href="RiskModelling.html" aria-expanded="false" class="panel-heading dropdown-toggle">Risk
+                        Modelling</a>
+                    <ul class="panel-collapse collapse list-unstyled">
+                        <li>
+                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
+                        </li>
+                        <li>
+                            <a href="#gema">Geo Map</a>
+                        </li>
+
+                    </ul>
+
+
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Portfolio Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#dadi">The Master Scale& Data Distribution</a>
+                        </li>
+                        <li>
+                            <a href="#cremi">Credit Migration</a>
+                        </li>
+                        <li>
+                            <a href="#risk">Risk Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#opt">Optimisation</a>
+                        </li>
+                        <li>
+                            <a href="#bdd">Bad Debt Distribution</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="login">Log In</a>
+                </li>
+                <li>
+                    <a class="signup">Sign up</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Nav Bar collapsible end hiaaa-->
+        <!--Nav ngang start here-->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #292929;'>
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button> -->
+
+                    <h4 style='color:white; margin-left: 3%'> Risk Modelling</h4>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            </li>
+                        </ul>
+                    </div>
+                    <!--SEARCH BOX-->
+                    <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0"
+                        style='background-color: #292929;'> <input class="form-control mr-sm-2" type="text"
+                            placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0"
+                            type="submit">Search</button> </form>
+                </div>
+            </nav>
+
+            <!-- Interactive navigation sidebar function -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                        $(this).toggleClass('active');
+                    });
+                });
+
+                $(".panel-heading").mouseenter(function () {
+                    $(".panel-collapse").fadeIn();
+                });
+                $(".panel-collapse").mouseleave(function () {
+                    $(".panel-collapse").fadeOut();
+                });
+            </script>
+            <!-- End interactive function -->
+
+
+
+
+            <div class='container-fluid'>
+
+                <button type="button" class="btn btn-lg button-box" data-toggle="collapse" data-target="#raw_data"
+                    style="margin-bottom: 1%;width:49%;">Raw Data Distribution</button>
+
+                <button type="button" class="btn  btn-lg button-box" data-toggle="collapse" data-target="#trsf_data"
+                    style="margin-bottom: 1%;width:49%;float:right;">Transformed Data Distribution</button>
+
+                <div id="raw_data" class="collapse" style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='rawdata_nume_1' style='height:200px;width:700%;'></div>
+                        <div class="col-sm" id='rawdata_nume_2' style='height:200px;width:700%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='rawdata_nume_3' style='height:200px;width:700%'></div>
+                        <div class="col-sm " id='rawdata_nume_4' style='height:200px;width:700%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='rawdata_cate_1' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='rawdata_cate_2' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='rawdata_cate_3' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='rawdata_cate_4' style='height:200px; width:300%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm" id='rawdata_cate_5' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='rawdata_cate_6' style='height:200px; width:300%'></div>
+                        <div class="col-sm" id='rawdata_cate_7' style='height:200px; width:300%'></div>
+                        <div class="col-sm" id='rawdata_cate_8' style='height:200px; width:300%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='rawdata_cate_9' style='height:200px; width:500%'></div>
+                        <div class="col-sm " id='rawdata_cate_10' style='height:200px; width:500%'></div>
+                        <div class="col-sm " id='rawdata_cate_11' style='height:200px; width:500%'></div>
+                    </div>
+
+
+                </div>
+
+
+                <div id="trsf_data" class="collapse" style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='trsfdata_nume_1' style='height:200px;width:700%;'></div>
+                        <div class="col-sm" id='trsfdata_nume_2' style='height:200px;width:700%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='trsfdata_nume_3' style='height:200px;width:700%'></div>
+                        <div class="col-sm " id='trsfdata_nume_4' style='height:200px;width:700%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='trsfdata_cate_1' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='trsfdata_cate_2' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='trsfdata_cate_3' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='trsfdata_cate_4' style='height:200px; width:300%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm" id='trsfdata_cate_5' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='trsfdata_cate_6' style='height:200px; width:300%'></div>
+                        <div class="col-sm" id='trsfdata_cate_7' style='height:200px; width:300%'></div>
+                        <div class="col-sm" id='trsfdata_cate_8' style='height:200px; width:300%'></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm " id='trsfdata_cate_9' style='height:200px; width:500%'></div>
+                        <div class="col-sm " id='trsfdata_cate_10' style='height:200px; width:500%'></div>
+                        <div class="col-sm " id='trsfdata_cate_11' style='height:200px; width:500%'></div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div style='height:5px'></div>
+
+
+                <div style='height: 500px'>
+                    <div class='fakegraph h-100'>
+
+                        <div class='row' style='height: 45%'>
+                            <div id='gini_gauge_1' class='col-sm' style='height: 100%'> </div>
+                            <div id='gini_gauge_2' class='col-sm' style='height: 100%'> </div>
+                            <div id='gini_gauge_3' class='col-sm' style='height: 100%'> </div>
+                            <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
+                        </div>
+                        <br>
+                        <div id='gini_performance' class='col-sm w-100' style='height: 45%'> </div>
+
+                    </div>
+                </div>
+
+                <div style='height:15px'></div>
+
+                <div class='row' style='height: 700px'>
+                    <div class='col-sm-7'>
+                        <div style='height:49.5%'>
+                            <div class='fakegraph'>
+
+                                <div id='heatmap' style='height: 90%'> </div>
+                            </div>
+                        </div>
+
+                        <div style='height:1%'></div>
+
+                        <div style='height:49.5%'>
+                            <div class='fakegraph'>
+
+                                <div id='quantitative_filter' style='height: 90%'> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-sm-5'>
+                        <div class='fakegraph h-100' id='binomial'></div>
+                    </div>
+                </div>
+
+                <div style='height:15px'></div>
+
+
+                <div class='row' style='height: 550px'>
+                    <div class='col-sm-7'>
+                        <div class='fakegraph'>
+                            <div class='row h-100'>
+                                <div class='col-sm-6 h-100' id='information_value'></div>
+                                <div class='col-sm-6'>
+                                    <div class='row' id='iv_gauge' style='height: 40%'></div>
+                                    <div class='row' id='iv_line_graph' style='height: 60%'> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='col-sm-5'>
+                        <div class='fakegraph' id='black_list_connection' style='height:100%'></div>
+                    </div>
+                </div>
+
+                <div style='height:15px'></div>
+
+                <div class='fakegraph' id='bad_debt_distribution' style='height: 250px'> </div>
+
+                <div style='height:15px'></div>
+
+                <div class='fakegraph' id='salary_distribution' style='height: 250px'> </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="container-fluid bg-grey py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <img src="logo-epay.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>More Information</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        <li> <a href="#"> Team</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript and Data -->
+
+    <script src="../data/black_list_connection.js"></script>
+    <script src="../script/black_list_connection.js"></script>
+
+    <script src="../data/set1.js"></script>
+    <script src="../script/quantitative_filter.js"></script>
+
+    <script type="text/javascript" src="../data/dataConnect.js"></script>
+    <script type="text/javascript" src="../data/dataGeo.js"></script>
+    <script src="../script/bad_debt_distribution.js"></script>
+    <script src="../script/salary_distribution.js"></script>
+
+    <script src="../script/information_value.js"></script>
+    <script src="../script/iv_gauge.js"></script>
+    <script src="../script/iv_line_graph.js"></script>
+    <script src="../script/binomial_test.js"></script>
+    <script src="../script/gini_performance.js"></script>
+    <script src="../script/gini_gauge.js"></script>
+    <script src="../script/gini_gauge_2.js"></script>
+    <script src="../script/gini_gauge_3.js"></script>
+    <script src="../script/gini_gauge_4.js"></script>
+    <script src="../script/heatmap.js"></script>
+
+    <script src="../script/rawdata_cate_1.js"></script>
+    <script src="../script/rawdata_cate_2.js"></script>
+    <script src="../script/rawdata_cate_3.js"></script>
+    <script src="../script/rawdata_cate_4.js"></script>
+    <script src="../script/rawdata_cate_5.js"></script>
+    <script src="../script/rawdata_cate_6.js"></script>
+    <script src="../script/rawdata_cate_7.js"></script>
+    <script src="../script/rawdata_cate_8.js"></script>
+    <script src="../script/rawdata_cate_9.js"></script>
+    <script src="../script/rawdata_cate_10.js"></script>
+    <script src="../script/rawdata_cate_11.js"></script>
+    <script src="../script/rawdata_nume_1.js"></script>
+    <script src="../script/rawdata_nume_2.js"></script>
+    <script src="../script/rawdata_nume_3.js"></script>
+    <script src="../script/rawdata_nume_4.js"></script>
+
+    <script src="../script/trsfdata_cate_1.js"></script>
+    <script src="../script/trsfdata_cate_2.js"></script>
+    <script src="../script/trsfdata_cate_3.js"></script>
+    <script src="../script/trsfdata_cate_4.js"></script>
+    <script src="../script/trsfdata_cate_5.js"></script>
+    <script src="../script/trsfdata_cate_6.js"></script>
+    <script src="../script/trsfdata_cate_7.js"></script>
+    <script src="../script/trsfdata_cate_8.js"></script>
+    <script src="../script/trsfdata_cate_9.js"></script>
+    <script src="../script/trsfdata_cate_10.js"></script>
+    <script src="../script/trsfdata_cate_11.js"></script>
+    <script src="../script/trsfdata_nume_1.js"></script>
+    <script src="../script/trsfdata_nume_2.js"></script>
+    <script src="../script/trsfdata_nume_3.js"></script>
+    <script src="../script/trsfdata_nume_4.js"></script>
+
+</body>
+
+</html>
