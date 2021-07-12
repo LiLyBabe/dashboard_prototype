@@ -1,38 +1,38 @@
-$(document).ready(function (e) {
+$(document).ready(function () {
     var dataSize = 200;
-    $('.dropdown-item').click(function () {
-        $("#dropdownMenuButton").html(this.innerHTML.trim());
-        dataSize = this.innerHTML.trim().split(" ")[2] * 1;
-        data0 = [];
-        // var data1 = [];
-        for (let i = 0; i < dataSize; i++) {
-            const element = quantitatives[i];
-            data0.push(element);
-        }
-        console.time('render');
-        var update = [{
-            name: 'parallel',
-            data: data0
-        }];
-        var index = 0;
-        for (var i = 0; i < CATEGORY_DIM_COUNT; i++) {
-            for (var j = 0; j < CATEGORY_DIM_COUNT; j++) {
-                if (CATEGORY_DIM_COUNT - i + j >= CATEGORY_DIM_COUNT) {
-                    continue;
-                }
-                update.push({
-                    name: `scatter ${i} ${j}`,
-                    data: retrieveScatterData(data0, i, j),
-                });
-                index++;
-            }
-        }
-        chart.setOption({
+    // $('.dropdown-item').click(function () {
+    //     $("#dropdownMenuButton").html(this.innerHTML.trim());
+    //     dataSize = this.innerHTML.trim().split(" ")[2] * 1;
+    //     data0 = [];
+    //     // var data1 = [];
+    //     for (let i = 0; i < dataSize; i++) {
+    //         const element = quantitatives[i];
+    //         data0.push(element);
+    //     }
+    //     console.time('render');
+    //     var update = [{
+    //         name: 'parallel',
+    //         data: data0
+    //     }];
+    //     var index = 0;
+    //     for (var i = 0; i < CATEGORY_DIM_COUNT; i++) {
+    //         for (var j = 0; j < CATEGORY_DIM_COUNT; j++) {
+    //             if (CATEGORY_DIM_COUNT - i + j >= CATEGORY_DIM_COUNT) {
+    //                 continue;
+    //             }
+    //             update.push({
+    //                 name: `scatter ${i} ${j}`,
+    //                 data: retrieveScatterData(data0, i, j),
+    //             });
+    //             index++;
+    //         }
+    //     }
+    //     chart.setOption({
 
-            series: update
-        });
-        console.timeEnd('render');
-    });
+    //         series: update
+    //     });
+    //     console.timeEnd('render');
+    // });
 
     var CATEGORY_DIM_COUNT = 8;
     var GAP = 1;
@@ -63,7 +63,7 @@ $(document).ready(function (e) {
         const element = quantitatives[i];
         data0.push(element);
     }
-    //
+    
     var chart = echarts.init(document.getElementById('quantitative_filter'));
     console.time('render');
     var myOption = getOption();
@@ -87,7 +87,7 @@ $(document).ready(function (e) {
 
         for (var i = 0; i < CATEGORY_DIM_COUNT; i++) {
             for (var j = 0; j < CATEGORY_DIM_COUNT; j++) {
-                if (CATEGORY_DIM_COUNT - i + j >= CATEGORY_DIM_COUNT) {
+                if (- i + j >= 0) {
                     continue;
                 }
 
@@ -197,10 +197,10 @@ $(document).ready(function (e) {
                 top: 0,
                 left: 'center',
                 inRange: {
-                    color: ['#c23531', '#2f4554']
+                    color: ['#1167b1', '#c23531']
                 },
                 outOfRange: {
-                    color: '#ffffff'
+                    color: '#292929'
                 },
                 seriesIndex: [0]
             },

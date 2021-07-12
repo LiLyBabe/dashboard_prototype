@@ -149,7 +149,8 @@
                 <button type="button" class="btn  btn-lg button-box" data-toggle="collapse" data-target="#trsf_data"
                     style="margin-bottom: 1%;width:49%;float:right;">Transformed Data Distribution</button>
 
-                <div id="raw_data" class="collapse" style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
+                <div id="raw_data" class="collapse"
+                    style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
                     <div class="row">
                         <div class="col-sm " id='rawdata_nume_1' style='height:200px;width:700%;'></div>
@@ -185,7 +186,8 @@
                 </div>
 
 
-                <div id="trsf_data" class="collapse" style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
+                <div id="trsf_data" class="collapse"
+                    style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
                     <div class="row">
                         <div class="col-sm " id='trsfdata_nume_1' style='height:200px;width:700%;'></div>
@@ -242,26 +244,17 @@
 
                 <div style='height:15px'></div>
 
-                <div class='row' style='height: 700px'>
+                <div class='fakegraph' id='quantitative_filter' style='height: 350px'> </div>
+
+                <div style='height:15px'></div>
+
+                <div class='row' style='height: 550px'>
                     <div class='col-sm-7'>
-                        <div style='height:49.5%'>
-                            <div class='fakegraph'>
-
-                                <div id='heatmap' style='height: 90%'> </div>
-                            </div>
-                        </div>
-
-                        <div style='height:1%'></div>
-
-                        <div style='height:49.5%'>
-                            <div class='fakegraph'>
-
-                                <div id='quantitative_filter' style='height: 90%'> </div>
-                            </div>
-                        </div>
+                        <div class='fakegraph h-100' id='heatmap'></div>
                     </div>
+
                     <div class='col-sm-5'>
-                        <div class='fakegraph h-100' id='binomial'></div>
+                        <div class='fakegraph h-100' id='black_list_connection'></div>
                     </div>
                 </div>
 
@@ -269,7 +262,7 @@
 
 
                 <div class='row' style='height: 550px'>
-                    <div class='col-sm-7'>
+                    <div class='col-sm-8'>
                         <div class='fakegraph'>
                             <div class='row h-100'>
                                 <div class='col-sm-6 h-100' id='information_value'></div>
@@ -282,8 +275,8 @@
                     </div>
 
 
-                    <div class='col-sm-5'>
-                        <div class='fakegraph' id='black_list_connection' style='height:100%'></div>
+                    <div class='col-sm-4'>
+                        <div class='fakegraph' id='binomial' style='height:100%'></div>
                     </div>
                 </div>
 
