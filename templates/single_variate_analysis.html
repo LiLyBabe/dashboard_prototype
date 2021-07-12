@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Single Variate Analysis</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+    <script src="../lib/echarts-gl.min.js"></script>
+
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
+    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body style='background-color: #30373F'>
+    <div class='wrapper'>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard Prototype</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#">Home</a>
+
+                    <a href="RiskModelling.html" aria-expanded="false" class="panel-heading dropdown-toggle">Risk
+                        Modelling</a>
+                    <ul class="panel-collapse collapse list-unstyled">
+                        <li>
+                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
+                        </li>
+                        <li>
+                            <a href="#gema">Geo Map</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Portfolio Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#dadi">The Master Scale& Data Distribution</a>
+                        </li>
+                        <li>
+                            <a href="#cremi">Credit Migration</a>
+                        </li>
+                        <li>
+                            <a href="#risk">Risk Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#opt">Optimisation</a>
+                        </li>
+                        <li>
+                            <a href="#bdd">Bad Debt Distribution</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="login">Log In</a>
+                </li>
+                <li>
+                    <a class="signup">Sign up</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Nav Bar collapsible end hiaaa-->
+        <!--Nav ngang start here-->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg" style='background-color: #292929;'>
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button> -->
+
+                    <h4 style='color:white; margin-left: 3%'> Single Variate Analysis </h4>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            </li>
+                        </ul>
+                    </div>
+                    <!--SEARCH BOX-->
+                    <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0"
+                        style='background-color: #292929;'> <input class="form-control mr-sm-2" type="text"
+                            placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0"
+                            type="submit">Search</button> </form>
+                </div>
+            </nav>
+
+            <!-- Interactive navigation sidebar function -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                        $(this).toggleClass('active');
+                    });
+                });
+
+                $(".panel-heading").mouseenter(function () {
+                    $(".panel-collapse").fadeIn();
+                });
+                $(".panel-collapse").mouseleave(function () {
+                    $(".panel-collapse").fadeOut();
+                });
+            </script>
+            <!-- End interactive function -->
+
+            <div class="dropdown">
+                <button class="btn btn-primary" style='background-color: #292929; border-color: #292929;'
+                    data-toggle="dropdown">Choosing Factor
+                    <span class='caret'></span> </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#factor1">Credit Card Duration</a></li>
+                    <li><a href="#factor2">Living Arrangements</a></li>
+                    <li><a href="#factor3">Means of Transport</a></li>
+                </ul>
+
+            </div>
+            <br>
+            <br>
+            <div class='container-fluid' style='height: 1800px'>
+                <div class='fakegraph' style='height:24%'>
+                    <button class='btn btn-primary disabled button-subheader'>Raw Data Analysis Table</button>
+                    <div class='container'>
+                        <table class='table talbe-striped table-hover' style=' color:white'>
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th> Number of Data </th>
+                                    <th> Number of Defaults</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Dataset </td>
+                                    <td> 5000 </td>
+                                    <td> 200</td>
+                                </tr>
+                                <tr>
+                                    <td> NA </td>
+                                    <td> 40 </td>
+                                    <td> 0</td>
+                                </tr>
+                                <tr>
+                                    <td> Blank </td>
+                                    <td> 0 </td>
+                                    <td> 0</td>
+                                </tr>
+                                <tr>
+                                    <td> Wrong Type </td>
+                                    <td> 1 </td>
+                                    <td> 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div style='height:1%'></div>
+
+
+                <div class='row' style='height:24%'>
+                    <div class='col-sm-6 h-100'>
+                        <div class='fakegraph'>
+                            <button class='btn btn-primary disabled button-subheader'>Raw Data Distribution</button>
+                            <div id='rawdata_cate_1' style='height:80%'> </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-6 h-100'>
+                        <div class='fakegraph'>
+                            <button class='btn btn-primary disabled button-subheader'>Transformed Data
+                                Distribution</button>
+                            <div id='trsfdata_cate_1' style='height:80%'> </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style='height:1%'></div>
+
+
+                <div class='row' style='height:24%'>
+                    <div class='col-sm-4 h-100'>
+                        <div class='fakegraph'>
+                            <button class='btn btn-primary disabled button-subheader'>Outlier Analysis</button>
+                            <div id='boxplot' style='height:80%'> </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-8 h-100'>
+                        <div class='fakegraph'>
+                            <button class='btn btn-primary disabled button-subheader'> Information Value</button>
+                            <div class = 'container' style='height:80%'>
+                                <table class='table talbe-striped table-hover' style=' color:white'>
+                                    <thead>
+                                        <tr>
+                                            <th> Employment Type </th>
+                                            <th> N </th>
+                                            <th> Bad</th>
+                                            <th> Odds </th>
+                                            <th> Information Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> Other </td>
+                                            <td> 7005 </td>
+                                            <td> 468</td>
+                                            <td> 6.7% </td>
+                                            <td> 0.0362 </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Employed </td>
+                                            <td> 14180 </td>
+                                            <td> 628</td>
+                                            <td> 4.4% </td>
+                                            <td> 0.0058 </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Pension </td>
+                                            <td> 3553 </td>
+                                            <td> 113</td>
+                                            <td> 3.2% </td>
+                                            <td> 0.0236 </td>
+                                        </tr>
+                                        <tr>
+                                            <td>  </td>
+                                            <td>  </td>
+                                            <td> </td>
+                                            <td>  </td>
+                                            <td> 0.0657 </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style='height:1%'></div>
+
+
+                <div class='fakegraph' style='height:24%'>
+                    <button class='btn btn-primary disabled button-subheader'> Parallel Diagram</button>
+                    <div id='parallel_single' style='height:80%'> </div>
+                </div>
+
+                <div style='height:1%'></div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="container-fluid bg-grey py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <img src="logo-epay.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>More Information</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        <li> <a href="#"> Team</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript and Data -->
+
+
+
+    <script src="../data/set1.js"></script>
+    <script src="../script/quantitative_filter.js"></script>
+
+
+    <script src="../script/information_value.js"></script>
+    <script src="../script/iv_gauge.js"></script>
+    <script src="../script/iv_line_graph.js"></script>
+    <script src="../script/binomial_test.js"></script>
+    <script src="../script/gini_performance.js"></script>
+    <script src="../script/gini_gauge.js"></script>
+    <script src="../script/gini_gauge_2.js"></script>
+    <script src="../script/gini_gauge_3.js"></script>
+    <script src="../script/gini_gauge_4.js"></script>
+    <script src="../script/heatmap.js"></script>
+
+    <script src="../script/rawdata_cate_1.js"></script>
+
+    <script src="../script/trsfdata_cate_1.js"></script>
+
+    <script src="../script/boxplot.js"></script>
+
+    <script src="../script/parallel_single.js"></script>
+
+</body>
+
+</html>
