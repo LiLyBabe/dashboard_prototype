@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 #                    sheet_name='Rand Post Data', na_values=0)
 
 def get_iv_data(loc,sheet_name):
-    df = pd.read_excel(loc, sheet_name, na_values=0)
+    df = pd.read_excel(loc, sheet_name, na_values = 0)
 
     sliced_df = df.iloc[:, 4:27]
 
@@ -94,7 +94,13 @@ def get_iv_data(loc,sheet_name):
 
         result_table[new_columns[i]] = [sum(variable_table.IV)]
 
-    return result_table.values.tolist()[0], list(result_table)
+        value_list = result_table.values.tolist()[0]
+        order = np.argsort([element * (-1) for element in value_list])
+
+        value_list = sorted(value_list, reverse = True)
+        name_list = [list(result_table)[x] for x in order]
+
+    return value_list, name_list
 
 
 if __name__ == '__main__': 
