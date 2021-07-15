@@ -95,9 +95,9 @@ def get_iv_data(loc,sheet_name):
         result_table[new_columns[i]] = [sum(variable_table.IV)]
 
         value_list = result_table.values.tolist()[0]
-        order = np.argsort(value_list)
+        order = np.argsort([element * (-1) for element in value_list])
 
-        value_list = sorted(value_list)
+        value_list = sorted(value_list, reverse = True)
         name_list = [list(result_table)[x] for x in order]
 
     return value_list, name_list
