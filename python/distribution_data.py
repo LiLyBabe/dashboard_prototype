@@ -12,6 +12,11 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
     new_columns = process_data[0]
     new_columns.remove('PD')
 
+    try: 
+        new_columns.remove('latitude')
+        new_columns.remove('longitude')
+    except:
+        pass
 
     count_list = []
     pd_list = []
