@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
@@ -40,7 +40,7 @@
                 <li class="active">
                     <a href="#">Home</a>
 
-                    <a href="RiskModelling.html" aria-expanded="false" class="panel-heading dropdown-toggle">Risk
+                    <a href="risk_modelling.html" aria-expanded="false" class="panel-heading">Risk
                         Modelling</a>
                     <ul class="panel-collapse collapse list-unstyled">
                         <li>
@@ -52,12 +52,9 @@
 
                     </ul>
 
-
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Portfolio Management</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <a href="portfolio_management.html" aria-expanded="false" class="panel-heading-1">Portfolio
+                        Management</a>
+                    <ul class="panel-collapse-1 collapse list-unstyled">
                         <li>
                             <a href="#dadi">The Master Scale& Data Distribution</a>
                         </li>
@@ -74,7 +71,9 @@
                             <a href="#bdd">Bad Debt Distribution</a>
                         </li>
                     </ul>
+
                 </li>
+
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>
@@ -135,6 +134,13 @@
                 $(".panel-collapse").mouseleave(function () {
                     $(".panel-collapse").fadeOut();
                 });
+
+                $(".panel-heading-1").mouseenter(function () {
+                    $(".panel-collapse-1").fadeIn();
+                });
+                $(".panel-collapse-1").mouseleave(function () {
+                    $(".panel-collapse-1").fadeOut();
+                });
             </script>
             <!-- End interactive function -->
 
@@ -149,6 +155,7 @@
                 <button type="button" class="btn  btn-lg button-box" data-toggle="collapse" data-target="#trsf_data"
                     style="margin-bottom: 1%;width:49%;float:right;">Transformed Data Distribution</button>
 
+                <!-- collapse bar for raw data distribution -->
                 <div id="raw_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
@@ -185,7 +192,7 @@
 
                 </div>
 
-
+                <!-- collapse bar for transformed data distribution -->
                 <div id="trsf_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>

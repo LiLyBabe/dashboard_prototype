@@ -4,7 +4,7 @@ var option2;
 
 option2 = {
     title: {
-        text: 'Credit Mitigation',
+        text: 'Credit Migration',
         textStyle: {color:'#ffffff'}
     },
     tooltip: {
