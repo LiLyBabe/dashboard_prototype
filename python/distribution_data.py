@@ -8,16 +8,15 @@ def get_distribution_data(loc, sheet_name):
     sliced_df = df.iloc[:, 1:23]
 
     process_data = data_processing(sliced_df)
-
     new_columns = process_data[0]
-    categories = process_data[1]
+
 
     count_list = []
     pd_list = []
 
     for i in range(len(new_columns)):
 
-        if new_columns[i] not in categories:
+        if len(np.unique(sliced_df[new_columns[i]])) > 24:
             new_column_name = new_columns[i].replace(' ', '_').lower() + '_bins'
 
             sliced_df[new_column_name] = pd.cut(sliced_df[new_columns[i]], bins = 20)
