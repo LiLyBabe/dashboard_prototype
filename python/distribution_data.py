@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import json
-from scipy.stats import binom
 from information_value import data_processing
 
 def get_distribution_data(loc, sheet_name):
@@ -41,7 +40,7 @@ def get_distribution_data(loc, sheet_name):
             pd_list.append(filtered_list)
 
 
-    return count_list, pd_list
+    return count_list, pd_list, new_columns
 
 
 if __name__ == '__main__': 
@@ -54,8 +53,16 @@ if __name__ == '__main__':
     with open(filePathName, 'w') as fp:
         json.dump(json_file, fp)
 
-    json_column_file = get_distribution_data(loc, sheet_name)[1]
+
+    pd_list = get_distribution_data(loc, sheet_name)[1]
     fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'raw_pd_list' + '.json' 
+
+    with open(fileName, 'w') as fp:
+        json.dump(pd_list, fp)
+
+
+    json_column_file = get_distribution_data(loc, sheet_name)[2]
+    fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'distribution_column_list' + '.json' 
 
     with open(fileName, 'w') as fp:
         json.dump(json_column_file, fp)
