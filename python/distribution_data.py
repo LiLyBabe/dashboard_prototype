@@ -3,9 +3,10 @@ import pandas as pd
 import json
 from information_value import data_processing
 
-def get_distribution_data(loc, sheet_name):
+
+def get_distribution_data(loc, sheet_name, first_col, last_col):
     df = pd.read_excel(loc, sheet_name, na_values = 0)
-    sliced_df = df.iloc[:, 1:23]
+    sliced_df = df.iloc[:, first_col:last_col]
 
     process_data = data_processing(sliced_df)
     new_columns = process_data[0]
@@ -44,27 +45,56 @@ def get_distribution_data(loc, sheet_name):
 
 
 if __name__ == '__main__': 
-    loc = 'D:\Epay\Epay\Dashboard\Proxy Payday Loan Data Corrected_Original.xlsx'
-    sheet_name = 'Sheet1'
+    data_set = 'transformed'
 
-    json_file = get_distribution_data(loc, sheet_name)[0]
-    filePathName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'raw_count_list' + '.json' 
+    if data_set == 'raw':
+        loc = 'D:\Epay\Epay\Dashboard\Proxy Payday Loan Data Corrected_Original.xlsx'
+        sheet_name = 'Sheet1'
+        first_col = 1
+        last_col = 23
 
-    with open(filePathName, 'w') as fp:
-        json.dump(json_file, fp)
+        # create raw count list
+        json_file = get_distribution_data(loc, sheet_name,first_col,last_col)[0]
+        filePathName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'raw_count_list' + '.json' 
+
+        with open(filePathName, 'w') as fp:
+            json.dump(json_file, fp)
+
+        # create raw pd list
+        pd_list = get_distribution_data(loc, sheet_name, first_col,last_col)[1]
+        fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'raw_pd_list' + '.json' 
+
+        with open(fileName, 'w') as fp:
+            json.dump(pd_list, fp)
+
+        # create column list
+        json_column_file = get_distribution_data(loc, sheet_name,first_col,last_col)[2]
+        fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'distribution_column_list' + '.json' 
+
+        with open(fileName, 'w') as fp:
+            json.dump(json_column_file, fp)
 
 
-    pd_list = get_distribution_data(loc, sheet_name)[1]
-    fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'raw_pd_list' + '.json' 
+    elif data_set == 'transformed':
+        loc = 'D:\Epay\Epay\Dashboard\Python code\Proxy Payday Loan Data Corrected.xlsx'
+        sheet_name = 'Rand Post Data'
+        first_col = 4
+        last_col = 28
 
-    with open(fileName, 'w') as fp:
-        json.dump(pd_list, fp)
+        # create raw count list
+        json_file = get_distribution_data(loc, sheet_name,first_col,last_col)[0]
+        filePathName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'transformed_count_list' + '.json' 
 
+        with open(filePathName, 'w') as fp:
+            json.dump(json_file, fp)
 
-    json_column_file = get_distribution_data(loc, sheet_name)[2]
-    fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'distribution_column_list' + '.json' 
+        # create raw pd list
+        pd_list = get_distribution_data(loc, sheet_name, first_col,last_col)[1]
+        fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'transformed_pd_list' + '.json' 
 
-    with open(fileName, 'w') as fp:
-        json.dump(json_column_file, fp)
+        with open(fileName, 'w') as fp:
+            json.dump(pd_list, fp)
 
+    else: 
+        raise ValueError('No dataset found')
 
