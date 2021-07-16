@@ -7,11 +7,7 @@ import matplotlib.pyplot as plt
 # df = pd.read_excel('D:\Epay\Epay\Dashboard\Python code\Proxy Payday Loan Data Corrected.xlsx',
 #                    sheet_name='Rand Post Data', na_values=0)
 
-def get_iv_data(loc,sheet_name):
-    df = pd.read_excel(loc, sheet_name, na_values = 0)
-
-    sliced_df = df.iloc[:, 4:27]
-
+def data_processing(sliced_df):
     categories = []
     columns = sliced_df.columns.drop(['Default', 'ZIP'])
 
@@ -54,6 +50,17 @@ def get_iv_data(loc,sheet_name):
 
     new_columns.extend(categories)
 
+    return new_columns, categories
+
+
+
+
+def get_iv_data(loc,sheet_name):
+    df = pd.read_excel(loc, sheet_name, na_values = 0)
+    sliced_df = df.iloc[:, 4:27]
+
+    new_columns = data_processing(sliced_df)[0]
+    categories = data_processing(sliced_df)[1]
 
     result_table = pd.DataFrame()
 

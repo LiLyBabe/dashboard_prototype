@@ -4,6 +4,7 @@ var binomial_option;
 
 $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', function (my_data) {
     $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_column_data.json', function (rating) {
+        var binom_data = my_data
 
         binomial_option = {
             title: {
@@ -54,7 +55,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
                             color: 'rgba(0,0,0,0)'
                         }
                     },
-                    data: my_data[0]
+                    data: binom_data[0]
                 },
                 {
                     name: 'Upper Limit',
@@ -64,7 +65,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
                         show: false,
                         position: 'top'
                     },
-                    data: my_data[1]
+                    data: binom_data[1]
                 },
                 {
                     name: 'Real Default',
@@ -73,8 +74,8 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
                         show: false,
                         position: 'bottom'
                     },
-                    data: my_data[2]
-                }
+                    data: binom_data[2]
+                },
             ]
         };
         binomialChart.setOption(binomial_option);
