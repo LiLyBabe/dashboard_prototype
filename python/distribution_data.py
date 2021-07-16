@@ -9,6 +9,7 @@ def get_distribution_data(loc, sheet_name):
 
     process_data = data_processing(sliced_df)
     new_columns = process_data[0]
+    new_columns.remove('PD')
 
 
     count_list = []
