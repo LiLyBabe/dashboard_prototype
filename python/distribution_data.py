@@ -95,6 +95,13 @@ if __name__ == '__main__':
         with open(fileName, 'w') as fp:
             json.dump(pd_list, fp)
 
+        # create column list
+        json_column_file = get_distribution_data(loc, sheet_name,first_col,last_col)[2]
+        fileName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'transformed_column_list' + '.json' 
+
+        with open(fileName, 'w') as fp:
+            json.dump(json_column_file, fp)
+
     else: 
         raise ValueError('No dataset found')
 
