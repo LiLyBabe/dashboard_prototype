@@ -217,7 +217,7 @@ $(document).ready(function () {
                     },
                     visualMap: {
                         type: 'piecewise',
-                        categories: ["0", "1"],
+                        categories: ["0.0", "1.0"],
                         dimension: CATEGORY_DIM,
                         orient: 'horizontal',
                         top: 0,
@@ -226,7 +226,7 @@ $(document).ready(function () {
                             color: ['#1167b1', '#c23531']
                         },
                         outOfRange: {
-                            color: '#ffffff'
+                            color: '#292929'
                         },
                         seriesIndex: [0]
                     },

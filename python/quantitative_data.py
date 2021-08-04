@@ -12,8 +12,8 @@ def shifter(loc, sheet_name):
     sliced_df = df.iloc[:, 3:28]
     del sliced_df['ZIP']
 
-    arr = sliced_df.columns.values
-    idx = sliced_df.columns.get_loc('Default')
+    arr = sliced_df.columns.values.copy()
+    idx = sliced_df.columns.tolist().index('Default')
 
     # pos to move: end of the dataframe 
     pos_to_move = len(sliced_df.columns.values) - 1
