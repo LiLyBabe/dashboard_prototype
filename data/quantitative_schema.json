@@ -1,1 +1,122 @@
-[{"name": "loan_id", "text": "Loan ID", "index": 0}, {"name": "default", "text": "Default", "index": 1}, {"name": "income", "text": "Income", "index": 2}, {"name": "amount_due", "text": "Amount Due", "index": 3}, {"name": "loan_2_income", "text": "Loan 2 Income", "index": 4}, {"name": "loan_term_(days)", "text": "Loan Term (days)", "index": 5}, {"name": "income_fortnightly", "text": "Income Fortnightly", "index": 6}, {"name": "income_freq_m", "text": "Income Freq M", "index": 7}, {"name": "income_f_weekly", "text": "Income F Weekly", "index": 8}, {"name": "living_arrangement_own", "text": "Living Arrangement Own", "index": 9}, {"name": "z_ismadeupemail", "text": "z_isMadeUpEmail", "index": 10}, {"name": "origination_hour", "text": "Origination Hour", "index": 11}, {"name": "income_type_employed", "text": "Income Type Employed", "index": 12}, {"name": "income_type_pension", "text": "Income Type Pension", "index": 13}, {"name": "latitude", "text": "latitude", "index": 14}, {"name": "longitude", "text": "longitude", "index": 15}, {"name": "zip_bad_rate", "text": "ZIP bad rate", "index": 16}, {"name": "origination_weekend", "text": "Origination Weekend", "index": 17}, {"name": "do_not_call", "text": "Do not Call", "index": 18}, {"name": "do_note_text", "text": "Do note Text", "index": 19}, {"name": "new_customer", "text": "New Customer", "index": 20}, {"name": "customer_duration_(months)", "text": "Customer Duration (Months)", "index": 21}, {"name": "income_duration_(m)", "text": "Income Duration (M)", "index": 22}, {"name": "pd", "text": "PD", "index": 23}]
+[
+    {
+        "name": "loan_id",
+        "text": "Loan ID",
+        "index": 0
+    },
+    {
+        "name": "income",
+        "text": "Income",
+        "index": 1
+    },
+    {
+        "name": "amount_due",
+        "text": "Amount Due",
+        "index": 2
+    },
+    {
+        "name": "loan_2_income",
+        "text": "Loan 2 Income",
+        "index": 3
+    },
+    {
+        "name": "loan_term_(days)",
+        "text": "Loan Term (days)",
+        "index": 4
+    },
+    {
+        "name": "income_fortnightly",
+        "text": "Income Fortnightly",
+        "index": 5
+    },
+    {
+        "name": "income_freq_m",
+        "text": "Income Freq M",
+        "index": 6
+    },
+    {
+        "name": "income_f_weekly",
+        "text": "Income F Weekly",
+        "index": 7
+    },
+    {
+        "name": "living_arrangement_own",
+        "text": "Living Arrangement Own",
+        "index": 8
+    },
+    {
+        "name": "z_ismadeupemail",
+        "text": "z_isMadeUpEmail",
+        "index": 9
+    },
+    {
+        "name": "origination_hour",
+        "text": "Origination Hour",
+        "index": 10
+    },
+    {
+        "name": "income_type_employed",
+        "text": "Income Type Employed",
+        "index": 11
+    },
+    {
+        "name": "income_type_pension",
+        "text": "Income Type Pension",
+        "index": 12
+    },
+    {
+        "name": "latitude",
+        "text": "latitude",
+        "index": 13
+    },
+    {
+        "name": "longitude",
+        "text": "longitude",
+        "index": 14
+    },
+    {
+        "name": "zip_bad_rate",
+        "text": "ZIP bad rate",
+        "index": 15
+    },
+    {
+        "name": "origination_weekend",
+        "text": "Origination Weekend",
+        "index": 16
+    },
+    {
+        "name": "do_not_call",
+        "text": "Do not Call",
+        "index": 17
+    },
+    {
+        "name": "do_note_text",
+        "text": "Do note Text",
+        "index": 18
+    },
+    {
+        "name": "new_customer",
+        "text": "New Customer",
+        "index": 19
+    },
+    {
+        "name": "customer_duration_(months)",
+        "text": "Customer Duration (Months)",
+        "index": 20
+    },
+    {
+        "name": "income_duration_(m)",
+        "text": "Income Duration (M)",
+        "index": 21
+    },
+    {
+        "name": "pd",
+        "text": "PD",
+        "index": 22
+    },
+    {
+        "name": "default",
+        "text": "Default",
+        "index": 23
+    }
+]
