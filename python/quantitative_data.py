@@ -23,7 +23,7 @@ def shifter(loc, sheet_name):
     else:
         arr[idx: pos_to_move] = arr[idx+1: pos_to_move+1]
     arr[pos_to_move] = 'Default'
-    sliced_df = sliced_df.reindex(columns=arr)
+    sliced_df = sliced_df[arr.tolist()]
     return sliced_df
 
 

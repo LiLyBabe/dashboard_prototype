@@ -50,7 +50,7 @@ $(document).ready(function () {
             //     { name: "pd", text: 'PD', index: 8 },
             //     { name: "default", text: 'Default', index: 9 }
             // ];
-            var CATEGORY_DIM_COUNT = schema.length - 15;
+            var CATEGORY_DIM_COUNT = schema.length - 14;
             var GAP = 1;
             var BASE_LEFT = 5;
             var BASE_TOP = 10;
@@ -226,7 +226,7 @@ $(document).ready(function () {
                             color: ['#1167b1', '#c23531']
                         },
                         outOfRange: {
-                            color: '#292929'
+                            color: '#ffffff'
                         },
                         seriesIndex: [0]
                     },
