@@ -217,7 +217,7 @@ $(document).ready(function () {
                     },
                     visualMap: {
                         type: 'piecewise',
-                        categories: ["0.0", "1.0"],
+                        categories: ["0", "1"],
                         dimension: CATEGORY_DIM,
                         orient: 'horizontal',
                         top: 0,

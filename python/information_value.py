@@ -3,13 +3,15 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 
-# read & preprocess data
-# df = pd.read_excel('D:\Epay\Epay\Dashboard\Python code\Proxy Payday Loan Data Corrected.xlsx',
-#                    sheet_name='Rand Post Data', na_values=0)
 
 def data_processing(sliced_df):
     categories = []
-    columns = sliced_df.columns.drop(['Default', 'ZIP'])
+
+    # if there are default and ZIP columns then remove
+    try: 
+        columns = sliced_df.columns.drop(['Default', 'ZIP'])
+    except:
+        pass
 
     for i in range(len(columns)):
         if len(np.unique(sliced_df[columns[i]])) == 2:
@@ -17,6 +19,10 @@ def data_processing(sliced_df):
 
     new_columns = [x for x in columns if x not in categories]
 
+
+    """
+    Hardcoded !!!
+    """
 
     # Group categorical variable
     # Income Frequency
@@ -41,12 +47,16 @@ def data_processing(sliced_df):
     sliced_df['Communication Preference'] = sliced_df['Do note Text'] + \
         sliced_df['Do not Call']
 
-
+    # Remove unwanted names and assign new column names for categorical variables
     unwanted_names = {'Income Freq M', 'Income F Weekly', 'Income Fortnightly',
                     'Income Type Pension', 'Income Type Employed', 'Do note Text', 'Do not Call'}
 
     categories = [ele for ele in categories if ele not in unwanted_names]
     categories.extend(['Income Frequency', 'Income Type', 'Communication Preference'])
+
+    """
+    End Hardcode !!!
+    """
 
     new_columns.extend(categories)
 
