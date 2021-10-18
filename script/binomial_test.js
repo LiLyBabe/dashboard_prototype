@@ -1,12 +1,16 @@
-var chartDom = document.getElementById('binomial');
-        var myChart = echarts.init(chartDom);
-        var option;
+var chartDom1 = document.getElementById('binomial');
+var binomialChart = echarts.init(chartDom1);
+var binomial_option;
 
-        option = {
+$.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', function (my_data) {
+    $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_column_data.json', function (rating) {
+        var binom_data = my_data
+
+        binomial_option = {
             title: {
                 text: "Binomial Test",
                 left: 'center',
-                textStyle:{color: '#ffffff'}
+                textStyle: { color: '#ffffff' }
             },
             tooltip: {
                 trigger: 'axis',
@@ -25,16 +29,16 @@ var chartDom = document.getElementById('binomial');
                 type: 'category',
                 name: 'Credit Rating',
                 axisTick: 'false',
-                axisLabel: {color: '#ffffff'},
-                nameTextStyle: {color: '#ffffff'},
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' },
                 splitLine: { show: false },
-                data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+                data: rating
             },
             yAxis: {
                 type: 'value',
                 name: 'Number of Default',
-                axisLabel: {color: '#ffffff'},
-                nameTextStyle: {color: '#ffffff'}
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' }
             },
             series: [
                 {
@@ -51,7 +55,7 @@ var chartDom = document.getElementById('binomial');
                             color: 'rgba(0,0,0,0)'
                         }
                     },
-                    data: [13, 46, 88, 77, 78, 23, 8, 0, 0, 0, 0, 0]
+                    data: binom_data[0]
                 },
                 {
                     name: 'Upper Limit',
@@ -61,7 +65,7 @@ var chartDom = document.getElementById('binomial');
                         show: false,
                         position: 'top'
                     },
-                    data: [18, 29, 39, 37, 36, 21, 14, 5, 3, 0, 0, 0]
+                    data: binom_data[1]
                 },
                 {
                     name: 'Real Default',
@@ -70,9 +74,12 @@ var chartDom = document.getElementById('binomial');
                         show: false,
                         position: 'bottom'
                     },
-                    data: [210, 66, 110, 118, 102, 31, 6, 1, 1, 0, 0, 0]
-                }
+                    data: binom_data[2]
+                },
             ]
         };
+        binomialChart.setOption(binomial_option);
+    });
+});
 
-        option && myChart.setOption(option);
+binomial_option && binomialChart.setOption(binomial_option);

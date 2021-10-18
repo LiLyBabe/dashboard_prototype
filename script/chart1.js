@@ -1,5 +1,5 @@
     $(document).ready(function (e) {
-            var chart = echarts.init(document.getElementById('main1'), "dark");
+            var chart = echarts.init(document.getElementById('risk_pricing'));
             var data0 = [];
             var data1 = [];
             for (let i = 0; i < chart1a.length; i++) {
@@ -28,7 +28,7 @@
             }
             chart.setOption({
                 title: {
-                    text: 'Risk Pricing Map'
+                    // text: 'Risk Pricing Map'
                 },
 
 

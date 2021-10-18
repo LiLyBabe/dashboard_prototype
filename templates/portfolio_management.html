@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Prototype</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+    <script src="../lib/echarts.js"></script>
+    <script src="../lib/echarts-gl.min.js"></script>
+
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
+    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body style='background-color: #30373F'>
+    <div class='wrapper'>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard Prototype</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#">Home</a>
+
+                    <a href="risk_modelling.html" aria-expanded="false" class="panel-heading">Risk
+                        Modelling</a>
+                    <ul class="panel-collapse collapse list-unstyled">
+                        <li>
+                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
+                        </li>
+                        <li>
+                            <a href="#gema">Geo Map</a>
+                        </li>
+
+                    </ul>
+
+                    <a href="portfolio_management.html" aria-expanded="false" class="panel-heading-1">Portfolio
+                        Management</a>
+                    <ul class="panel-collapse-1 collapse list-unstyled">
+                        <li>
+                            <a href="#dadi">The Master Scale& Data Distribution</a>
+                        </li>
+                        <li>
+                            <a href="#cremi">Credit Migration</a>
+                        </li>
+                        <li>
+                            <a href="#risk">Risk Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#opt">Optimisation</a>
+                        </li>
+                        <li>
+                            <a href="#bdd">Bad Debt Distribution</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+            </ul>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="login">Log In</a>
+                </li>
+                <li>
+                    <a class="signup">Sign up</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Nav Bar collapsible end hiaaa-->
+        <!--Nav ngang start here-->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #292929;'>
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button> -->
+
+                    <h4 style='color:white; margin-left: 3%'> Risk Modelling</h4>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            </li>
+                        </ul>
+                    </div>
+                    <!--SEARCH BOX-->
+                    <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0"
+                        style='background-color: #292929;'> <input class="form-control mr-sm-2" type="text"
+                            placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0"
+                            type="submit">Search</button> </form>
+                </div>
+            </nav>
+
+            <!-- Interactive navigation sidebar function -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                        $(this).toggleClass('active');
+                    });
+                });
+
+                $(".panel-heading").mouseenter(function () {
+                    $(".panel-collapse").fadeIn();
+                });
+                $(".panel-collapse").mouseleave(function () {
+                    $(".panel-collapse").fadeOut();
+                });
+
+                $(".panel-heading-1").mouseenter(function () {
+                    $(".panel-collapse-1").fadeIn();
+                });
+                $(".panel-collapse-1").mouseleave(function () {
+                    $(".panel-collapse-1").fadeOut();
+                });
+            </script>
+            <!-- End interactive function -->
+
+
+
+
+            <div class='container-fluid'>
+                <div class='fakegraph' style='height:900px'>
+                    <button type='button' class='btn btn-primary btn-sm sectionName' disabled> The Master Scale & Data
+                        Distribution
+                    </button>
+                    <div class='row' style='height:45%'>
+
+                        <div class='col-sm'>
+                            <div id='default_dist' style='height:100%'>Default Distribution</div>
+                        </div>
+                        <div class='col-sm'>
+                            <div id='credit_rate_dist' style='height:100%'>Credit Risk Distribution</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id='master_scale' style='height:45%'></div>
+
+                </div>
+
+                <div style='height:15px'></div>
+
+                <div class='fakegraph' style='height:500px'>
+                    <button type='button' class='btn btn-primary btn-sm sectionName' disabled> Credit Migration
+                    </button>
+
+                    <div id="credit_miti" style="height: 80%"></div>
+                </div>
+
+                <div style='height:15px'></div>
+
+                <!--RISK PRICING GRAPH-->
+                <div class='fakegraph' style='height:700px'>
+                    <button type='button' class='btn btn-primary btn-sm sectionName' disabled> Risk Pricing
+                    </button>
+
+                    <div id="risk_pricing" style="height: 85%"></div>
+                    <!-- <div class="modal fade" id="centralModalFluidSuccessDemo" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title h4" id="exampleModalXlLabel">Detail Loan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Loan Amount</th>
+                                                <th scope="col">APR</th>
+                                                <th scope="col">PD (annual)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="insite_tr">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div style='height:15px'></div>
+
+                <div class='fakegraph'>
+                    <button type='button' class='btn btn-primary btn-sm sectionName' disabled> Optimisation
+                    </button>
+
+
+                    <div class='row' style='height:500px'>
+                        <div class='col-sm' id="rarnolc" style='height:100%'></div>
+                        <div class='col-sm' id="rarlc" style='height:100%'></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class='row'>
+                        <div class='col-sm' id="APRnoLC" style='height:435px'></div>
+                        <div class='col-sm' id="APR" style='height:435px'></div>
+                    </div>
+                </div>
+
+                <div style='height:15px'></div>
+
+                <div class='fakegraph' style='height: 500px'>
+                    <button type='button' class='btn btn-primary btn-sm sectionName' disabled> Bad Debt Distribution
+                    </button>
+
+                    <div id='bad_debt_distribution' style='height: 400px'> </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="container-fluid bg-grey py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <img src="logo-epay.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>More Information</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        <li> <a href="#"> Team</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript and Data -->
+
+    <script type="text/javascript" src="../script/default_dist.js"></script>
+    <script src="../script/credit_rate_dist.js"></script>
+    <script src="../script/credit_miti.js"></script>
+    <script src="../script/master_scale.js"></script>
+
+    <script src="../data/chart1a.js"></script>
+    <script src="../data/chart1b.js"></script>
+    <script src="../script/chart1.js"></script>
+
+    <script src="../script/RARnoLC.js"></script>
+    <script src="../script/rarlc.js"></script>
+    <script src="../script/APRnoLC.js"></script>
+    <script src="../script/LoanPD-AR.js"></script>
+
+    <script type="text/javascript" src="../data/dataConnect.js"></script>
+    <script type="text/javascript" src="../data/dataGeo.js"></script>
+    <script src="../script/bad_debt_distribution.js"></script>
+
+</body>
+
+</html>

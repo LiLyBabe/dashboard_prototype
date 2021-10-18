@@ -1,5 +1,5 @@
 var chartDom7 = document.getElementById('APR');
-var myChart7 = echarts.init(chartDom7,'dark');
+var myChart7 = echarts.init(chartDom7);
 var option7;
 var $j = jQuery.noConflict();
 
