@@ -75,7 +75,7 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
 
 
 if __name__ == '__main__': 
-    data_set = 'transformed'
+    data_set = 'raw'
 
     if data_set == 'raw':
         loc = 'D:\Epay\Epay\Dashboard\Proxy Payday Loan Data Corrected_Original.xlsx'

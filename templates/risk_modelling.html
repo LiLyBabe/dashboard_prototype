@@ -27,6 +27,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
 </head>
 
 <body style='background-color: #30373F'>
@@ -146,7 +147,7 @@
 
 
 
-
+            <!-- Start main content -->
             <div class='container-fluid'>
 
                 <button type="button" class="btn btn-lg button-box" data-toggle="collapse" data-target="#raw_data"
@@ -232,9 +233,9 @@
 
 
 
-                <div style='height:5px'></div>
+                <div style='height:0px'></div>
 
-
+                <!-- Gini value indicators -->
                 <div style='height: 500px'>
                     <div class='fakegraph h-100'>
 
@@ -245,22 +246,24 @@
                             <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
                         </div>
                         <br>
-                        <div id='gini_performance' class='col-sm w-100' style='height: 45%'> </div>
+                        <div id='gini_performance' class='col-sm w-100' style='height: 55%'> </div>
 
                     </div>
                 </div>
 
                 <div style='height:15px'></div>
 
+                <!-- Pararllel graph -->
                 <div class='fakegraph' id='quantitative_filter' style='height: 900px'> </div>
 
                 <div style='height:15px'></div>
 
+                <!-- Heatmap -->
                 <div class='row' style='height: 550px'>
                     <div class='col-sm-7'>
                         <div class='fakegraph h-100' id='heatmap'></div>
                     </div>
-
+                    <!-- Blacklist graph -->
                     <div class='col-sm-5'>
                         <div class='fakegraph h-100' id='black_list_connection'></div>
                     </div>
@@ -268,7 +271,7 @@
 
                 <div style='height:15px'></div>
 
-
+                <!-- Information Value -->
                 <div class='row' style='height: 550px'>
                     <div class='col-sm-8'>
                         <div class='fakegraph'>
@@ -282,7 +285,7 @@
                         </div>
                     </div>
 
-
+                    <!-- Binomial Test -->
                     <div class='col-sm-4'>
                         <div class='fakegraph' id='binomial' style='height:100%'></div>
                     </div>
@@ -290,11 +293,12 @@
 
                 <div style='height:15px'></div>
 
-                <div class='fakegraph' id='bad_debt_distribution' style='height: 250px'> </div>
-
+                <!-- Map -->
+                <button id='bad_debt_fs' class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
+                <div class='fakegraph' id='bad_debt_distribution' style='height: 300px'> </div>
                 <div style='height:15px'></div>
-
-                <div class='fakegraph' id='salary_distribution' style='height: 250px'> </div>
+                <button id='salary_distribution_fs' class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
+                <div class='fakegraph' id='salary_distribution' style='height: 300px'> </div>
 
             </div>
         </div>

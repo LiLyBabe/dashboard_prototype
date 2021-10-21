@@ -1,6 +1,6 @@
 var map = new maptalks.Map('bad_debt_distribution', {
     center: [105.844960, 20.997763],
-    zoom: 13.8,
+    zoom: 10.5,
     layerSwitcherControl: {
         'position': 'top-right',
         // title of base layers
@@ -237,3 +237,15 @@ $(document).ready(function (e) {
     });
 
 });
+
+document.getElementById("bad_debt_fs").onclick = function () { BadDebtFullscreen() };
+var bad_debt = document.getElementById("bad_debt_distribution");
+function BadDebtFullscreen() {
+    if (bad_debt.requestFullscreen) {
+        bad_debt.requestFullscreen();
+    } else if (bad_debt.webkitRequestFullscreen) { /* Safari */
+        bad_debt.webkitRequestFullscreen();
+    } else if (bad_debt.msRequestFullscreen) { /* IE11 */
+        bad_debt.msRequestFullscreen();
+    }
+}
