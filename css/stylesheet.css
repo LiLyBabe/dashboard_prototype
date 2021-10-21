@@ -13,7 +13,9 @@
     margin-top: 30px;
     margin-bottom: 10px;
 }
-
+.spacegiver{
+    height:15px
+}
 .average-box {
     /* color: white; */
     text-align: center;
@@ -26,10 +28,13 @@
     line-height: 65px;
     background-color: #292929;
 }
-.mini-box {
-    height: 100px;
-    /* background-color: #ffffff; */
-
+.fs-box {
+    background-color: white;
+    margin-left: auto; 
+    display: block;
+    border-radius: 5px;
+    border-color: #292929;
+    margin-bottom: 5px;
 }
 .button-box {
     background-color: #292929;

@@ -4,7 +4,7 @@ var iv_option;
 
 $.get('https://lilybabe.github.io/dashboard_prototype/data/iv_data.json', function (iv_data) {
     $.get('https://lilybabe.github.io/dashboard_prototype/data/iv_column_data.json', function (iv_column_data) {
-iv_option = {
+        iv_option = {
             title: {
                 text: 'Information Value',
                 textStyle: { color: '#ffffff' }
@@ -25,11 +25,23 @@ iv_option = {
             xAxis: {
                 type: 'value',
                 axisPointer: 'false',
+                splitLine: {
+                    lineStyle: {
+                        color: '#36344E'
+                    },
+                    show: true,
+                },
                 axisLabel: { color: '#ffffff' }
             },
             yAxis: {
                 type: 'category',
                 axisTick: 'false',
+                splitLine: {
+                    lineStyle: {
+                        color: '#36344E'
+                    },
+                    show: false,
+                },
                 axisLabel: { color: '#ffffff' },
                 // axisPointer:'false',
                 data: iv_column_data
@@ -38,7 +50,9 @@ iv_option = {
                 {
                     name: 'IV',
                     type: 'bar',
-                    data: iv_data
+                    data: iv_data.map(function(element){
+                        return Number(element.toFixed(3));
+                    })
                 }
             ]
         };

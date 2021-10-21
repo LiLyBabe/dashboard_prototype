@@ -8,7 +8,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
 
             option_tn1 = {
                 title: {
-                    text: column_list[11],
+                    text: Object.keys(column_dict)[11],
                     left: 'center',
                     textStyle: { color: '#ffffff', fontSize: 15  }
                 },
@@ -31,12 +31,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 xAxis: {
                     type: 'category',
-                    data: function () {
-                        var list = [];
-                        for (var i = 1; i <= count_list[11].length; i++) {
-                            list.push(i);
-                        } return list
-                    }()
+                    data: column_dict[Object.values(object1)[11]]
                 },
                 yAxis: [{
                     type: 'value',

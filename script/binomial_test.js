@@ -10,7 +10,12 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
             title: {
                 text: "Binomial Test",
                 left: 'center',
+                top: '2%',
                 textStyle: { color: '#ffffff' }
+            },
+            grid: {
+                top: '75',
+                containLabel: true
             },
             tooltip: {
                 trigger: 'axis',
@@ -27,7 +32,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
             },
             xAxis: {
                 type: 'category',
-                name: 'Credit Rating',
+                name: 'Credit Ratings',
+                nameLocation: 'middle',
+                nameGap: '30',
                 axisTick: 'false',
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
@@ -37,6 +44,12 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
             yAxis: {
                 type: 'value',
                 name: 'Number of Default',
+                splitLine: {
+                    lineStyle: {
+                        color: '#36344E'
+                    },
+                    show: true,
+                },
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' }
             },
