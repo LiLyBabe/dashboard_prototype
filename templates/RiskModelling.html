@@ -11,22 +11,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
-    <script src="../lib/echarts-gl.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    
     <script src="../lib/jquery-3.5.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
     <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
 
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
+    
 </head>
 
 <body style='background-color: #30373F'>
@@ -39,41 +37,54 @@
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="#">Home</a>
-
-                    <a href="RiskModelling.html" aria-expanded="false" class="panel-heading dropdown-toggle">Risk
-                        Modelling</a>
-                    <ul class="panel-collapse collapse list-unstyled">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account Level</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <a href = "#pageSubmenu" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">PD</a>
+                            <ul class ="collapse list-unstyled" id="pageSubmenu">
+                                <li>
+                                    <a href="#dataa">Data Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="#mbv">Model Build & Validation</a>
+                                </li>   
+                                <li>
+                                    <a href="#mpm">Model Performance Monitoring</a>
+                                </li>
+                        </ul>
+                        <a href ="#pageSubmenu2" data-toggle = "collapse" aria-expanded = "false" class = "dropdown-toggle" >EAD</a>
+                            <ul class = "collapse list-unstyled" id = "pageSubmenu2">
+                                <li>
+                                    <a href="#t2d">Time to Default (T2D)</a>
+                                </li>
+                            </ul>
                         <li>
-                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
+                            <a href="#pacogr">LGD</a>
                         </li>
-                        <li>
-                            <a href="#gema">Geo Map</a>
-                        </li>
-
                     </ul>
-
-
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Portfolio Management</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#dadi">The Master Scale& Data Distribution</a>
-                        </li>
-                        <li>
-                            <a href="#cremi">Credit Migration</a>
-                        </li>
-                        <li>
-                            <a href="#risk">Risk Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#opt">Optimisation</a>
-                        </li>
-                        <li>
-                            <a href="#bdd">Bad Debt Distribution</a>
-                        </li>
-                    </ul>
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Portfolio level</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu3">
+                            <a href = "#pageSubmenu4" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">Expected Loss</a>
+                            <ul class ="collapse list-unstyled" id="pageSubmenu4">
+                                            <li> 
+                                                <a href = "#pcm">Portfolio Credit Mix</a>
+                                            </li>
+                            </ul>
+                            <a href = "#pageSubmenu5" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">Unexpected Loss</a>
+                            <ul class ="collapse list-unstyled" id="pageSubmenu5">
+                                <li>
+                                    <a href="#wcl">Worst Case Loss - Monte Carlo Simulation </a>
+                                </li>
+                            </ul>
+                            <a href = "#pageSubmenu6" data-toggle  = "collapse" aria-expanded = "false" class = "dropdown-toggle"> Others</a>
+                            <ul class = "collapse list-unstyled" id = "pageSubmenu6">
+                                <li>
+                                    <a href = "#ws"> Warning Signals</a>
+                                </li>
+                            </ul>
+                </li>
+            </ul>
                 </li>
             </ul>
             <ul class="list-unstyled CTAs">
@@ -85,41 +96,90 @@
                 </li>
             </ul>
         </nav>
-        <!--Nav Bar collapsible end hiaaa-->
-        <!--Nav ngang start here-->
+
+        <!--Nav Bar collapsible ends here-->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #292929;'>
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <style>
+                .arrow {
+                width: 0;
+                height: 0;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 3px;
+                }
+                .arrow-down {
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-top: 3px solid #fff;
+                }
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-
-                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button> -->
-
-                    <h4 style='color:white; margin-left: 3%'> Risk Modelling</h4>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            </li>
-                        </ul>
-                    </div>
-                    <!--SEARCH BOX-->
-                    <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0"
-                        style='background-color: #292929;'> <input class="form-control mr-sm-2" type="text"
-                            placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0"
-                            type="submit">Search</button> </form>
-                </div>
-            </nav>
-
+                .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0; 
+                }
+                input.right {
+                float: right;
+                }
+                  </style>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#"><span class="mb-0 h6">Account Level</span></a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mb-0 h6">Data Analysis</span><span class="arrow arrow-down"></span> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#clust">Clustering</a>
+                          <a class="dropdown-item" href="#">Location</a>
+                          <a class="dropdown-item" href="#">Feature Importance</a>
+                          <a class="dropdown-item" href="#">Correlation</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <span class="mb-0 h6">Model Build & Validation</span><span class="arrow arrow-down"></span> 
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="#">Model Accuracy</a>
+                            <a class="dropdown-item" href="#">Model Weakness Diagnosis</a>
+                            <a class="dropdown-item" href="#">Reduce Model Weakness</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <span class="mb-0 h6"> Model Performance Monitoring</span><span class="arrow arrow-down"></span> 
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="#">Accuracy Decay</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <span class="mb-0 h6">Time to Default</span><span class="arrow arrow-down"></span> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Market Data</a>
+                          </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">LGD</span><span class="arrow arrow-down"></span> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                              <a class="dropdown-item" href="#">LGD table</a>
+                              
+                          </li>
+                    </ul>
+                  </div>
+                </nav>
             <!-- Interactive navigation sidebar function -->
             <script type="text/javascript">
                 $(document).ready(function () {
@@ -137,21 +197,190 @@
                 });
             </script>
             <!-- End interactive function -->
-
-
-
-
             <div class='container-fluid'>
+            <h4 style ="color: #ffff" id = "clust"> Clustering</h4>
+                <div class='fakegraph'>
+                        <div class='col-sm'>
+                            <button class='btn btn-primary disabled button-subheader'>TSNE</button>
+                            <button id='tsne_fs' style ="float:right" class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
+                            <div class='fakegraph' id='tsne' style = "height:500px"></div>
+                        </div>  
+                </div>
+            </div>
+            <div style='height:15px'></div>
+            <button class='btn btn-primary disabled button-subheader'>Location</button>            
+            <!-- Map -->
+            <div class="row">
+                <div class="col-sm ">
+                    <h4 style = "color: #fff">Bad Debt Distribution</h4>
+                </div>
+                <div class="col-sm ">
+                    <button id='bad_debt_fs' class='btn fs-box' style ="float:right" ><i style ="float:right" class="fas fa-external-link-alt"></i> Open</button>
+                </div>
+            </div>
+                <div class='fakegraph' id='bad_debt_distribution' style='height: 300px'> </div>
+            <div style='height:15px'></div>
+
+            <div class="row">
+                <div class="col-sm ">
+                    <h4 style = "color: #fff">Salary Distribution</h4>
+                </div>
+                <div class="col-sm ">
+                    <button id='salary_distribution_fs' class='btn fs-box'  style ="float:right"><i class="fas fa-external-link-alt"  style ="float:right"></i> Open</button>
+                </div>
+            </div>
+                <div class='fakegraph' id='salary_distribution' style='height: 300px'> </div>
+            <div style = "height: 15px"></div>
+            <h4 style = "color: #fff">Feature Importance</h4>
+            <div class = "container-fluid" style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
+                        <div class='container-fluid' id = "fi">
+                            <button class='btn btn-primary disabled button-subheader'>Raw Data Analysis Table</button>
+                            <table class='table talbe-striped table-hover' style=' color:white'>
+                                <thead>
+                                    <tr>
+                                        <th> </th>
+                                        <th> Number of Data </th>
+                                        <th> Number of Defaults</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Dataset </td>
+                                        <td> 5000 </td>
+                                        <td> 200</td>
+                                    </tr>
+                                    <tr>
+                                        <td> NA </td>
+                                        <td> 40 </td>
+                                        <td> 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Blank </td>
+                                        <td> 0 </td>
+                                        <td> 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Wrong Type </td>
+                                        <td> 1 </td>
+                                        <td> 1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+            <div class='row' >
+                <div class='col-md-4'>
+                    <div class='fakegraph'>
+                    <button class='btn btn-primary disabled button-subheader'>Outlier Analysis</button>
+                        <div id='boxplot' style='height:80%'></div>
+                    </div>
+                </div>
+
+                <div class='col-md-8'>    
+                    <div class = 'fakegraph'>
+                    <button class='btn btn-primary disabled button-subheader'>Information Value</button>
+                            <table class='table talbe-striped table-hover' style=' color:white'>
+                                <thead>
+                                    <tr>
+                                        <th> Employment Type </th>
+                                        <th> N </th>
+                                        <th> Bad</th>
+                                        <th> Odds </th>
+                                        <th> Information Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Other </td>
+                                        <td> 7005 </td>
+                                        <td> 468</td>
+                                        <td> 6.7% </td>
+                                        <td> 0.0362 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Employed </td>
+                                        <td> 14180 </td>
+                                        <td> 628</td>
+                                        <td> 4.4% </td>
+                                        <td> 0.0058 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pension </td>
+                                        <td> 3553 </td>
+                                        <td> 113</td>
+                                        <td> 3.2% </td>
+                                        <td> 0.0236 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> 0.0657 </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+            
+            <button class='btn btn-primary disabled button-subheader'>Information Value</button>
+            <div class='row' style='height: 550px'>
+                <div class='container-fluid'>
+                    <div class='fakegraph'>
+                        <div class='row h-100'>
+                            <div class='col-sm-6 h-100' id='information_value'></div>
+                            <div class='col-sm-6'>
+                                <div class='row' id='iv_gauge' style='height: 40%'></div>
+                                <div class='row' id='iv_line_graph' style='height: 60%'> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <div style = 'height:10px'></div>
 
                 <button type="button" class="btn btn-lg button-box" data-toggle="collapse" data-target="#raw_data"
                     style="margin-bottom: 1%;width:49%;">Raw Data Distribution</button>
 
                 <button type="button" class="btn  btn-lg button-box" data-toggle="collapse" data-target="#trsf_data"
                     style="margin-bottom: 1%;width:49%;float:right;">Transformed Data Distribution</button>
-
+                <style>
+                    .center {
+                    margin: 0;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                    }
+                    </style>
+                <!-- collapse bar for raw data distribution -->
                 <div id="raw_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
+                    <div class="dropdown" class = "center">
+                        <button class="btn btn-secondary" type="button" id="raw_fimenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Select Feature
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="raw_fimenu">
+                          <a class="dropdown-item" href="#rawdata_1">Income</a>
+                          <a class="dropdown-item" href="#rawdata_2">Amount Due</a>
+                          <a class="dropdown-item" href="#rawdata_3">Loan to Income</a>
+                          <a class="dropdown-item" href="#rawdata_4">Loan Term</a>
+                          <a class="dropdown-item" href="#rawdata_5">Origination Hour</a>
+                          <a class="dropdown-item" href="#rawdata_6">ZIP bad rate</a>
+                          <a class="dropdown-item" href="#rawdata_7">Customer Duration</a>
+                          <a class="dropdown-item" href="#rawdata_8">Income Duration</a>
+                          <a class="dropdown-item" href="#rawdata_9">Living Arrangement Own</a>
+                          <a class="dropdown-item" href="#rawdata_10">z_isMadeup Email</a>
+                          <a class="dropdown-item" href="#rawdata_11">Origination Weekend</a>
+                          <a class="dropdown-item" href="#rawdata_12">New Customer</a>
+                          <a class="dropdown-item" href="#rawdata_13">Income Frequency</a>
+                          <a class="dropdown-item" href="#rawdata_14">Income Type</a>
+                          <a class="dropdown-item" href="#rawdata_15">Communication Preference</a>
+                        </div>
+                      </div>
                     <div class="row">
                         <div class="col-sm " id='rawdata_nume_1' style='height:200px;width:700%;'></div>
                         <div class="col-sm" id='rawdata_nume_2' style='height:200px;width:700%'></div>
@@ -181,14 +410,33 @@
                         <div class="col-sm " id='rawdata_cate_10' style='height:200px; width:500%'></div>
                         <div class="col-sm " id='rawdata_cate_11' style='height:200px; width:500%'></div>
                     </div>
-
-
                 </div>
-
-
+                <!-- collapse bar for transformed data distribution -->
                 <div id="trsf_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
+                    <div class="dropdown" class = "center">
+                        <button class="btn btn-secondary" type="button" id="trs_fimenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Feature Selection
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="trs_fimenu">
+                            <a class="dropdown-item" href="#trsfdata_1">Income</a>
+                            <a class="dropdown-item" href="#trsfdata_2">Amount Due</a>
+                            <a class="dropdown-item" href="#trsfdata_3">Loan to Income</a>
+                            <a class="dropdown-item" href="#trsfdata_4">Loan Term</a>
+                            <a class="dropdown-item" href="#trsfdata_5">Origination Hour</a>
+                            <a class="dropdown-item" href="#trsfdata_6">ZIP bad rate</a>
+                            <a class="dropdown-item" href="#trsfdata_7">Customer Duration</a>
+                            <a class="dropdown-item" href="#trsfdata_8">Income Duration</a>
+                            <a class="dropdown-item" href="#trsfdata_9">Living Arrangement Own</a>
+                            <a class="dropdown-item" href="#trsfdata_10">z_isMadeup Email</a>
+                            <a class="dropdown-item" href="#trsfdata_11">Origination Weekend</a>
+                            <a class="dropdown-item" href="#trsfdata_12">New Customer</a>
+                            <a class="dropdown-item" href="#trsfdata_13">Income Frequency</a>
+                            <a class="dropdown-item" href="#trsfdata_14">Income Type</a>
+                            <a class="dropdown-item" href="#trsfdata_15">Communication Preference</a>
+                        </div>
+                      </div>
                     <div class="row">
                         <div class="col-sm " id='trsfdata_nume_1' style='height:200px;width:700%;'></div>
                         <div class="col-sm" id='trsfdata_nume_2' style='height:200px;width:700%'></div>
@@ -218,81 +466,95 @@
                         <div class="col-sm " id='trsfdata_cate_10' style='height:200px; width:500%'></div>
                         <div class="col-sm " id='trsfdata_cate_11' style='height:200px; width:500%'></div>
                     </div>
-
-
                 </div>
-
-
-
-                <div style='height:5px'></div>
-
-
-                <div style='height: 500px'>
-                    <div class='fakegraph h-100'>
-
-                        <div class='row' style='height: 45%'>
-                            <div id='gini_gauge_1' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_2' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_3' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
-                        </div>
-                        <br>
-                        <div id='gini_performance' class='col-sm w-100' style='height: 45%'> </div>
-
-                    </div>
+                <h4 style = "color: #fff">Correlation</h4>
+                <div class='container-fluid' style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
+                    <button class='btn btn-primary disabled button-subheader'> Parallel Diagram</button>
+                    <div id='parallel_single' style = 'height: 400px;width: 900px'></div>
                 </div>
 
                 <div style='height:15px'></div>
-
-                <div class='fakegraph' id='quantitative_filter' style='height: 350px'> </div>
-
+                <div class='fakegraph' id='quantitative_filter' style='height: 900px'> </div>
                 <div style='height:15px'></div>
-
                 <div class='row' style='height: 550px'>
                     <div class='col-sm-7'>
                         <div class='fakegraph h-100' id='heatmap'></div>
                     </div>
-
                     <div class='col-sm-5'>
                         <div class='fakegraph h-100' id='black_list_connection'></div>
                     </div>
                 </div>
-
-                <div style='height:15px'></div>
-
-
-                <div class='row' style='height: 550px'>
-                    <div class='col-sm-8'>
-                        <div class='fakegraph'>
-                            <div class='row h-100'>
-                                <div class='col-sm-6 h-100' id='information_value'></div>
-                                <div class='col-sm-6'>
-                                    <div class='row' id='iv_gauge' style='height: 40%'></div>
-                                    <div class='row' id='iv_line_graph' style='height: 60%'> </div>
-                                </div>
+                    <button class='btn btn-primary disabled button-subheader'> Model Build and Validation</button>
+                    <div style='height: 500px'>
+                        <div class='fakegraph h-100'>
+                            <div class='row' style='height: 45%'>
+                                <div id='gini_gauge_1' class='col-sm' style='height: 100%'> </div>
+                                <div id='gini_gauge_2' class='col-sm' style='height: 100%'> </div>
+                                <div id='gini_gauge_3' class='col-sm' style='height: 100%'> </div>
+                                <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
                             </div>
+                            <br>
+                            <div id='gini_performance' class='col-sm w-100' style='height: 45%'> </div>
                         </div>
                     </div>
-
-
-                    <div class='col-sm-4'>
-                        <div class='fakegraph' id='binomial' style='height:100%'></div>
-                    </div>
-                </div>
-
                 <div style='height:15px'></div>
+            <div class = container-fluid>
+                <div class = "fakegraph">
+                    <button class='btn btn-primary disabled button-subheader'> Binomial Testing</button>
+                    <div id='binomial' style='height:600px;'></div>
+                </div>  
+            </div>
+        <button class='btn btn-primary disabled button-subheader'> Model Performance Monitoring</button>
+        <div class ="container-fluid"></div>
 
-                <div class='fakegraph' id='bad_debt_distribution' style='height: 250px'> </div>
-
-                <div style='height:15px'></div>
-
-                <div class='fakegraph' id='salary_distribution' style='height: 250px'> </div>
-
+        <button class='btn btn-primary disabled button-subheader'> LGD</button>
+        <div class = "container" style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
+            <div class='container'>
+                <button class='btn btn-primary disabled button-subheader'> List of LGD for each product/project</button>
+                <table class='table talbe-striped table-hover' style=' color:white'>
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> Products/Projects </th>
+                            <th> LGD used</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td> Payday Loan </td>
+                            <td> 0.8 </td>
+                        </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> Unsecured Loan </td>
+                            <td> 0.8 </td>
+                        </tr>
+                        <tr>
+                            <td> 3 </td>
+                            <td> GHTK </td>
+                            <td> 1 </td>
+                        </tr>
+                        <tr> 
+                            <td> 4 </td>
+                            <td> CDE </td>
+                            <td> 0.7 </td>
+                        </tr>
+                        <tr>
+                            <td> 5 </td>
+                            <td> Tbd </td>
+                            <td> 1</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+        </div>
 
+        </div>
+        <div style='height:15px'></div>
 
+    
     <footer class="container-fluid bg-grey py-5">
         <div class="container">
             <div class="row">
@@ -300,7 +562,7 @@
                     <div class="row">
                         <div class="col-md-6 ">
                             <div class="logo-part">
-                                <img src="logo-epay.svg">
+                                <img src="../data/logo-epay.svg">
                             </div>
                         </div>
                     </div>
@@ -328,13 +590,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
+        
     </footer>
 
     <!-- JavaScript and Data -->
 
     <script src="../data/black_list_connection.js"></script>
+    <script src="../script/tsne.js"></script>
     <script src="../script/black_list_connection.js"></script>
 
     <script src="../data/set1.js"></script>
@@ -344,8 +606,11 @@
     <script type="text/javascript" src="../data/dataGeo.js"></script>
     <script src="../script/bad_debt_distribution.js"></script>
     <script src="../script/salary_distribution.js"></script>
+    <script src="../data/logo-epay.svg"></script>
 
     <script src="../script/information_value.js"></script>
+    <script src="../script/parallel_single.js"></script>
+    <script src="../script/boxplot.js"></script>
     <script src="../script/iv_gauge.js"></script>
     <script src="../script/iv_line_graph.js"></script>
     <script src="../script/binomial_test.js"></script>
@@ -387,6 +652,8 @@
     <script src="../script/trsfdata_nume_2.js"></script>
     <script src="../script/trsfdata_nume_3.js"></script>
     <script src="../script/trsfdata_nume_4.js"></script>
+
+
 
 </body>
 

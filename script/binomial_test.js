@@ -1,8 +1,14 @@
 var chartDom = document.getElementById('binomial');
-        var myChart = echarts.init(chartDom);
-        var option;
+var myChart = echarts.init(chartDom);
+var option;
+var $j = jQuery.noConflict();
 
-        option = {
+
+$.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_data) {
+    $.get('https://ntmy99.github.io/db_data.io/binomial_column.json', function (rating) {
+        var binom_data = my_data
+
+        binomial_option = {
             title: {
                 text: "Binomial Test",
                 left: 'center',
@@ -25,16 +31,20 @@ var chartDom = document.getElementById('binomial');
                 type: 'category',
                 name: 'Credit Rating',
                 axisTick: 'false',
-                axisLabel: {color: '#ffffff'},
-                nameTextStyle: {color: '#ffffff'},
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' },
+                nameLocation: 'middle',
+                nameGap: 20,
                 splitLine: { show: false },
                 data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
             },
             yAxis: {
                 type: 'value',
                 name: 'Number of Default',
-                axisLabel: {color: '#ffffff'},
-                nameTextStyle: {color: '#ffffff'}
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' },
+                nameLocation: 'middle',
+                nameGap: 30
             },
             series: [
                 {
@@ -74,5 +84,8 @@ var chartDom = document.getElementById('binomial');
                 }
             ]
         };
-
-        option && myChart.setOption(option);
+        myChart.setOption(option);
+    });
+});
+option && myChart.setOption(option);
+    

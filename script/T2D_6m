@@ -1,0 +1,64 @@
+var chartDom_6 = document.getElementById('ead_6');
+var myChart_6 = echarts.init(chartDom_6);
+var option_6;
+
+option_6 = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross'
+    }
+  },
+  title: {
+      text: "Exposure at Default",
+      left: 'center',
+      TextStyle: { color: '#ffffff' , fontSize: 15 }
+            },
+  xAxis: [
+    { name: "Term (months)",
+    nameLocation: 'middle',
+    nameGap: 20,
+      type: 'category',
+      data: ['1', '2', '3', '4', '5', '6'],
+      axisPointer: {
+        type: 'shadow'
+      } 
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      min: 0,
+      max: 45,
+      interval: 5,
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    },
+    {
+      type: 'value',
+      min: 0,
+      max: 45,
+      interval: 5,
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    }
+  ],
+  series: [
+
+    {
+      type: 'bar',
+      data: [
+        0.0, 0.0, 1.43, 5.39, 6.88, 8.21
+      ]
+    },
+    {
+      type: 'line',
+      yAxisIndex: 1,
+      data: [0,0,40.9,34.3,17.7,6]
+    }
+  ]
+};
+
+option_6 && myChart_6.setOption(option_6);

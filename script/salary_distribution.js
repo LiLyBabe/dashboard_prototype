@@ -2,7 +2,7 @@ var iRadius = 25;
 var iElevationScale = 50;
 var map = new maptalks.Map('salary_distribution', {
     center: [105.844960, 20.997763],
-    zoom: 12.5,
+    zoom: 10.5,
     layerSwitcherControl: {
         'position': 'top-right',
         // title of base layers
@@ -136,3 +136,16 @@ $(document).ready(function (e) {
         addHexagonLayer();
     });
 });
+
+document.getElementById("salary_distribution_fs").onclick = function () { SalaryFullscreen() };
+var salary = document.getElementById("salary_distribution");
+function SalaryFullscreen() {
+    if (salary.requestFullscreen) {
+        salary.requestFullscreen();
+    } else if (salary.webkitRequestFullscreen) { /* Safari */
+        salary.webkitRequestFullscreen();
+    } else if (salary.msRequestFullscreen) { /* IE11 */
+        salary.msRequestFullscreen();
+    }
+}
+ 
