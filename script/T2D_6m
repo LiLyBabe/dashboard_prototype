@@ -12,8 +12,8 @@ option_6 = {
   title: {
       text: "Exposure at Default",
       left: 'center',
-      TextStyle: { color: '#ffffff' , fontSize: 15 }
-            },
+      textStyle: { color: '#ffffff', fontSize: 15 }
+    },
   xAxis: [
     { name: "Term (months)",
     nameLocation: 'middle',

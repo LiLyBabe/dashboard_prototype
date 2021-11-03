@@ -1,5 +1,5 @@
 var chartDom_8 = document.getElementById('ead_12');
-var myChart_8 = echarts.init(chartDom);
+var myChart_8 = echarts.init(chartDom_8);
 var option_8;
 
 option_8 = {
@@ -49,9 +49,7 @@ option_8 = {
   series: [
     {
       type: 'bar',
-      data: [
-        0.0, 0.0, 1.43, 5.39, 6.88, 8.21, 9.08, 7.72, 6.64, 5.58, 4.41, 4.32
-      ]
+      data: [0.0, 0.0, 1.43, 5.39, 6.88, 8.21, 9.08, 7.72, 6.64, 5.58, 4.41, 4.32]
     },
     {
       type: 'line',
