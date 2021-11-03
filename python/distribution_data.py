@@ -17,6 +17,8 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
         new_columns.remove('longitude')
     except:
         pass
+    
+    total_default = sliced_df.Default.sum()
 
     count_list = []
     pd_list = []
@@ -36,8 +38,8 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
             # height of bars - counts of each bin
             count_list.append(list(sliced_df['Default'].groupby(sliced_df[new_column_name]).count()))
 
-            # average pd in each bin
-            filtered_list = list(sliced_df['PD'].groupby(sliced_df[new_column_name]).mean())
+            # default odds in each bin
+            filtered_list = list(sliced_df['Default'].groupby(sliced_df[new_column_name]).sum()/total_default)
             filtered_list = [0 if np.isnan(x) else x for x in filtered_list]
             pd_list.append(filtered_list)
 
@@ -49,8 +51,8 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
             # height of bars - counts of each bin
             count_list.append(list(sliced_df['Default'].groupby(sliced_df[new_columns[i]]).count()))
 
-            # average pd in each bin
-            filtered_list = list(sliced_df['PD'].groupby(sliced_df[new_columns[i]]).mean())
+            # default odds in each bin
+            filtered_list = list(sliced_df['Default'].groupby(sliced_df[new_columns[i]]).sum()/total_default)
             filtered_list = [0 if np.isnan(x) else x for x in filtered_list]
             pd_list.append(filtered_list)
 
@@ -75,7 +77,7 @@ def get_distribution_data(loc, sheet_name, first_col, last_col):
 
 
 if __name__ == '__main__': 
-    data_set = 'raw'
+    data_set = 'transformed'
 
     if data_set == 'raw':
         loc = 'D:\Epay\Epay\Dashboard\Proxy Payday Loan Data Corrected_Original.xlsx'
