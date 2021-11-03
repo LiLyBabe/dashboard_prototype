@@ -1,8 +1,8 @@
-var chartDom = document.getElementById('parallel_single');
-var myChart = echarts.init(chartDom);
-var option;
+var chartDom_p = document.getElementById('parallel_single');
+var myChart_p = echarts.init(chartDom_p);
+var option_p;
 
-option = {
+option_p = {
     parallelAxis: [
         {
             dim: 0,
@@ -43,4 +43,4 @@ option = {
     }
 };
 
-option && myChart.setOption(option);
+option_p && myChart_p.setOption(option_p);

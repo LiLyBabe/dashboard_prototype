@@ -1,6 +1,6 @@
-var chartDom = document.getElementById('information_value');
-var myChart = echarts.init(chartDom);
-var option;
+var chartDom_iv = document.getElementById('information_value');
+var myChart_iv = echarts.init(chartDom_iv);
+var iv_option;
 
 
 iv_option = {
@@ -67,4 +67,4 @@ iv_option = {
   ]
 };
 
-option && myChart.setOption(option);
+iv_option && myChart_iv.setOption(iv_option);

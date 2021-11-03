@@ -1,6 +1,6 @@
-var chartDom = document.getElementById('binomial');
-var myChart = echarts.init(chartDom);
-var option;
+var chartDom_binomial = document.getElementById('binomial');
+var myChart_binomial = echarts.init(chartDom_binomial);
+var binomial_option;
 var $j = jQuery.noConflict();
 
 
@@ -84,8 +84,8 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
                 }
             ]
         };
-        myChart.setOption(option);
+        myChart_binomial.setOption(binomial_option);
     });
 });
-option && myChart.setOption(option);
+binomial_option && myChart_binomial.setOption(binomial_option);
     
