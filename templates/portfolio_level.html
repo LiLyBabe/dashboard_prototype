@@ -11,7 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
-    <script src="../lib/echarts-gl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
 
     <script src="../lib/jquery-3.5.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
@@ -19,15 +20,11 @@
     <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
     <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
 
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
+
 </head>
 
 <body style='background-color: #30373F'>
@@ -40,41 +37,62 @@
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="#">Home</a>
-
-                    <a href="risk_modelling.html" aria-expanded="false" class="panel-heading">Risk
-                        Modelling</a>
-                    <ul class="panel-collapse collapse list-unstyled">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account
+                        Level</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">PD</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#dataa">Data Analysis</a>
+                            </li>
+                            <li>
+                                <a href="#mbv">Model Build & Validation</a>
+                            </li>
+                            <li>
+                                <a href="#mpm">Model Performance Monitoring</a>
+                            </li>
+                        </ul>
+                        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">EAD</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu2">
+                            <li>
+                                <a href="#t2d">Time to Default (T2D)</a>
+                            </li>
+                        </ul>
                         <li>
-                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
-                        </li>
-                        <li>
-                            <a href="#gema">Geo Map</a>
-                        </li>
-
-                    </ul>
-
-                    <a href="portfolio_management.html" aria-expanded="false" class="panel-heading-1">Portfolio
-                        Management</a>
-                    <ul class="panel-collapse-1 collapse list-unstyled">
-                        <li>
-                            <a href="#dadi">The Master Scale& Data Distribution</a>
-                        </li>
-                        <li>
-                            <a href="#cremi">Credit Migration</a>
-                        </li>
-                        <li>
-                            <a href="#risk">Risk Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#opt">Optimisation</a>
-                        </li>
-                        <li>
-                            <a href="#bdd">Bad Debt Distribution</a>
+                            <a href="#pacogr">LGD</a>
                         </li>
                     </ul>
-
                 </li>
-
+                <li>
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Portfolio level</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu3">
+                        <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Expected Loss</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu4">
+                            <li>
+                                <a href="#pcm">Portfolio Credit Mix</a>
+                            </li>
+                        </ul>
+                        <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">Unexpected Loss</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu5">
+                            <li>
+                                <a href="#wcl">Worst Case Loss - Monte Carlo Simulation </a>
+                            </li>
+                        </ul>
+                        <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            Others</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu6">
+                            <li>
+                                <a href="#ws"> Warning Signals</a>
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+            </li>
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>
@@ -85,41 +103,59 @@
                 </li>
             </ul>
         </nav>
-        <!--Nav Bar collapsible end hiaaa-->
-        <!--Nav ngang start here-->
+
+        <!--Nav Bar collapsible ends here-->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #292929;'>
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-
-                    <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button> -->
-
-                    <h4 style='color:white; margin-left: 3%'> Risk Modelling</h4>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            </li>
-                        </ul>
-                    </div>
-                    <!--SEARCH BOX-->
-                    <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0"
-                        style='background-color: #292929;'> <input class="form-control mr-sm-2" type="text"
-                            placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0"
-                            type="submit">Search</button> </form>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><span class="mb-0 h6">Portfolio Level</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">Portfolio Credit Mix</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">PD vs Amount</a>
+                                <a class="dropdown-item" href="#">Risk Return</a>
+                                <a class="dropdown-item" href="#">Pricing</a>
+                                <a class="dropdown-item" href="#">Time to Default</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">Worst Case Loss</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="#">No Correlation</a>
+                                <a class="dropdown-item" href="#">Analytic Correlation</a>
+                                <a class="dropdown-item" href="#">Stressed Correlation</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6"> Warning Signals</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="#">Day Past Due</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
-
             <!-- Interactive navigation sidebar function -->
             <script type="text/javascript">
                 $(document).ready(function () {
@@ -135,19 +171,10 @@
                 $(".panel-collapse").mouseleave(function () {
                     $(".panel-collapse").fadeOut();
                 });
-
-                $(".panel-heading-1").mouseenter(function () {
-                    $(".panel-collapse-1").fadeIn();
-                });
-                $(".panel-collapse-1").mouseleave(function () {
-                    $(".panel-collapse-1").fadeOut();
-                });
             </script>
             <!-- End interactive function -->
 
-
-
-            <!-- Start main content -->
+            <!-- Start main content here  -->
             <div class='container-fluid'>
 
                 <button type="button" class="btn btn-lg button-box" data-toggle="collapse" data-target="#raw_data"
@@ -160,7 +187,7 @@
                 <div id="raw_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
-                    
+                    <p> Raw Data </p>
                     <div class="row">
                         <div class="col-sm " id='rawdata_1' style='height:200px;width:600%;'></div>
                         <div class="col-sm" id='rawdata_2' style='height:200px;width:600%'></div>
@@ -172,10 +199,13 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-sm " id='rawdata_5' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='rawdata_6' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='rawdata_7' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='rawdata_8' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='rawdata_5' style='height:200px; width:600%'></div>
+                        <div class="col-sm " id='rawdata_6' style='height:200px; width:600%'></div>
+                    </div>
+                    <br>
+                    <div class='row'>
+                        <div class="col-sm " id='rawdata_7' style='height:200px; width:600%'></div>
+                        <div class="col-sm " id='rawdata_8' style='height:200px; width:600%'></div>
                     </div>
                     <br>
                     <div class="row">
@@ -190,7 +220,6 @@
                         <div class="col-sm " id='rawdata_14' style='height:200px; width:400%'></div>
                         <div class="col-sm " id='rawdata_15' style='height:200px; width:400%'></div>
                     </div>
-              
 
                 </div>
 
@@ -198,6 +227,7 @@
                 <div id="trsf_data" class="collapse"
                     style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
                     <br>
+                    <p> Transformed Data </p>
                     <div class="row">
                         <div class="col-sm " id='trsfdata_1' style='height:200px;width:600%;'></div>
                         <div class="col-sm" id='trsfdata_2' style='height:200px;width:600%'></div>
@@ -209,10 +239,13 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-sm " id='trsfdata_5' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='trsfdata_6' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='trsfdata_7' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='trsfdata_8' style='height:200px; width:300%'></div>
+                        <div class="col-sm " id='trsfdata_5' style='height:200px; width:600%'></div>
+                        <div class="col-sm " id='trsfdata_6' style='height:200px; width:600%'></div>
+                    </div>
+                    <br>
+                    <div class='row'>
+                        <div class="col-sm " id='trsfdata_7' style='height:200px; width:600%'></div>
+                        <div class="col-sm " id='trsfdata_8' style='height:200px; width:600%'></div>
                     </div>
                     <br>
                     <div class="row">
@@ -231,78 +264,47 @@
 
                 </div>
 
-
-
-                <div style='height:0px'></div>
-
-                <!-- Gini value indicators -->
-                <div style='height: 500px'>
-                    <div class='fakegraph h-100'>
-
-                        <div class='row' style='height: 45%'>
-                            <div id='gini_gauge_1' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_2' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_3' class='col-sm' style='height: 100%'> </div>
-                            <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
-                        </div>
-                        <br>
-                        <div id='gini_performance' class='col-sm w-100' style='height: 55%'> </div>
-
+                <div class="row">
+                    <div class='col-sm'>
+                        <p>Risk Adjusted Return No LC</p>
+                        <div class='fakegraph' id='rarnolc' style='height: 500px'> </div>
+                    </div>
+                    <div class='col-sm'>
+                        <p>Risk Adjusted Return with LC</p>
+                        <div class='fakegraph' id='rarlc' style='height: 500px'> </div>
                     </div>
                 </div>
 
-                <div style='height:15px'></div>
+                <div class='spacegiver'></div>
 
-                <!-- Pararllel graph -->
-                <div class='fakegraph' id='quantitative_filter' style='height: 500px'> </div>
-
-                <div style='height:15px'></div>
-
-                <!-- Heatmap -->
-                <div class='row' style='height: 550px'>
-                    <div class='col-sm-7'>
-                        <div class='fakegraph h-100' id='heatmap'></div>
+                <div class="row">
+                    <div class='col-sm'>
+                        <p>APR Distribution No LC</p>
+                        <div class='fakegraph' id='APRnoLC' style='height: 500px'> </div>
                     </div>
-                    <!-- Blacklist graph -->
-                    <div class='col-sm-5'>
-                        <div class='fakegraph h-100' id='black_list_connection'></div>
+                    <div class='col-sm'>
+                        <p>APR Distribution with LC</p>
+                        <div class='fakegraph' id='APR' style='height: 500px'> </div>
                     </div>
                 </div>
 
-                <div style='height:15px'></div>
+                <div class= 'spacegiver'> </div>
 
-                <!-- Information Value -->
-                <div class='row' style='height: 550px'>
-                    <div class='col-sm-8'>
-                        <div class='fakegraph'>
-                            <div class='row h-100'>
-                                <div class='col-sm-6 h-100' id='information_value'></div>
-                                <div class='col-sm-6'>
-                                    <div class='row' id='iv_gauge' style='height: 40%'></div>
-                                    <div class='row' id='iv_line_graph' style='height: 60%'> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Binomial Test -->
-                    <div class='col-sm-4'>
-                        <div class='fakegraph' id='binomial' style='height:100%'></div>
-                    </div>
+                <div> 
+                    <p>Time to Default Distribution </p>
+                    <div class='fakegraph'></div>
                 </div>
-
-                <div style='height:15px'></div>
-
-                <!-- Map -->
-                <button id='bad_debt_fs' class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
-                <div class='fakegraph' id='bad_debt_distribution' style='height: 300px'> </div>
-                <div style='height:15px'></div>
-                <button id='salary_distribution_fs' class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
-                <div class='fakegraph' id='salary_distribution' style='height: 300px'> </div>
-
             </div>
+
+
+
+
+
         </div>
+
     </div>
+
+
 
 
     <footer class="container-fluid bg-grey py-5">
@@ -312,7 +314,7 @@
                     <div class="row">
                         <div class="col-md-6 ">
                             <div class="logo-part">
-                                <img src="logo-epay.svg">
+                                <img src="../data/logo-epay.svg">
                             </div>
                         </div>
                     </div>
@@ -340,33 +342,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
+
     </footer>
 
-    <!-- JavaScript and Data -->
-
-    <script src="../data/black_list_connection.js"></script>
-    <script src="../script/black_list_connection.js"></script>
-
-    <script src="../data/set1.js"></script>
-    <script src="../script/quantitative_filter.js"></script>
-
-    <script type="text/javascript" src="../data/dataConnect.js"></script>
-    <script type="text/javascript" src="../data/dataGeo.js"></script>
-    <script src="../script/bad_debt_distribution.js"></script>
-    <script src="../script/salary_distribution.js"></script>
-
-    <script src="../script/information_value.js"></script>
-    <script src="../script/iv_gauge.js"></script>
-    <script src="../script/iv_line_graph.js"></script>
-    <script src="../script/binomial_test.js"></script>
-    <script src="../script/gini_performance.js"></script>
-    <script src="../script/gini_gauge.js"></script>
-    <script src="../script/gini_gauge_2.js"></script>
-    <script src="../script/gini_gauge_3.js"></script>
-    <script src="../script/gini_gauge_4.js"></script>
-    <script src="../script/heatmap.js"></script>
 
     <script src="../script/rawdata_1.js"></script>
     <script src="../script/rawdata_2.js"></script>
@@ -399,6 +377,11 @@
     <script src="../script/trsfdata_13.js"></script>
     <script src="../script/trsfdata_14.js"></script>
     <script src="../script/trsfdata_15.js"></script>
+
+    <script src="../script/RARnoLC.js"></script>
+    <script src="../script/rarlc.js"></script>
+    <script src="../script/APRnoLC.js"></script>
+    <script src="../script/LoanPD-AR.js"></script>
 
 </body>
 

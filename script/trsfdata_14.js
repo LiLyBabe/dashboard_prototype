@@ -31,15 +31,25 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 xAxis: {
                     type: 'category',
-                    data: function () {
-                        var list = [];
-                        for (var i = 1; i <= count_list[13].length; i++) {
-                            list.push(i);
-                        } return list
-                    }()
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
+                    // data: function () {
+                    //     var list = [];
+                    //     for (var i = 1; i <= count_list[13].length; i++) {
+                    //         list.push(i);
+                    //     } return list
+                    // }()
+                    data: ['Pension','Salary','Wage']
                 },
                 yAxis: [{
                     type: 'value',
+                    splitLine: {
+                        lineStyle: {
+                            color: '#36344E'
+                        },
+                        show: true
+                    },
                     axisLabel: {
                         color: '#ffffff'
                     }
@@ -47,6 +57,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 {
                     type: 'value',
+                    splitLine: {
+                        show: false
+                    },
                     axisLabel: { color: '#ffffff' }
                 }],
                 series: [{

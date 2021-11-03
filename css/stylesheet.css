@@ -101,7 +101,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #292929;
+    color: #ffffff;
 }
 
 a, a:hover, a:focus {
@@ -228,7 +228,28 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 
+.arrow {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
 
+.arrow-down {
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid #fff;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+input.right {
+    float: right;
+}
 
 /* ---------------------------------------------------
     CONTENT STYLE

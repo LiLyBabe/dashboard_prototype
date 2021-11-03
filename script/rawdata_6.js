@@ -31,15 +31,24 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                 },
                 xAxis: {
                     type: 'category',
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
                     data: function () {
                         var list = [];
                         for (var i = 1; i <= count_list[5].length; i++) {
-                            list.push(i);
+                            list.push("Rate Group " + i);
                         } return list
                     }()
                 },
                 yAxis: [{
                     type: 'value',
+                    splitLine: {
+                        lineStyle: {
+                            color: '#36344E'
+                        },
+                        show: true
+                    },
                     axisLabel: {
                         color: '#ffffff'
                     }
@@ -47,6 +56,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                 },
                 {
                     type: 'value',
+                    splitLine: {
+                        show: false
+                    },
                     axisLabel: { color: '#ffffff' }
                 }],
                 series: [{

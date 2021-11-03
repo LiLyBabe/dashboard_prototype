@@ -8,7 +8,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
 
             option_tn1 = {
                 title: {
-                    text: Object.keys(column_dict)[11],
+                    text: column_list[11],
                     left: 'center',
                     textStyle: { color: '#ffffff', fontSize: 15  }
                 },
@@ -31,10 +31,26 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 xAxis: {
                     type: 'category',
-                    data: column_dict[Object.values(object1)[11]]
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
+                    // data: column_list[Object.values(object1)[11]]
+                    // data: function () {
+                    //     var list = [];
+                    //     for (var i = 1; i <= count_list[11].length; i++) {
+                    //         list.push(i);
+                    //     } return list
+                    // }()
+                    data: ['No','Yes']
                 },
                 yAxis: [{
                     type: 'value',
+                    splitLine: {
+                        lineStyle: {
+                            color: '#36344E'
+                        },
+                        show: true
+                    },
                     axisLabel: {
                         color: '#ffffff'
                     }
@@ -42,6 +58,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 {
                     type: 'value',
+                    splitLine: {
+                        show: false
+                    },
                     axisLabel: { color: '#ffffff' }
                 }],
                 series: [{
