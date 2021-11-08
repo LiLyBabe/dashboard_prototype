@@ -23,7 +23,9 @@ option_8 = {
       data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
       axisPointer: {
         type: 'shadow'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     }
   ],
   yAxis: [
@@ -34,7 +36,9 @@ option_8 = {
       interval: 5,
       axisLabel: {
         formatter: '{value} %'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     },
     {
       type: 'value',
@@ -43,7 +47,9 @@ option_8 = {
       interval: 5,
       axisLabel: {
         formatter: '{value} %'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     }
   ],
   series: [

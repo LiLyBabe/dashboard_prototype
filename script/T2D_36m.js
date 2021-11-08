@@ -60,7 +60,9 @@ option_9 = {
       ],
       axisPointer: {
         type: 'shadow'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     }
   ],
   yAxis: [
@@ -71,7 +73,9 @@ option_9 = {
       interval: 2,
       axisLabel: {
         formatter: '{value} %'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     },
     {
       type: 'value',
@@ -80,7 +84,9 @@ option_9 = {
       interval: 2,
       axisLabel: {
         formatter: '{value} %'
-      }
+      },
+      axisLabel: {color: '#ffffff'},
+        nameTextStyle: {color:'#ffffff'}
     }
   ],
   series: [

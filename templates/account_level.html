@@ -109,28 +109,6 @@
                     <span></span>
                     <span></span>
                 </button>
-                <style>
-                .arrow {
-                width: 0;
-                height: 0;
-                display: inline-block;
-                vertical-align: middle;
-                margin-left: 3px;
-                }
-                .arrow-down {
-                border-left: 3px solid transparent;
-                border-right: 3px solid transparent;
-                border-top: 3px solid #fff;
-                }
-
-                .dropdown:hover .dropdown-menu {
-                display: block;
-                margin-top: 0; 
-                }
-                input.right {
-                float: right;
-                }
-                  </style>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
@@ -142,39 +120,39 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="#clust">Clustering</a>
-                          <a class="dropdown-item" href="#">Location</a>
-                          <a class="dropdown-item" href="#">Feature Importance</a>
-                          <a class="dropdown-item" href="#">Correlation</a>
+                          <a class="dropdown-item" href="#loc">Location</a>
+                          <a class="dropdown-item" href="#fet_i">Feature Importance</a>
+                          <a class="dropdown-item" href="#correl">Correlation</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <span class="mb-0 h6">Model Build & Validation</span><span class="arrow arrow-down"></span> 
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" href="#">Model Accuracy</a>
-                            <a class="dropdown-item" href="#">Model Weakness Diagnosis</a>
+                            <a class="dropdown-item" href="#macc">Model Accuracy</a>
+                            <a class="dropdown-item" href="#mwkd">Model Weakness Diagnosis</a>
                             <a class="dropdown-item" href="#">Reduce Model Weakness</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       <span class="mb-0 h6"> Model Performance Monitoring</span><span class="arrow arrow-down"></span> 
+                       <span class="mb-0 h6" href = "#mpmo"> Model Performance Monitoring</span><span class="arrow arrow-down"></span> 
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" href="#">Accuracy Decay</a>
+                            <a class="dropdown-item" href="#acc_de">Accuracy Decay</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <span class="mb-0 h6">Time to Default</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Market Data</a>
+                              <a class="dropdown-item" href="#t2dd">Market Data</a>
                           </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mb-0 h6">LGD</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                              <a class="dropdown-item" href="#">LGD table</a>
+                              <a class="dropdown-item" href="#LGD_t">LGD table</a>
                               
                           </li>
                     </ul>
@@ -198,7 +176,8 @@
             </script>
             <!-- End interactive function -->
             <div class='container-fluid'>
-            <h4 style ="color: #ffff" id = "clust"> Clustering</h4>
+                <h3 style ="color: #ffff" id = "dataa"> Data Analysis</h3>
+                <h4 style ="color: #ffff" id = "clust"> Clustering</h4>
                 <div class='fakegraph'>
                         <div class='col-sm'>
                             <button class='btn btn-primary disabled button-subheader'>TSNE</button>
@@ -208,7 +187,7 @@
                 </div>
             </div>
             <div style='height:15px'></div>
-            <button class='btn btn-primary disabled button-subheader'>Location</button>            
+            <h4 style = "color: #fff" id = "loc">Location</h4>
             <!-- Map -->
             <div class="row">
                 <div class="col-sm ">
@@ -231,7 +210,7 @@
             </div>
                 <div class='fakegraph' id='salary_distribution' style='height: 300px'> </div>
             <div style = "height: 15px"></div>
-            <h4 style = "color: #fff">Feature Importance</h4>
+            <h4 style = "color: #fff" id = "fet_i" >Feature Importance</h4>
             <div class = "container-fluid" style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
                         <div class='container-fluid' id = "fi">
                             <button class='btn btn-primary disabled button-subheader'>Raw Data Analysis Table</button>
@@ -467,7 +446,7 @@
                         <div class="col-sm " id='trsfdata_cate_11' style='height:200px; width:500%'></div>
                     </div>
                 </div>
-                <h4 style = "color: #fff">Correlation</h4>
+                <h4 style = "color: #fff" id = "correl">Correlation</h4>
                 <div class='container-fluid' style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
                     <button class='btn btn-primary disabled button-subheader'> Parallel Diagram</button>
                     <div id='parallel_single' style = 'height: 400px;width: 1000px;'></div>
@@ -484,8 +463,8 @@
                         <div class='fakegraph h-100' id='black_list_connection'></div>
                     </div>
                 </div>
-             <button class='btn btn-primary disabled button-subheader'> Model Build and Validation</button>
-                    <h4 style = "color: #fff"> Model Accuracy</h4>
+             <button class='btn btn-primary disabled button-subheader' id = "mbv"> Model Build and Validation</button>
+                    <h4 style = "color: #fff" id = "macc"> Model Accuracy</h4>
                     <div style='height: 300px'>
                         <div class='fakegraph h-100'>
                             <div class='row' style='height: 100%'>
@@ -496,21 +475,22 @@
                             </div>                            
                         </div>
                     </div>
-            <button class='btn btn-primary disabled button-subheader'> Model Performance Monitoring</button>
-            <h4 style = "color: #fff"> Accuracy Decay over Time</h4>
+                    <div style='height:15px'></div>
+                    <h4 style = "color: #ffffff">Model Weakness Diagnosis</h4>
+                <div class = container-fluid>
+                    <div class = "fakegraph">
+                        <div id='binomial' style='height:600px;'></div>
+                    </div>  
+                </div>
+            <button class='btn btn-primary disabled button-subheader' id = "mpm" > Model Performance Monitoring</button>
+            <h4 id = "acc_de" style = "color: #fff"> Accuracy Decay over Time</h4>
                 <div class ="container-fluid" style = "height: 300px;background-color: #292929; border-radius: 20px; margin-bottom: 1% ;">
                     <div id='gini_performance' class='col-sm w-100' style='height: 100%'> </div>
                 </div>
-                <div style='height:15px'></div>
-                <h4 style = "color: #ffffff">Model Weakness</h4>
-            <div class = container-fluid>
-                <div class = "fakegraph">
-                    <div id='binomial' style='height:600px;'></div>
-                </div>  
-            </div>
+
             
-            <div style='height:15px'></div>
-            <h4 style = "color: #ffffff">Time to Default</h4>
+            <div id = "t2d" style='height:15px'></div>
+            <h4 id = "t2dd" style = "color: #ffffff">Time to Default</h4>
             <div class='container-fluid' style='background-color: #292929; border-radius: 20px; margin-bottom: 1%;'>
                 <button type='button' class='btn btn-primary btn-sm sectionName' disabled> Market Data 
                 </button>
@@ -541,7 +521,7 @@
                 </div>
         </div>
         <div style='height:15px'></div>
-        <h4 style = "color: #ffffff">LGD</h4>
+        <h4 id = "LGD_t" style = "color: #ffffff">LGD</h4>
         <div class = "container-fluid" style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
                 <button class='btn btn-primary disabled button-subheader'> List of LGD for each product/project</button>
                 <table class='table talbe-striped table-hover' style=' color:white'>
