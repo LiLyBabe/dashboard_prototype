@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
@@ -39,55 +39,38 @@
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="#">Home</a>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account Level</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <a href = "#pageSubmenu" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">PD</a>
-                            <ul class ="collapse list-unstyled" id="pageSubmenu">
-                                <li>
-                                    <a href="#dataa">Data Analysis</a>
-                                </li>
-                                <li>
-                                    <a href="#mbv">Model Build & Validation</a>
-                                </li>
-                                <li>
-                                    <a href="#mpm">Model Performance Monitoring</a>
-                                </li>
-                            </ul>
-                        <a href ="#pageSubmenu2" data-toggle = "collapse" aria-expanded = "false" class = "dropdown-toggle" >EAD</a>
-                            <ul class = "collapse list-unstyled" id = "pageSubmenu2">
-                                <li>
-                                    <a href="#t2d">Time to Default (T2D)</a>
-                                </li>
-                            </ul>
+                    <a href="risk_modelling.html" aria-expanded="false" class="panel-heading">Risk
+                        Modelling</a>
+                    <ul class="panel-collapse collapse list-unstyled">
+                        <li>
+                            <a href="single_variate_analysis.html">Single Variate Analysis</a>
+                        </li>
                         <li>
                             <a href="#pacogr">LGD</a>
                         </li>
                     </ul>
+
+                    <a href="portfolio_management.html" aria-expanded="false" class="panel-heading-1">Portfolio
+                        Management</a>
+                    <ul class="panel-collapse-1 collapse list-unstyled">
+                        <li>
+                            <a href="#dadi">The Master Scale& Data Distribution</a>
+                        </li>
+                        <li>
+                            <a href="#cremi">Credit Migration</a>
+                        </li>
+                        <li>
+                            <a href="#risk">Risk Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#opt">Optimisation</a>
+                        </li>
+                        <li>
+                            <a href="#bdd">Bad Debt Distribution</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Portfolio level</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu3">
-                            <a href = "#pageSubmenu4" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">Expected Loss</a>
-                            <ul class ="collapse list-unstyled" id="pageSubmenu4">
-                                            <li> 
-                                                <a href = "#pcm">Portfolio Credit Mix</a>
-                                            </li>
-                            </ul>
-                            <a href = "#pageSubmenu5" data-toggle = "collapse" aria-expanded = "false" class ="dropdown-toggle">Unexpected Loss</a>
-                            <ul class ="collapse list-unstyled" id="pageSubmenu5">
-                                <li>
-                                    <a href="#wcl">Worst Case Loss - Monte Carlo Simulation </a>
-                                </li>
-                            </ul>
-                            <a href = "#pageSubmenu6" data-toggle  = "collapse" aria-expanded = "false" class = "dropdown-toggle"> Others</a>
-                            <ul class = "collapse list-unstyled" id = "pageSubmenu6">
-                                <li>
-                                    <a href = "#ws"> Warning Signals</a>
-                                </li>
-                            </ul>
-                </li>
-            </ul>
-                </li>
+
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>
@@ -147,6 +130,13 @@
                 });
                 $(".panel-collapse").mouseleave(function () {
                     $(".panel-collapse").fadeOut();
+                });
+
+                $(".panel-heading-1").mouseenter(function () {
+                    $(".panel-collapse-1").fadeIn();
+                });
+                $(".panel-collapse-1").mouseleave(function () {
+                    $(".panel-collapse-1").fadeOut();
                 });
             </script>
             <!-- End interactive function -->

@@ -6,13 +6,19 @@ var $j = jQuery.noConflict();
 
 $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_data) {
     $.get('https://ntmy99.github.io/db_data.io/binomial_column.json', function (rating) {
+
         var binom_data = my_data
 
         binomial_option = {
             title: {
                 text: "Binomial Test",
                 left: 'center',
-                textStyle:{color: '#ffffff'}
+                top: '2%',
+                textStyle: { color: '#ffffff' }
+            },
+            grid: {
+                top: '75',
+                containLabel: true
             },
             tooltip: {
                 trigger: 'axis',
@@ -29,14 +35,16 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
             },
             xAxis: {
                 type: 'category',
-                name: 'Credit Rating',
+                name: 'Credit Ratings',
+                nameLocation: 'middle',
+                nameGap: '30',
                 axisTick: 'false',
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
                 nameLocation: 'middle',
                 nameGap: 20,
                 splitLine: { show: false },
-                data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+                data: rating
             },
             yAxis: {
                 type: 'value',
@@ -44,7 +52,15 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
                 nameLocation: 'middle',
-                nameGap: 30
+                nameGap: 30,
+                splitLine: {
+                    lineStyle: {
+                        color: '#36344E'
+                    },
+                    show: true,
+                },
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' }
             },
             series: [
                 {
@@ -61,7 +77,7 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
                             color: 'rgba(0,0,0,0)'
                         }
                     },
-                    data: [13, 46, 88, 77, 78, 23, 8, 0, 0, 0, 0, 0]
+                    data: binom_data[0]
                 },
                 {
                     name: 'Upper Limit',
@@ -71,7 +87,7 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
                         show: false,
                         position: 'top'
                     },
-                    data: [18, 29, 39, 37, 36, 21, 14, 5, 3, 0, 0, 0]
+                    data: binom_data[1]
                 },
                 {
                     name: 'Real Default',
@@ -80,8 +96,8 @@ $.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_dat
                         show: false,
                         position: 'bottom'
                     },
-                    data: [210, 66, 110, 118, 102, 31, 6, 1, 1, 0, 0, 0]
-                }
+                    data: binom_data[2]
+                },
             ]
         };
         myChart_binomial.setOption(binomial_option);
