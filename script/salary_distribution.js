@@ -148,3 +148,4 @@ function SalaryFullscreen() {
         salary.msRequestFullscreen();
     }
 }
+ 
