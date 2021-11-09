@@ -1,9 +1,12 @@
-var chartDom1 = document.getElementById('binomial');
-var binomialChart = echarts.init(chartDom1);
+var chartDom_binomial = document.getElementById('binomial');
+var myChart_binomial = echarts.init(chartDom_binomial);
 var binomial_option;
+var $j = jQuery.noConflict();
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', function (my_data) {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_column_data.json', function (rating) {
+
+$.get('https://ntmy99.github.io/db_data.io/binomial_data.json', function (my_data) {
+    $.get('https://ntmy99.github.io/db_data.io/binomial_column.json', function (rating) {
+
         var binom_data = my_data
 
         binomial_option = {
@@ -38,12 +41,18 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
                 axisTick: 'false',
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
+                nameLocation: 'middle',
+                nameGap: 20,
                 splitLine: { show: false },
                 data: rating
             },
             yAxis: {
                 type: 'value',
                 name: 'Number of Default',
+                axisLabel: { color: '#ffffff' },
+                nameTextStyle: { color: '#ffffff' },
+                nameLocation: 'middle',
+                nameGap: 30,
                 splitLine: {
                     lineStyle: {
                         color: '#36344E'
@@ -91,8 +100,8 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/binomial_data.json', 
                 },
             ]
         };
-        binomialChart.setOption(binomial_option);
+        myChart_binomial.setOption(binomial_option);
     });
 });
-
-binomial_option && binomialChart.setOption(binomial_option);
+binomial_option && myChart_binomial.setOption(binomial_option);
+    
