@@ -5,66 +5,116 @@ var option_t2d;
 
 
 $.get('https://lilybabe.github.io/dashboard_prototype/data/t2d_data.json', function (t2d_data) {
+    $.get('https://lilybabe.github.io/dashboard_prototype/data/t2d_beta_data.json', function (t2d_beta) {
+        option_t2d = {
 
-    option_t2d = {
-
-        grid: {
-            left: '3%',
-            right: '3%',
-            top: '15%',
-            bottom: '15%',
-            containLabel: true
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer:{
-                type: 'shadow'
+            grid: {
+                left: '3%',
+                right: '3%',
+                top: '15%',
+                bottom: '15%',
+                containLabel: true
             },
-            formatter: function (params){
-                return  "Loan Term: " + params[0].name + " days" + "<br/>" +
-                        "Default: " + params[0].value + " loans";
-            }
-        },
-        xAxis: {
-            name: 'Loan Term (days)',
-            nameLocation: 'middle',
-            nameTextStyle: {
-                color: '#ffffff',
-                padding: 15
-            },
-            axisLabel: {
-                color: '#ffffff'
-            },
-            type: 'category',
-            data: t2d_data[0]
-        },
-        yAxis: {
-            name: 'Number of Loans',
-            nameLocation: 'middle',
-            nameTextStyle: {
-                color: '#ffffff',
-                padding: 28,
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#36344E'
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
                 },
-                show: true
+                formatter: function (params) {
+                    return "Loan Term: " + params[0].name + " days" + "<br/>" +
+                        "Default: " + params[0].value + " loans";
+                }
             },
-            type: 'value',
-            axisLabel: {
-                color: '#ffffff'
+            legend: {
+                textStyle: {
+                    color: '#ffffff'
+                },
+                top: '2%'
             },
-        },
-        series: [
-            {
-                data: t2d_data[1],
-                type: 'bar'
-            }
-        ]
-    };
+            xAxis: {
+                name: 'Loan Term (days)',
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    color: '#ffffff',
+                    padding: 15
+                },
+                axisLabel: {
+                    color: '#ffffff'
+                },
+                type: 'category',
+                data: t2d_data[0]
+            },
+            yAxis: {
+                name: 'Number of Loans',
+                nameLocation: 'middle',
+                nameTextStyle: {
+                    color: '#ffffff',
+                    padding: 28,
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#36344E'
+                    },
+                    show: true
+                },
+                type: 'value',
+                axisLabel: {
+                    color: '#ffffff'
+                },
+            },
+            series: [
+                {
+                    data: [0,
+                        0,
+                        17,
+                        65,
+                        83,
+                        98,
+                        109,
+                        93,
+                        80,
+                        67,
+                        53,
+                        52,
+                        49,
+                        43,
+                        39,
+                        38,
+                        33,
+                        31,
+                        31,
+                        26,
+                        25,
+                        23,
+                        18,
+                        19,
+                        20,
+                        15,
+                        14,
+                        13,
+                        10,
+                        9,
+                        8,
+                        6,
+                        5,
+                        4,
+                        5,
+                        0,
+                    ],
+                    name: 'Historical Distribution',
+                    type: 'bar'
+                },
+                {
+                    data: t2d_beta,
+                    name: 'Hypothetical Distribution',
+                    type: 'line',
+                    smooth: true
+                }
+            ]
+        };
 
-    myChart_t2d.setOption(option_t2d);
+        myChart_t2d.setOption(option_t2d);
+    });
 });
 
 option_t2d && myChart_t2d.setOption(option_t2d);

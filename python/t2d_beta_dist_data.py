@@ -10,7 +10,7 @@ def t2d_beta_data(min_val,max_val,alpha_val, beta_val,no_default):
     tad = np.array([range(1,max_val+1)])
     beta_pdf = beta.pdf(tad, alpha_val, beta_val, loc=min_val, scale=max_val-min_val)
     beta_pdf_std = beta_pdf/beta_pdf.sum()
-    bad_loans = beta_pdf_std* no_default
+    bad_loans = np.round(beta_pdf_std* no_default)
 
     return bad_loans.tolist()[0]
 
