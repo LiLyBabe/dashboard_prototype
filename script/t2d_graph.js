@@ -40,8 +40,10 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/t2d_data.json', funct
         },
         yAxis: {
             name: 'Number of Loans',
+            nameLocation: 'middle',
             nameTextStyle: {
                 color: '#ffffff',
+                padding: 28,
             },
             splitLine: {
                 lineStyle: {
