@@ -2,9 +2,9 @@ var chartDom_tn1 = document.getElementById('trsfdata_12');
 var myChart_tn1 = echarts.init(chartDom_tn1);
 var option_tn1;
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_list.json', function (count_list) {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_pd_list.json', function (pd_list) {
-        $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_column_list.json', function (column_list) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/transformed_count_list.json', function (count_list) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/transformed_pd_list.json', function (pd_list) {
+        $.get('https://monex-p.github.io/dashboard_prototype/data/transformed_column_list.json', function (column_list) {
 
             option_tn1 = {
                 title: {

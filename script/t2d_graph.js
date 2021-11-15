@@ -4,8 +4,8 @@ var option_t2d;
 // var $j = jQuery.noConflict();
 
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/t2d_data.json', function (t2d_data) {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/t2d_beta_data.json', function (t2d_beta) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/t2d_data.json', function (t2d_data) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/t2d_beta_data.json', function (t2d_beta) {
         option_t2d = {
 
             grid: {

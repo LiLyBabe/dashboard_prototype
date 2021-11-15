@@ -2,7 +2,7 @@ var dpdDom = document.getElementById('dayPastDue');
 var dpdChart = echarts.init(dpdDom);
 var dpd_option;
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/day_past_due_data.json', function (dpd_data) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/day_past_due_data.json', function (dpd_data) {
     dpd_option = {
         grid: {
             left: '3%',
