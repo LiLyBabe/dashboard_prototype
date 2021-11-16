@@ -300,14 +300,46 @@
                 <p>Worst Case Loss</p>
                 <div class='row'>
                     <div class='col-sm'>
-                        <div class='row fakegraph' id = 'no_corr_bar' style='height: 300px'></div>
+                        <div class='fakegraph' id='no_corr_bar' style='height: 300px'></div>
                         <div class='spacegiver'> </div>
-                        <div class='row fakegraph' style='height: 300px'></div>
+                        <div class=' fakegraph' id='basil2_corr_bar' style='height: 300px'></div>
                         <div class='spacegiver'> </div>
-                        <div class='row fakegraph' style='height: 300px'></div>
+                        <div class=' fakegraph' id='extreme_corr_bar' style='height: 300px'></div>
                     </div>
                     <div class='col-sm'>
-                        <div class='fakegraph' style='height: 930px'></div>
+                        <div class='fakegraph' style='height: 930px'>
+                            <table class='center'>
+                                <caption>Worst Case Loss Table</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Confidence Level</th>
+                                        <th>99%</th>
+                                        <th>99.5%</th>
+                                        <th>99.9%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>No Correlation</td>
+                                        <td>-250,000,000</td>
+                                        <td>-300,000,000</td>
+                                        <td>-450,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basil II Correlation</td>
+                                        <td>-250,000,000</td>
+                                        <td>-300,000,000</td>
+                                        <td>-450,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Extreme Correlation</td>
+                                        <td>-250,000,000</td>
+                                        <td>-300,000,000</td>
+                                        <td>-450,000,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -410,6 +442,8 @@
     <script src="../script/day_past_due.js"></script>
 
     <script src="../script/no_corr_bl.js"></script>
+    <script src="../script/basil_corr_bl.js"></script>
+    <script src="../script/extreme_corr_bl.js"></script>
 
 </body>
 

@@ -1,13 +1,13 @@
-var noCorrDom = document.getElementById('no_corr_bar');
-var noCorrChart = echarts.init(noCorrDom);
-var noCorrOption;
+var basilCorrDom = document.getElementById('basil2_corr_bar');
+var basilCorrChart = echarts.init(basilCorrDom);
+var basilCorrOption;
 
 
-$.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_no_corr.json', function (no_corr_data) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_basil2_corr.json', function (no_corr_data) {
 
-    noCorrOption = {
+    basilCorrOption = {
         title: {
-            text: 'No Correlation',
+            text: 'Basil II Correlation',
             textStyle: {
                 color: '#ffffff',
                 fontSize: 15
@@ -99,7 +99,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_no_corr.json
         ]
     };
 
-    noCorrChart.setOption(noCorrOption);
+    basilCorrChart.setOption(basilCorrOption);
 });
 
-noCorrOption && noCorrChart.setOption(noCorrOption);
+basilCorrOption && basilCorrChart.setOption(basilCorrOption);

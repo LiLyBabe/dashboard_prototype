@@ -1,13 +1,13 @@
-var noCorrDom = document.getElementById('no_corr_bar');
-var noCorrChart = echarts.init(noCorrDom);
-var noCorrOption;
+var extremeCorrDom = document.getElementById('extreme_corr_bar');
+var extremeCorrChart = echarts.init(extremeCorrDom);
+var extremeCorrOption;
 
 
-$.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_no_corr.json', function (no_corr_data) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_extreme_corr.json', function (no_corr_data) {
 
-    noCorrOption = {
+    extremeCorrOption = {
         title: {
-            text: 'No Correlation',
+            text: 'Extreme Correlation',
             textStyle: {
                 color: '#ffffff',
                 fontSize: 15
@@ -99,7 +99,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/bad_loans_no_corr.json
         ]
     };
 
-    noCorrChart.setOption(noCorrOption);
+    extremeCorrChart.setOption(extremeCorrOption);
 });
 
-noCorrOption && noCorrChart.setOption(noCorrOption);
+extremeCorrOption && extremeCorrChart.setOption(extremeCorrOption);
