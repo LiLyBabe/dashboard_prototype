@@ -20,7 +20,7 @@ def correlated_bad_loans(average_pd, N, num_simulation, avg_corr):
 
     count_unique = np.unique(num_debt, return_counts=True)
     bin_list = count_unique[0]
-    bin_value = np.round(count_unique[1]/N,2)
+    bin_value = np.round(count_unique[1]/len(num_debt),4)
     cl_value = np.round(np.percentile(num_debt,[99,99.5,99.9]))
 
     return bin_list.tolist(), bin_value.tolist(), cl_value.tolist()
