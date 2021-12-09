@@ -1,4 +1,3 @@
-// Note: Change the dataset to make default the last index 
 
 $(document).ready(function () {
     $.get('https://monex-p.github.io/dashboard_prototype/data/quantitative_data.json', function (my_data) {
