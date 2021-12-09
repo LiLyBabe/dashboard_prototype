@@ -1,8 +1,8 @@
 // Note: Change the dataset to make default the last index 
 
 $(document).ready(function () {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/quantitative_data.json', function (my_data) {
-        $.get('https://lilybabe.github.io/dashboard_prototype/data/quantitative_schema.json', function (schema) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/quantitative_data.json', function (my_data) {
+        $.get('https://monex-p.github.io/dashboard_prototype/data/quantitative_schema.json', function (schema) {
             var dataSize = 400;
             // $('.dropdown-item').click(function () {
             //     $("#dropdownMenuButton").html(this.innerHTML.trim());

@@ -29,7 +29,7 @@
 
 <body style='background-color: #30373F'>
     <div class='wrapper'>
-        <nav id="sidebar">
+        <!-- <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Dashboard Prototype</h3>
             </div>
@@ -102,7 +102,7 @@
                     <a class="signup">Sign up</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
 
         <!--Nav Bar collapsible ends here-->
         <div id="content">
@@ -156,8 +156,9 @@
                     </ul>
                 </div>
             </nav>
+
             <!-- Interactive navigation sidebar function -->
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
                 $(document).ready(function () {
                     $('#sidebarCollapse').on('click', function () {
                         $('#sidebar').toggleClass('active');
@@ -171,187 +172,61 @@
                 $(".panel-collapse").mouseleave(function () {
                     $(".panel-collapse").fadeOut();
                 });
-            </script>
+            </script> -->
             <!-- End interactive function -->
 
             <!-- Start main content here  -->
             <div class='container-fluid'>
+                
+                <select id="test" name="form_select" onchange="showDiv(this)">
+                    <option value="0"> Choose an attribute</option>
+                    <option value="1">Customer Type</option>
+                    <option value="2">Customer ZIP</option>
+                    <option value="3">Store ID</option>
+                    <option value="4">Loan Amount</option>
+                    <option value="5">Net Monthly Income</option>
+                    <option value="6">Income Type</option>
+                    <option value="7">Address Duration</option>
+                    <option value="8">Income Duration</option>
+                    <option value="9">Previous Loan Count</option>
+                </select>
 
-                <button type="button" class="btn btn-lg button-box" data-toggle="collapse" data-target="#raw_data"
-                    style="margin-bottom: 1%;width:49%;">Raw Data Distribution</button>
-
-                <button type="button" class="btn  btn-lg button-box" data-toggle="collapse" data-target="#trsf_data"
-                    style="margin-bottom: 1%;width:49%;float:right;">Transformed Data Distribution</button>
-
-                <!-- collapse bar for raw data distribution -->
-                <div id="raw_data" class="collapse"
-                    style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
-                    <br>
-                    <p> Raw Data </p>
-                    <div class="row">
-                        <div class="col-sm " id='rawdata_1' style='height:200px;width:600%;'></div>
-                        <div class="col-sm" id='rawdata_2' style='height:200px;width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='rawdata_3' style='height:200px;width:600%'></div>
-                        <div class="col-sm " id='rawdata_4' style='height:200px;width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='rawdata_5' style='height:200px; width:600%'></div>
-                        <div class="col-sm " id='rawdata_6' style='height:200px; width:600%'></div>
-                    </div>
-                    <br>
-                    <div class='row'>
-                        <div class="col-sm " id='rawdata_7' style='height:200px; width:600%'></div>
-                        <div class="col-sm " id='rawdata_8' style='height:200px; width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm" id='rawdata_9' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='rawdata_10' style='height:200px; width:300%'></div>
-                        <div class="col-sm" id='rawdata_11' style='height:200px; width:300%'></div>
-                        <div class="col-sm" id='rawdata_12' style='height:200px; width:300%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='rawdata_13' style='height:200px; width:400%'></div>
-                        <div class="col-sm " id='rawdata_14' style='height:200px; width:400%'></div>
-                        <div class="col-sm " id='rawdata_15' style='height:200px; width:400%'></div>
-                    </div>
-
-                </div>
-
-                <!-- collapse bar for transformed data distribution -->
-                <div id="trsf_data" class="collapse"
-                    style='background-color: #292929;border-radius: 20px; margin-bottom: 1%;'>
-                    <br>
-                    <p> Transformed Data </p>
-                    <div class="row">
-                        <div class="col-sm " id='trsfdata_1' style='height:200px;width:600%;'></div>
-                        <div class="col-sm" id='trsfdata_2' style='height:200px;width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='trsfdata_3' style='height:200px;width:600%'></div>
-                        <div class="col-sm " id='trsfdata_4' style='height:200px;width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='trsfdata_5' style='height:200px; width:600%'></div>
-                        <div class="col-sm " id='trsfdata_6' style='height:200px; width:600%'></div>
-                    </div>
-                    <br>
-                    <div class='row'>
-                        <div class="col-sm " id='trsfdata_7' style='height:200px; width:600%'></div>
-                        <div class="col-sm " id='trsfdata_8' style='height:200px; width:600%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm" id='trsfdata_9' style='height:200px; width:300%'></div>
-                        <div class="col-sm " id='trsfdata_10' style='height:200px; width:300%'></div>
-                        <div class="col-sm" id='trsfdata_11' style='height:200px; width:300%'></div>
-                        <div class="col-sm" id='trsfdata_12' style='height:200px; width:300%'></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm " id='trsfdata_13' style='height:200px; width:400%'></div>
-                        <div class="col-sm " id='trsfdata_14' style='height:200px; width:400%'></div>
-                        <div class="col-sm " id='trsfdata_15' style='height:200px; width:400%'></div>
-                    </div>
-
-
-                </div>
-
-                <!-- Risk Return Graphs -->
-                <div class="row" id ='riskreturn'>
-                    <div class='col-sm'>
-                        <p>Risk Adjusted Return No LC</p>
-                        <div class='fakegraph' id='rarnolc' style='height: 500px'> </div>
-                    </div>
-                    <div class='col-sm'>
-                        <p>Risk Adjusted Return with LC</p>
-                        <div class='fakegraph' id='rarlc' style='height: 500px'> </div>
+                <div id="customer_type" class = 'hidden'> 
+                    <p>Customer Type</p>
+                    <div>
+                        
                     </div>
                 </div>
+                <div id="customer_zip" class='hidden'> Customer ZIP</div>
+                <div id="store_ID" class='hidden'>Store ID</div>
+                <div id="loan_amount" class='hidden'>Loan Amount</div>
+                <div id="monthly_income" class='hidden'> Net Monthly Income</div>
+                <div id="income_type" class='hidden'> Income Type</div>
+                <div id="address_duration" class='hidden'> Address Duration</div>
+                <div id="income_duration" class='hidden'> Income Duration</div>
+                <div id="previous_loan_count" class='hidden'> Previous Loan Count</div>
 
-                <div class='spacegiver'></div>
+                
 
-                <!-- Pricing Graphs -->
-                <div class="row" id='pricing'>
-                    <div class='col-sm'>
-                        <p>APR Distribution No LC</p>
-                        <div class='fakegraph' id='APRnoLC' style='height: 500px'> </div>
-                    </div>
-                    <div class='col-sm'>
-                        <p>APR Distribution with LC</p>
-                        <div class='fakegraph' id='APR' style='height: 500px'> </div>
-                    </div>
-                </div>
 
-                <div class='spacegiver'> </div>
 
-                <!-- T2D Graph -->
-                <div id = 'time2default'>
-                    <p>Time to Default Distribution </p>
-                    <div class='fakegraph' id='t2d' style='height: 300px'></div>
-                </div>
 
-                <div class='spacegiver'> </div>
+                <!-- Javascript interactive functions main  -->
+                <script>
+                    function showDiv(element) {
+                        document.getElementById("customer_type").style.display = element.value == 1 ? 'block' : 'none';
+                        document.getElementById("customer_zip").style.display = element.value == 2 ? 'block' : 'none';
+                        document.getElementById("store_ID").style.display = element.value == 3 ? 'block' : 'none';
+                        document.getElementById("loan_amount").style.display = element.value == 4 ? 'block' : 'none';
+                        document.getElementById("monthly_income").style.display = element.value == 5 ? 'block' : 'none';
+                        document.getElementById("income_type").style.display = element.value == 6 ? 'block' : 'none';
+                        document.getElementById("address_duration").style.display = element.value == 7 ? 'block' : 'none';
+                        document.getElementById("income_duration").style.display = element.value == 8 ? 'block' : 'none';
+                        document.getElementById("previous_loan_count").style.display = element.value == 9 ? 'block' : 'none';
 
-                <p>Worst Case Loss</p>
-                <div class='row'>
-                    <div class='col-sm'>
-                        <div class='fakegraph' id='no_corr_bar' style='height: 300px'></div>
-                        <div class='spacegiver'> </div>
-                        <div class=' fakegraph' id='basil2_corr_bar' style='height: 300px'></div>
-                        <div class='spacegiver'> </div>
-                        <div class=' fakegraph' id='extreme_corr_bar' style='height: 300px'></div>
-                    </div>
-                    <div class='col-sm'>
-                        <div class='fakegraph' style='height: 930px; overflow-y:auto;overflow-x:auto;'>
-                            <table class='center'>
-                                <caption>Worst Case Loss Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th>Confidence Level</th>
-                                        <th>99%</th>
-                                        <th>99.5%</th>
-                                        <th>99.9%</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>No Correlation</td>
-                                        <td>-250,000,000</td>
-                                        <td>-300,000,000</td>
-                                        <td>-450,000,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Basil II Correlation</td>
-                                        <td>-250,000,000</td>
-                                        <td>-300,000,000</td>
-                                        <td>-450,000,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Extreme Correlation</td>
-                                        <td>-250,000,000</td>
-                                        <td>-300,000,000</td>
-                                        <td>-450,000,000</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='spacegiver'> </div>
-
-                <div id ='daypastdue'>
-                    <p>Day Past Due </p>
-                    <div class='fakegraph' id='dayPastDue' style='height: 300px'></div>
-                </div>
+                    }
+                </script>
+                <!-- End JS interactive functions main -->
             </div>
 
 
