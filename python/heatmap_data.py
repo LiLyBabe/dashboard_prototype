@@ -19,7 +19,7 @@ def get_heatmap_data(loc, sheet_name):
             my_list = [i,j,df_corr.iloc[i,j]]
             heatmap_list.append(my_list)
 
-    return heatmap_list, list(sliced_df.columns)
+    return heatmap_list, list(df_corr.columns)
 
 
 if __name__ == '__main__': 

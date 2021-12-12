@@ -5,7 +5,9 @@ var option;
 option = {
     title: {
         text: 'Portfolio Information Value',
-        textStyle: {color: '#ffffff'}
+        textStyle: {color: '#ffffff'},
+        show: false
+        // bottom: '0%'
     },
     series: [{
         type: 'gauge',
@@ -13,13 +15,14 @@ option = {
         endAngle: 450,
         progress: {
             show: true,
-            width: 30
+            width: 25
         },
+        radius: '70%',
         axisLine: {
             show: true,
             lineStyle: {
-                width: 30,
-                // color: [[1,'#5470c6'],[2, '#5fc654']]
+                width: 25,
+                color: [[1,'#36344E']]
             }
         },
         axisTick: {

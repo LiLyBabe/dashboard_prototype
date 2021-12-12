@@ -1,5 +1,5 @@
 var chartDom5 = document.getElementById('rarnolc');
-var myChart5 = echarts.init(chartDom5, 'dark');
+var myChart5 = echarts.init(chartDom5);
 var option5;
 var $j = jQuery.noConflict();
 

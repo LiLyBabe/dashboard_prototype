@@ -1,5 +1,5 @@
 var chartDom8 = document.getElementById('APRnoLC');
-var myChart8 = echarts.init(chartDom8, 'dark');
+var myChart8 = echarts.init(chartDom8);
 var option8;
 var $j = jQuery.noConflict();
 
