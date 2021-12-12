@@ -104,11 +104,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
@@ -177,16 +173,6 @@
             <!-- End interactive function -->
             <div class='container-fluid'>
                 <h3 style ="color: #ffff" id = "dataa"> Data Analysis</h3>
-                <h4 style ="color: #ffff" id = "clust"> Clustering</h4>
-                <div class='fakegraph'>
-                        <div class='col-sm'>
-                            <button class='btn btn-primary disabled button-subheader'>TSNE</button>
-                            <button id='tsne_fs' style ="float:right" class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
-                            <div class='fakegraph' id='tsne' style = "height:500px;width: 1000px"></div>
-                        </div>  
-                </div>
-            </div>
-            <div style='height:15px'></div>
             <h4 style = "color: #fff" id = "loc">Location</h4>
             <!-- Map -->
             <div class="row">
@@ -209,6 +195,19 @@
                 </div>
             </div>
                 <div class='fakegraph' id='salary_distribution' style='height: 300px'> </div>
+        </div>
+            <div style='height:15px'></div>
+        <div class = "container-fluid">
+            <h4 style ="color: #ffff" id = "clust"> Clustering</h4>
+            <div class='fakegraph'>
+                    <div class='col-sm'>
+                        <button class='btn btn-primary disabled button-subheader'>TSNE</button>
+                        <button id='tsne_fs' style ="float:right" class='btn fs-box'><i class="fas fa-external-link-alt"></i> Open</button>
+                        <div class='fakegraph' id='tsne' style = "height:500px;width: 1000px"></div>
+                    </div>  
+            </div>
+        </div>
+            <div style='height:15px'></div>
             <div style = "height: 15px"></div>
             <h4 style = "color: #fff" id = "fet_i" >Feature Importance</h4>
             <div class = "container-fluid" style='background-color: #292929; border-radius: 20px; margin-bottom: 1% ;'>
@@ -306,7 +305,7 @@
             <button class='btn btn-primary disabled button-subheader'>Information Value</button>
             <div class='row' style='height: 550px'>
                 <div class='container-fluid'>
-                    <div class='fakegraph'>
+                    <div class='fake-graph'>
                         <div class='row h-100'>
                             <div class='col-sm-6 h-100' id='information_value'></div>
                             <div class='col-sm-6'>
@@ -459,29 +458,44 @@
                     <div class='col-sm-7'>
                         <div class='fakegraph h-100' id='heatmap'></div>
                     </div>
-                    <div class='col-sm-5'>
+                    <div class='col-sm-5'>  
                         <div class='fakegraph h-100' id='black_list_connection'></div>
                     </div>
                 </div>
              <button class='btn btn-primary disabled button-subheader' id = "mbv"> Model Build and Validation</button>
                     <h4 style = "color: #fff" id = "macc"> Model Accuracy</h4>
-                    <div style='height: 300px'>
-                        <div class='fakegraph h-100'>
-                            <div class='row' style='height: 100%'>
-                                <div id='gini_gauge_1' class='col-sm' style='height: 100%'> </div>
-                                <div id='gini_gauge_2' class='col-sm' style='height: 100%'> </div>
-                                <div id='gini_gauge_3' class='col-sm' style='height: 100%'> </div>
-                                <div id='gini_gauge_4' class='col-sm' style='height: 100%'> </div>
-                            </div>                            
+                    <div class = 'container-fluid'>
+                        <div class = "fakegraph">
+                            <div class='row'>
+                                <div class='col-sm'>
+                                    <div id = 'ginitotal' style = "height: 400px"></div>
+                                </div>
+                            </div>
+                        
+                            <div class='row'>
+                                <div class='col-sm'>
+                                    <div id="gini_new" style='height:400px'></div>
+                                </div>
+                                <div class='col-sm'>
+                                    <div id="gini_e" style='height:400px'></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div style='height:15px'></div>
-                    <h4 style = "color: #ffffff">Model Weakness Diagnosis</h4>
+                <div style='height:15px'></div>
+                <h4 style = "color: #ffffff">Calibration graph</h4>
                 <div class = container-fluid>
                     <div class = "fakegraph">
-                        <div id='binomial' style='height:600px;'></div>
+                        <button class='btn btn-primary disabled button-subheader'> Calibration</button>
+                        <div class='row' >
+                            <div class='col-sm'>
+                                <div id='calnew' style='height:435px;width: 435px'>Calibration (new customer)</div>
+                            </div>
+                            <div class='col-sm'>
+                                <div id='calexist' style='height:435px;width: 435px'>Calibration (existing customer)</div>
+                            </div>
+                        </div>
                     </div>  
-                </div>
             <button class='btn btn-primary disabled button-subheader' id = "mpm" > Model Performance Monitoring</button>
             <h4 id = "acc_de" style = "color: #fff"> Accuracy Decay over Time</h4>
                 <div class ="container-fluid" style = "height: 300px;background-color: #292929; border-radius: 20px; margin-bottom: 1% ;">
@@ -516,7 +530,6 @@
                     <div class='col-sm'>
                         <h5 style = "color: #ffffff" > Time to Default (36 months)  </h5>
                         <div id="ead_36" style='height:435px'></div>
-            
                     </div>
                 </div>
         </div>
@@ -665,11 +678,15 @@
     <script src="../script/trsfdata_nume_2.js"></script>
     <script src="../script/trsfdata_nume_3.js"></script>
     <script src="../script/trsfdata_nume_4.js"></script>
-
     <script src="../script/T2D_6m"></script>
     <script src="../script/T2D_9m.js"></script>
     <script src="../script/T2D_12m.js"></script>
     <script src="../script/T2D_36m.js"></script>
+    <script src="../script/gini_total.js"></script>
+    <script src="../script/gini_e.js"></script>
+    <script src="../script/gini_new.js"></script>
+    <script src="../script/new_c.js"></script>
+    <script src="../script/exist_c.js"></script>
 
 
 

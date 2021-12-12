@@ -3,9 +3,9 @@ var myChart_heatmap = echarts.init(chartDom_heatmap);
 var option_heatmap;
 
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/heatmap_data.json', function (heatmap_df) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/heatmap_data.json', function (heatmap_df) {
 
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/heatmap_column_data.json', function (column_name) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/heatmap_column_data.json', function (column_name) {
         var my_df = heatmap_df.map(function (item) {
             return [item[1], item[0], item[2] || '-'];
         });

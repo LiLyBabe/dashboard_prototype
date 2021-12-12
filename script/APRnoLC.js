@@ -3,7 +3,7 @@ var myChart8 = echarts.init(chartDom8, 'dark');
 var option8;
 var $j = jQuery.noConflict();
 
-$.get('https://lilybabe.github.io/dashboard_files/NoLCLoanSizePDAPR_theirPD.json', function (data) {
+$.get('https://monex-p.github.io/dashboard_files/NoLCLoanSizePDAPR_theirPD.json', function (data) {
     var symbolSize = 2.3;
     var total_return = 0;
     for (var i = 0; i < data.length; i++) {
