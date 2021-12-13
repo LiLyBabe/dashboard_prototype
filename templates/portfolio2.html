@@ -177,7 +177,7 @@
 
             <!-- Start main content here  -->
             <div class='container-fluid'>
-                
+
                 <select id="test" name="form_select" onchange="showDiv(this)">
                     <option value="0"> Choose an attribute</option>
                     <option value="1">Customer Type</option>
@@ -190,23 +190,375 @@
                     <option value="8">Income Duration</option>
                     <option value="9">Previous Loan Count</option>
                 </select>
+                <div class='spacegiver'></div>
 
-                <div id="customer_type" class = 'hidden'> 
-                    <p>Customer Type</p>
-                    <div id = 'dist1' style='height:200px; width:600%'></div>
-                    <div id = 'parallel1' style = 'height: 200px;'></div>
+                <div id="customer_type" class='hidden'>
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist1' style='height:300px; width: 700%'>
+                        </div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel1' style='height: 300px; width: 700%'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
                 </div>
                 <div id="customer_zip" class='hidden'> Customer ZIP</div>
-                <div id="store_ID" class='hidden'>Store ID</div>
-                <div id="loan_amount" class='hidden'>Loan Amount</div>
-                <div id="monthly_income" class='hidden'> Net Monthly Income</div>
-                <div id="income_type" class='hidden'> Income Type</div>
-                <div id="address_duration" class='hidden'> Address Duration</div>
-                <div id="income_duration" class='hidden'> Income Duration</div>
-                <div id="previous_loan_count" class='hidden'> Previous Loan Count</div>
+                <div id="store_ID" class='hidden'>
+                    <div class='row'>
+                        <div class='col-sm fakegraph'>
+                            <div id='dist2' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel2' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
 
-                
+                    <div class='spacegiver'></div>
 
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="loan_amount" class='hidden'>
+                    <div class='row'>
+                        <div class='col-sm fakegraph'>
+                            <div id='dist3' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel3' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="monthly_income" class='hidden'>
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist4' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel4' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="income_type" class='hidden'>
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist5' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel5' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="address_duration" class='hidden'> 
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist6' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel6' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="income_duration" class='hidden'>
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist7' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel7' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+                <div id="previous_loan_count" class='hidden'>
+                    <div class='row'>
+                        <!-- <p>Customer Type</p> -->
+                        <div class='col-sm fakegraph'>
+                            <div id='dist8' style='height:300px; width:700%'></div>
+                        </div>
+                        <div class='col-sm fakegraph'>
+                            <div id='parallel8' style='height: 300px; width: 700%'></div>
+                        </div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='row fakegraph'>
+                        <table class='center'>
+                            <caption> Single Variate Information Value</caption>
+                            <thead>
+                                <tr>
+                                    <th> Customer Type</th>
+                                    <th>N</th>
+                                    <th>Bad</th>
+                                    <th> Odds </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New</td>
+                                    <td>700</td>
+                                    <td>200</td>
+                                    <td> 0.3</td>
+                                    <td> 0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Returning</td>
+                                    <td>3000</td>
+                                    <td>100</td>
+                                    <td> 0.02</td>
+                                    <td> 0.3</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+
+                <div class='spacegiver'></div>
+                <div class='fakegraph' id = 'payday_iv' style='height: 400px;'></div>
+                <div class = 'spacegiver'></div>
+                <div class = 'fakegraph' id = 'parallel_full' style = 'height: 400px;'> </div>
+            
 
 
 
@@ -279,6 +631,26 @@
 
 
     <script src="../script/dist1.js"></script>
+    <script src="../script/dist2.js"></script>
+    <script src="../script/dist3.js"></script>
+    <script src="../script/dist4.js"></script>
+    <script src="../script/dist5.js"></script>
+    <script src="../script/dist6.js"></script>
+    <script src="../script/dist7.js"></script>
+    <script src="../script/dist8.js"></script>
+    <script src="../script/payday_parallel_1.js"></script>
+    <script src="../script/payday_parallel_2.js"></script>
+    <script src="../script/payday_parallel_3.js"></script>
+    <script src="../script/payday_parallel_4.js"></script>
+    <script src="../script/payday_parallel_5.js"></script>
+    <script src="../script/payday_parallel_6.js"></script>
+    <script src="../script/payday_parallel_7.js"></script>
+    <script src="../script/payday_parallel_8.js"></script>
+    <script src="../script/payday_parallel_full.js"></script>
+    <script src="../script/payday_iv.js"></script>
+    
+
+    
 
 
     <script src="../script/RARnoLC.js"></script>

@@ -7,6 +7,7 @@
     height: 100%;
     background: #292929;
     border-radius: 20px;
+    /* flex-direction: row; */
 }
 
 .hidden{
@@ -130,11 +131,12 @@ table {
 table.center {
     margin-left: auto; 
     margin-right: auto;
+    margin-bottom: 1%;
   }
 
 th {
     border: 1px solid #36344E;
-    padding: 15px;
+    /* padding: 15px; */
     text-align: center;
     font-size: 1vw;
 }
@@ -142,7 +144,7 @@ th {
 td {
     text-align: center;
     border: 1px solid #36344E;
-    padding: 20% 1%;
+    padding: 2%;
     font-size: 0.85vw;
 }
 

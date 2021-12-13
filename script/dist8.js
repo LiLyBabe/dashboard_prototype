@@ -1,13 +1,13 @@
-var chartDom_1 = document.getElementById('dist1');
-var myChart_1 = echarts.init(chartDom_1);
-var option_1;
+var chartDom_8 = document.getElementById('dist8');
+var myChart_8 = echarts.init(chartDom_8);
+var option_8;
 
 $.get('https://monex-p.github.io/dashboard_prototype/data/payday_distribution_data.json', function (count_dict) {
     $.get('https://monex-p.github.io/dashboard_prototype/data/payday_default_data.json', function (pd_dict) {
 
-            var attribute_name = Object.keys(count_dict)[0]
+            var attribute_name = Object.keys(count_dict)[7]
 
-            option_1 = {
+            option_8 = {
                 title: {
                     text: attribute_name,
                     left: 'center',
@@ -67,8 +67,8 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_distribution_da
                     yAxisIndex: 1
                 }]
             };
-            myChart_1.setOption(option_1);
+            myChart_8.setOption(option_8);
     });
 });
 
-option_1 && myChart_1.setOption(option_1);
+option_8 && myChart_8.setOption(option_8);
