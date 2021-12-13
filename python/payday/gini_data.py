@@ -7,6 +7,7 @@ import json
 
 def gini_total(loc,sheet_name):
     data = pd.read_excel(loc, sheet_name, na_values=0)
+    data.sort_values(by=['PD'], ascending=False, inplace=True)
     N = len(data)
     D = data['Default'].sum()
     default = np.array(data.Default)
@@ -21,7 +22,7 @@ def gini_total(loc,sheet_name):
 if __name__ == '__main__':
     # params
     loc = 'D:\Epay\Epay\Data\Payday Data.xlsx'
-    sheet_name = 'AllData'
+    sheet_name = 'DatawPD'
 
     # write file
     fileLocation = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/'
