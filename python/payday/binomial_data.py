@@ -47,9 +47,9 @@ def get_binomial_data(loc, sheet_name, upper_pd_inbound, upper_pd_outbound, no_r
         test_set['Rating']).sum()
     binomial_table['PD'] = list(master_scale_df['Average'])
     binomial_table['lower_amount'] = binom.ppf(
-        0.025, binomial_table['no_loan'], binomial_table['PD'])
+        0.005, binomial_table['no_loan'], binomial_table['PD'])
     binomial_table['upper_amount'] = binom.ppf(
-        0.975, binomial_table['no_loan'], binomial_table['PD'])
+        0.995, binomial_table['no_loan'], binomial_table['PD'])
     binomial_table['difference'] = binomial_table['upper_amount'] - \
         binomial_table['lower_amount']
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
     upper_pd_inbound = 0.04
     upper_pd_outbound = 0.9999
-    no_rating = 12
+    no_rating = 10
 
     json_file = get_binomial_data(
         loc, sheet_name, upper_pd_inbound, upper_pd_outbound, no_rating)
