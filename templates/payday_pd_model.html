@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Dashboard Prototype</title>
+    <title>PD Model Summary</title>
     <script src="../lib/jquery.min.js"></script>
     <script src="../lib/popper.min.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
@@ -28,8 +28,8 @@
 </head>
 
 <body style='background-color: #30373F'>
-    <div class='wrapper' id ='content'>
-
+    <div class='wrapper'>
+        <div id ='content'>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -82,10 +82,13 @@
             <!-- Start main content here  -->
             <div class='container-fluid'>
 
-                <div id = 'payday_gini'> Gini Graph</div>
-                <div id = 'binomial'> Binomial Graph</div>
-                <div id = 'ks'> KS Testing</div>
+                <div class='fakegraph' id='payday_gini' style='height:400px'> Gini Graph</div>
+
+                <div class='spacegiver'></div>
                 
+                <div class = 'fakegraph' id = 'binomial' style='height:400px'> Binomial Graph</div>
+                <!-- <div id = 'ks'> KS Testing</div> -->
+
 
 
 
@@ -97,7 +100,7 @@
 
 
 
-
+        </div>
     </div>
 
 
@@ -143,7 +146,8 @@
 
 
     <script src="../script/payday_gini.js"></script>
-    
+    <script src="../script/payday_binomial.js"></script>
+
 
 
 
