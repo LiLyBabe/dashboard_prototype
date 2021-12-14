@@ -1,5 +1,5 @@
 var iRadius = 25;
-var iElevationScale = 50;
+var iElevationScale = 15;
 var map = new maptalks.Map('salary_distribution', {
     center: [105.844960, 20.997763],
     zoom: 10.5,

@@ -2,9 +2,9 @@ var chartDom_tc9 = document.getElementById('trsfdata_9');
 var myChart_tc9 = echarts.init(chartDom_tc9);
 var option_tc9;
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_list.json', function (count_list) {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_pd_list.json', function (pd_list) {
-        $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_column_list.json', function (column_list) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/transformed_count_list.json', function (count_list) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/transformed_pd_list.json', function (pd_list) {
+        $.get('https://monex-p.github.io/dashboard_prototype/data/transformed_column_list.json', function (column_list) {
 
             option_tc9 = {
                 title: {
@@ -31,15 +31,25 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 xAxis: {
                     type: 'category',
-                    data: function () {
-                        var list = [];
-                        for (var i = 1; i <= count_list[8].length; i++) {
-                            list.push(i);
-                        } return list
-                    }()
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
+                    // data: function () {
+                    //     var list = [];
+                    //     for (var i = 1; i <= count_list[8].length; i++) {
+                    //         list.push(i);
+                    //     } return list
+                    // }()
+                    data: ['No','Yes']
                 },
                 yAxis: [{
                     type: 'value',
+                    splitLine: {
+                        lineStyle: {
+                            color: '#36344E'
+                        },
+                        show: true
+                    },
                     axisLabel: {
                         color: '#ffffff'
                     }
@@ -47,6 +57,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/transformed_count_lis
                 },
                 {
                     type: 'value',
+                    splitLine: {
+                        show: false
+                    },
                     axisLabel: { color: '#ffffff' }
                 }],
                 series: [{

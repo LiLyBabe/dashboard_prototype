@@ -2,9 +2,9 @@ var chartDom_rc5 = document.getElementById('rawdata_5');
 var myChart_rc5 = echarts.init(chartDom_rc5);
 var option_rc5;
 
-$.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json', function (count_list) {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_pd_list.json', function (pd_list) {
-        $.get('https://lilybabe.github.io/dashboard_prototype/data/distribution_column_list.json', function (column_list) {
+$.get('https://monex-p.github.io/dashboard_prototype/data/raw_count_list.json', function (count_list) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/raw_pd_list.json', function (pd_list) {
+        $.get('https://monex-p.github.io/dashboard_prototype/data/distribution_column_list.json', function (column_list) {
 
             option_rc5 = {
                 title: {
@@ -18,7 +18,7 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                         type: 'shadow'
                     },
                     formatter: function (params){
-                        return params[0].name + '<br/>' + "Pop: " + params[0].value + '<br/>' 
+                        return "Hour: " + params[0].name + '<br/>' + "Pop: " + params[0].value + '<br/>' 
                         + "PD: " + params[1].value;
                     }
                 },
@@ -31,6 +31,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                 },
                 xAxis: {
                     type: 'category',
+                    axisLabel: {
+                        color: '#ffffff'
+                    },
                     data: function () {
                         var list = [];
                         for (var i = 1; i <= count_list[4].length; i++) {
@@ -40,6 +43,12 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                 },
                 yAxis: [{
                     type: 'value',
+                    splitLine: {
+                        lineStyle: {
+                            color: '#36344E'
+                        },
+                        show: true
+                    },
                     axisLabel: {
                         color: '#ffffff'
                     }
@@ -47,6 +56,9 @@ $.get('https://lilybabe.github.io/dashboard_prototype/data/raw_count_list.json',
                 },
                 {
                     type: 'value',
+                    splitLine: {
+                        show: false
+                    },
                     axisLabel: { color: '#ffffff' }
                 }],
                 series: [{

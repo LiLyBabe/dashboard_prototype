@@ -1,0 +1,57 @@
+[
+    {
+        "name": "loan_id",
+        "text": "Loan ID",
+        "index": 0
+    },
+    {
+        "name": "customer_id",
+        "text": "Customer ID",
+        "index": 1
+    },
+    {
+        "name": "customer_type",
+        "text": "Customer Type",
+        "index": 2
+    },
+    {
+        "name": "store_id",
+        "text": "Store ID",
+        "index": 3
+    },
+    {
+        "name": "loan_amount",
+        "text": "Loan Amount",
+        "index": 4
+    },
+    {
+        "name": "net_monthly_income",
+        "text": "Net Monthly Income",
+        "index": 5
+    },
+    {
+        "name": "income_type",
+        "text": "Income Type",
+        "index": 6
+    },
+    {
+        "name": "duration_at_address",
+        "text": "Duration at Address",
+        "index": 7
+    },
+    {
+        "name": "duration_of_income",
+        "text": "Duration of Income",
+        "index": 8
+    },
+    {
+        "name": "previous_loan_count",
+        "text": "Previous Loan Count",
+        "index": 9
+    },
+    {
+        "name": "default",
+        "text": "Default",
+        "index": 10
+    }
+]

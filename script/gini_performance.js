@@ -14,7 +14,7 @@ option = {
             type: 'line'
         },
         formatter: function (params) {
-            return "Run: " + params[0].name + '<br/>' + "In Sample Model Efficiency: " + params[0].value + '<br/>' + "Retraining Threshold: " + params[1].value
+            return "Run: " + params[0].name + '<br/>' + "In Sample Model Efficiency: " + params[0].value 
         }
     },
     xAxis: {
@@ -42,12 +42,22 @@ option = {
     },
     series: [{
         data: [0.48, 0.43, 0.4, 0.45, 0.46, 0.39, 0.35, 0.37, 0.33, 0.27, 0.25, 0.29, 0.27, 0.29],
-        type: 'line'
-    }, {
-        data: [0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23, 0.23],
         type: 'line',
         lineStyle: {
-            type: 'dashed'
+            color: '#f98f2a',
+        },
+        itemStyle:{
+            color: '#f98f2a'
+        },
+        markLine: {
+            data: [{
+                yAxis: 0.23,
+                name: 'Retraining Threshold'
+            }],
+            animation: true,
+            lineStyle: {
+                color: '#8e9b66'
+            }
         }
     }]
 };

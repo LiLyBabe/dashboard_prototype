@@ -1,8 +1,7 @@
-// Note: Change the dataset to make default the last index 
 
 $(document).ready(function () {
-    $.get('https://lilybabe.github.io/dashboard_prototype/data/quantitative_data.json', function (my_data) {
-        $.get('https://lilybabe.github.io/dashboard_prototype/data/quantitative_schema.json', function (schema) {
+    $.get('https://monex-p.github.io/dashboard_prototype/data/quantitative_data.json', function (my_data) {
+        $.get('https://monex-p.github.io/dashboard_prototype/data/quantitative_schema.json', function (schema) {
             var dataSize = 400;
             // $('.dropdown-item').click(function () {
             //     $("#dropdownMenuButton").html(this.innerHTML.trim());
@@ -90,105 +89,105 @@ $(document).ready(function () {
             var chart = echarts.init(document.getElementById('quantitative_filter'));
             console.time('render');
             var myOption = getOption();
-            myOption = generateGrids(myOption);
+            // myOption = generateGrids(myOption);
             chart.setOption(myOption);
             console.timeEnd('render');
 
-            function retrieveScatterData(data, dimX, dimY) {
-                var result = [];
-                for (var i = 0; i < data.length; i++) {
-                    var item = [data[i][dimX + 1], data[i][dimY + 1]];
-                    item[CATEGORY_DIM] = data[i][CATEGORY_DIM];
-                    item[5] = data[i][0]; // for ID
-                    result.push(item);
-                }
-                return result;
-            }
+            // function retrieveScatterData(data, dimX, dimY) {
+            //     var result = [];
+            //     for (var i = 0; i < data.length; i++) {
+            //         var item = [data[i][dimX + 1], data[i][dimY + 1]];
+            //         item[CATEGORY_DIM] = data[i][CATEGORY_DIM];
+            //         item[5] = data[i][0]; // for ID
+            //         result.push(item);
+            //     }
+            //     return result;
+            // }
 
-            function generateGrids(option) {
-                var index = 0;
+            // function generateGrids(option) {
+            //     var index = 0;
 
-                for (var i = 0; i < CATEGORY_DIM_COUNT; i++) {
-                    for (var j = 0; j < CATEGORY_DIM_COUNT; j++) {
-                        if (- i + j >= 0) {
-                            continue;
-                        }
+            //     for (var i = 0; i < CATEGORY_DIM_COUNT; i++) {
+            //         for (var j = 0; j < CATEGORY_DIM_COUNT; j++) {
+            //             if (- i + j >= 0) {
+            //                 continue;
+            //             }
 
-                        option.grid.push({
-                            left: BASE_LEFT + i * (GRID_WIDTH + GAP) + '%',
-                            top: BASE_TOP + j * (GRID_HEIGHT + GAP) + '%',
-                            width: GRID_WIDTH + '%',
-                            height: GRID_HEIGHT + '%'
-                        });
+            //             option.grid.push({
+            //                 left: BASE_LEFT + i * (GRID_WIDTH + GAP) + '%',
+            //                 top: BASE_TOP + j * (GRID_HEIGHT + GAP) + '%',
+            //                 width: GRID_WIDTH + '%',
+            //                 height: GRID_HEIGHT + '%'
+            //             });
 
-                        option.brush.xAxisIndex && option.brush.xAxisIndex.push(index);
-                        option.brush.yAxisIndex && option.brush.yAxisIndex.push(index);
+            //             option.brush.xAxisIndex && option.brush.xAxisIndex.push(index);
+            //             option.brush.yAxisIndex && option.brush.yAxisIndex.push(index);
 
-                        option.xAxis.push({
-                            splitNumber: 3,
-                            position: 'top',
-                            axisLine: {
-                                show: j === 0,
-                                onZero: false
-                            },
-                            axisTick: {
-                                show: j === 0,
-                                inside: true
-                            },
-                            axisLabel: {
-                                show: j === 0,
-                                color: '#ffffff'
-                            },
-                            type: 'value',
-                            gridIndex: index,
-                            scale: true
-                        });
+            //             option.xAxis.push({
+            //                 splitNumber: 3,
+            //                 position: 'top',
+            //                 axisLine: {
+            //                     show: j === 0,
+            //                     onZero: false
+            //                 },
+            //                 axisTick: {
+            //                     show: j === 0,
+            //                     inside: true
+            //                 },
+            //                 axisLabel: {
+            //                     show: j === 0,
+            //                     color: '#ffffff'
+            //                 },
+            //                 type: 'value',
+            //                 gridIndex: index,
+            //                 scale: true
+            //             });
 
-                        option.yAxis.push({
-                            splitNumber: 3,
-                            position: 'right',
-                            axisLine: {
-                                show: i === CATEGORY_DIM_COUNT - 1,
-                                onZero: false
-                            },
-                            axisTick: {
-                                show: i === CATEGORY_DIM_COUNT - 1,
-                                inside: true
-                            },
-                            axisLabel: {
-                                show: i === CATEGORY_DIM_COUNT - 1,
-                                color: '#ffffff'
-                            },
-                            type: 'value',
-                            gridIndex: index,
-                            scale: true
-                        });
-                        option.series.push({
-                            name: `scatter ${i} ${j}`,
-                            type: 'scatter',
-                            symbolSize: SYMBOL_SIZE,
-                            xAxisIndex: index,
-                            yAxisIndex: index,
-                            data: retrieveScatterData(data0, i, j),
-                            tooltip: {
-                                formatter: function (params) {
-                                    let indexs = params.seriesName.split(" ");
-                                    return `ID ${params.data[5]}<br/>
-                                    X (${schema[indexs[1]*1 + 1].text}) : ${params.data[0]}<br/>
-                                    Y (${schema[indexs[2]*1 + 1].text}) : ${params.data[1]} <br/> 
-                                    Default: ${params.data[CATEGORY_DIM]} `;
-                                }
-                            },
-                        });
+            //             option.yAxis.push({
+            //                 splitNumber: 3,
+            //                 position: 'right',
+            //                 axisLine: {
+            //                     show: i === CATEGORY_DIM_COUNT - 1,
+            //                     onZero: false
+            //                 },
+            //                 axisTick: {
+            //                     show: i === CATEGORY_DIM_COUNT - 1,
+            //                     inside: true
+            //                 },
+            //                 axisLabel: {
+            //                     show: i === CATEGORY_DIM_COUNT - 1,
+            //                     color: '#ffffff'
+            //                 },
+            //                 type: 'value',
+            //                 gridIndex: index,
+            //                 scale: true
+            //             });
+            //             option.series.push({
+            //                 name: `scatter ${i} ${j}`,
+            //                 type: 'scatter',
+            //                 symbolSize: SYMBOL_SIZE,
+            //                 xAxisIndex: index,
+            //                 yAxisIndex: index,
+            //                 data: retrieveScatterData(data0, i, j),
+            //                 tooltip: {
+            //                     formatter: function (params) {
+            //                         let indexs = params.seriesName.split(" ");
+            //                         return `ID ${params.data[5]}<br/>
+            //                         X (${schema[indexs[1]*1 + 1].text}) : ${params.data[0]}<br/>
+            //                         Y (${schema[indexs[2]*1 + 1].text}) : ${params.data[1]} <br/> 
+            //                         Default: ${params.data[CATEGORY_DIM]} `;
+            //                     }
+            //                 },
+            //             });
 
-                        option.visualMap.seriesIndex.push(option.series.length - 1);
+            //             option.visualMap.seriesIndex.push(option.series.length - 1);
 
-                        index++;
-                    }
-                }
+            //             index++;
+            //         }
+            //     }
 
-                return option;
-            }
+            //     return option;
+            // }
 
 
             function getOption() {
@@ -215,6 +214,9 @@ $(document).ready(function () {
                             opacity: 1
                         }
                     },
+                    // legend: {
+
+                    // },
                     visualMap: {
                         type: 'piecewise',
                         categories: ["0", "1"],
@@ -222,6 +224,9 @@ $(document).ready(function () {
                         orient: 'horizontal',
                         top: 0,
                         left: 'center',
+                        textStyle:{
+                            color: '#FFFFFF'
+                        },
                         inRange: {
                             color: ['#1167b1', '#c23531']
                         },
@@ -231,7 +236,8 @@ $(document).ready(function () {
                         seriesIndex: [0]
                     },
                     tooltip: {
-                        trigger: 'item'
+                        trigger: 'item',
+                        formatter: '{c}'
                     },
                     title: {
                         text: 'Parallel Diagram',
@@ -239,10 +245,10 @@ $(document).ready(function () {
                     },
                     parallelAxis: parallel_list,
                     parallel: {
-                        bottom: '1%',
+                        bottom: '5%',
                         left: '5%',
-                        height: '35%',
-                        width: '55%',
+                        height: '70%',
+                        width: '90%',
                     },
                     grid: [],
                     xAxis: [],
