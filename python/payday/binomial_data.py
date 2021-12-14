@@ -60,7 +60,7 @@ if __name__ == '__main__':
     loc = 'D:\Epay\Epay\Data\Payday Data.xlsx'
     sheet_name = 'DatawPD'
 
-    upper_pd_inbound = 0.04
+    upper_pd_inbound = 0.05
     upper_pd_outbound = 0.9999
     no_rating = 10
 

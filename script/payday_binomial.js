@@ -8,12 +8,15 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_binomial_data.j
         binomial_option = {
             title: {
                 text: "Binomial Test",
-                left: 'center',
-                // top: '2%',
+                // left: 'center',
+                top: '2%',
                 textStyle: { color: '#ffffff' }
             },
             grid: {
-                top: '75',
+                left: '3%',
+                right: '3%',
+                top: '15%',
+                bottom: '10%',
                 containLabel: true
             },
             tooltip: {
@@ -33,12 +36,11 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_binomial_data.j
                 type: 'category',
                 name: 'Credit Ratings',
                 nameLocation: 'middle',
-                nameGap: '30',
                 axisTick: 'false',
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
                 nameLocation: 'middle',
-                nameGap: 20,
+                nameGap: 35,
                 splitLine: { show: false },
                 data: binom_data[3]
             },
@@ -48,7 +50,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_binomial_data.j
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
                 nameLocation: 'middle',
-                nameGap: 30,
+                nameGap: 50,
                 splitLine: {
                     lineStyle: {
                         color: '#36344E'

@@ -34,7 +34,7 @@ def get_iv_data(loc,sheet_name):
         att_table['IV'] = (att_table['good_odd']-att_table['bad_odd'])*att_table['WoE']
         att_table['IV'][att_table.IV == np.inf] = 0
 
-        att_table = att_table.to_json()
+        att_table = att_table.to_json(orient = 'split')
         att_table = json.loads(att_table)
         my_dict[new_columns[i]] = att_table
         
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     sheet_name = 'AllData'
 
     json_file = get_iv_data(loc, sheet_name)
-    filePathName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'payday_iv_data.json' 
+    filePathName = 'D:/Epay/Epay/Dashboard/dashboard_prototype/data/' + 'payday_iv_row_data.json' 
 
     with open(filePathName, 'w') as fp:
         json.dump(json_file, fp)
