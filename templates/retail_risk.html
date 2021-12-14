@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard Prototype</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
+    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    
+</head>
+
+<body style='background-color: #30373F'>
+    <div class='wrapper'>
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>       
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#"><span class="mb-0 h6">Retail Loan</span></a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#sva">Single Variate Analysis</a>
+                          <a class="dropdown-item" href="#mva">Multivariate Analysis</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="#macc">Basic Reporting</a>
+                            <a class="dropdown-item" href="#mwkd">Model Weakness Diagnosis</a>
+                            
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">View PD Model</span><span class="arrow arrow-down"></span> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                              <a class="dropdown-item" href="#LGD_t">Gini</a>
+                              <a class="dropdown-item" href="#LGD_t">K-S Distance</a>
+                          </li>
+                    </ul>
+                  </div>
+                </nav>
+            <div class='container-fluid'>
+                <h3 style ="color: #ffff" id = "dataa"> Data Exploration</h3>
+        </div>
+        <script>
+            $(document).ready(function(){
+            $(".dropdown-menu li a").on("click",function(){
+            var iddiv =  $(this).attr("id") ;
+                $(".box").hide();
+                $("."+iddiv).show();
+                    });
+        });
+        </script>
+        <style>
+              div.box{
+            display:none;
+                    }
+        </style>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton">Feature Selection </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" id="disbursed">Disbursed Amount</a></li>
+                <li><a href="#"id="income">Monthly Income</li> 
+                <li><a href="#"id="credit">Total Credit Lines</a></li>
+                <li><a href="#"id="apr">APR</a></li>
+                <li><a href="#"id="fico">FICO</a></li>        
+                <li><a href="#"id="riskscore">Risk Score</a></li>                
+                <li><a href="#"id="residence">Residence Status</a></li>           
+                <li><a href="#"id="vantage">Vantage Score</a></li>               
+                <li><a href="#"id="loan_pool">Loan Pool</a></li>
+                <li><a href="#"id="loan_purpose">Loan Purpose</a></li>           
+            </ul>
+        </div>
+            <div class="disbursed box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_loanamt' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_disbursed' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+                <div style = "height: 15px"></div>
+                <div class = 'container-fluid'>
+                    <div class = 'fakegraph'>
+                        <div style = 'height: 15px'></div>
+                        <table class='table talbe-striped table-hover' style=' color:white'>
+                            <thead>
+                                <tr>
+                                    <th> Disbursed Amount </th>
+                                    <th> N </th>
+                                    <th> Bad</th>
+                                    <th> Default Odds </th>
+                                    <th> WOE </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 800-2000 </td>
+                                    <td> 1594 </td>
+                                    <td> 424</td>
+                                    <td> 27% </td>
+                                    <td> 0.3936 </td>
+                                    <td> 0.010164 </td>
+                                </tr>
+                                <tr>
+                                    <td> 2000-2600 </td>
+                                    <td> 3905 </td>
+                                    <td> 1081</td>
+                                    <td> 28% </td>
+                                    <td> 0.3389 </td>
+                                    <td> 0.018655 </td>
+                                </tr>
+                                <tr>
+                                    <td> 2600-3500 </td>
+                                    <td> 4926 </td>
+                                    <td> 1751</td>
+                                    <td> 36% </td>
+                                    <td> -0.0263 </td>
+                                    <td> 0.000151 </td>
+                                </tr>
+                                <tr>
+                                    <td> 3500-5000 </td>
+                                    <td> 2177 </td>
+                                    <td> 1897</td>
+                                    <td> 37% </td>
+                                    <td> -0.0701 </td>
+                                    <td> 0.001306 </td>
+                                </tr>
+                                <tr>
+                                    <td> 5000-10000 </td>
+                                    <td> 2488 </td>
+                                    <td> 1657</td>
+                                    <td> 40% </td>
+                                    <td> -0.1984 </td>
+                                    <td> 0.011214 </td>
+                                </tr>
+                                <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td> </td>
+                                    <td>  </td>
+                                    <td> Total </td>
+                                    <td> 0.041489 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+       
+            <div class="income box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_income' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_income' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+                <div style = "height: 15px"></div>
+                <div class = 'container-fluid'>
+                    <div class = 'fakegraph'>
+                        <div style = 'height: 15px'></div>
+                        <table class='table talbe-striped table-hover' style=' color:white'>
+                            <thead>
+                                <tr>
+                                    <th> Monthly Income </th>
+                                    <th> N </th>
+                                    <th> Bad</th>
+                                    <th> Default Odds </th>
+                                    <th> WOE </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 406-2000 </td>
+                                    <td> 1938 </td>
+                                    <td> 734</td>
+                                    <td> 38% </td>
+                                    <td> -0.1801 </td>
+                                    <td> 0.002849 </td>
+                                </tr>
+                                <tr>
+                                    <td> 2000-2700 </td>
+                                    <td> 3593 </td>
+                                    <td> 1210</td>
+                                    <td> 34% </td>
+                                    <td> 0.0027 </td>
+                                    <td> 0.000001 </td>
+                                </tr>
+                                <tr>
+                                    <td> 2700-3800 </td>
+                                    <td> 5794 </td>
+                                    <td> 2004</td>
+                                    <td> 35% </td>
+                                    <td> -0.0378 </td>
+                                    <td> 0.000367 </td>
+                                </tr>
+                                <tr>
+                                    <td> 3800-5224.5 </td>
+                                    <td> 5674 </td>
+                                    <td> 1960</td>
+                                    <td> 35% </td>
+                                    <td> -0.0358 </td>
+                                    <td> 0.000323 </td>
+                                </tr>
+                                <tr>
+                                    <td> 5224.5-19702 </td>
+                                    <td> 5667 </td>
+                                    <td> 1739</td>
+                                    <td> 31% </td>
+                                    <td> 0.1398 </td>
+                                    <td> 0.004771 </td>
+                                </tr>
+                                <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td> </td>
+                                    <td>  </td>
+                                    <td> Total </td>
+                                    <td> 0.008312 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+
+            <div class="credit box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_creditlines' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_credit' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+                <div style = "height: 15px"></div>
+                <div class = 'container-fluid'>
+                    <div class = 'fakegraph'>
+                        <div style = 'height: 15px'></div>
+                        <table class='table talbe-striped table-hover' style=' color:white'>
+                            <thead>
+                                <tr>
+                                    <th> Total Credit Lines </th>
+                                    <th> N </th>
+                                    <th> Bad</th>
+                                    <th> Default Odds </th>
+                                    <th> WOE </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 0-3 </td>
+                                    <td> 1786 </td>
+                                    <td> 660</td>
+                                    <td> 37% </td>
+                                    <td> -0.1408 </td>
+                                    <td> 0.001596 </td>
+                                </tr>
+                                <tr>
+                                    <td> 3-5 </td>
+                                    <td> 2531 </td>
+                                    <td> 857</td>
+                                    <td> 34% </td>
+                                    <td> -0.0055 </td>
+                                    <td> 0.000003 </td>
+                                </tr>
+                                <tr>
+                                    <td> 5-9 </td>
+                                    <td> 5731 </td>
+                                    <td> 1907</td>
+                                    <td> 33% </td>
+                                    <td> 0.0208 </td>
+                                    <td> 0.000109 </td>
+                                </tr>
+                                <tr>
+                                    <td> 9-15 </td>
+                                    <td> 6366 </td>
+                                    <td> 2131</td>
+                                    <td> 33% </td>
+                                    <td> 0.0118 </td>
+                                    <td> 0.000039 </td>
+                                </tr>
+                                <tr>
+                                    <td> >15 </td>
+                                    <td> 6252 </td>
+                                    <td> 2092</td>
+                                    <td> 33% </td>
+                                    <td> 0.0124 </td>
+                                    <td> 0.000042 </td>
+                                </tr>
+                                <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td> </td>
+                                    <td>  </td>
+                                    <td> Total </td>
+                                    <td> 0.001790 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+            <div class="apr box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_apr' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_apr' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+            </div> 
+            <div class="fico box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_fico' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_fico' style='height:250px;width:700%'></div>
+                    </div>
+            </div>
+            <div> 
+            <div class="vantage box">
+                <div class = 'fakegraph'>
+                    <div class="row" >
+                        <div class="col-sm" id='iv_vantage' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_vantage' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+                <div style = "height: 15px"></div>
+                <div class = 'container-fluid'>
+                    <div class = 'fakegraph'>
+                        <div style = 'height: 15px'></div>
+                        <table class='table talbe-striped table-hover' style=' color:white'>
+                            <thead>
+                                <tr>
+                                    <th> Vantage Score </th>
+                                    <th> N </th>
+                                    <th> Bad</th>
+                                    <th> Default Odds </th>
+                                    <th> WOE </th>
+                                    <th> Information Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 430-547 </td>
+                                    <td> 2178 </td>
+                                    <td> 927</td>
+                                    <td> 42% </td>
+                                    <td> -0.3752 </td>
+                                    <td> 0.01423 </td>
+                                </tr>
+                                <tr>
+                                    <td> 547-570 </td>
+                                    <td> 3347 </td>
+                                    <td> 1265</td>
+                                    <td> 37.8% </td>
+                                    <td> -0.1767 </td>
+                                    <td> 0.004737 </td>
+                                </tr>
+                                <tr>
+                                    <td> 570-596 </td>
+                                    <td> 5584 </td>
+                                    <td> 1901</td>
+                                    <td> 34% </td>
+                                    <td> -0.013655078 </td>
+                                    <td> 0.000046 </td>
+                                </tr>
+                                <tr>
+                                    <td> 596-626 </td>
+                                    <td> 5853 </td>
+                                    <td> 1897</td>
+                                    <td> 32.4% </td>
+                                    <td> 0.05995 </td>
+                                    <td> 0.000919 </td>
+                                </tr>
+                                <tr>
+                                    <td> 626-821 </td>
+                                    <td> 5704 </td>
+                                    <td> 1657</td>
+                                    <td> 29% </td>
+                                    <td> 0.2179 </td>
+                                    <td> 0.011503 </td>
+                                </tr>
+                                <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td> </td>
+                                    <td>  </td>
+                                    <td> Total </td>
+                                    <td> 0.031438 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+            
+            <div class="riskscore box">
+                <div class = 'fakegraph'>
+                    <div class="row">
+                        <div class="col-sm" id='iv_riskscore' style='height:250px;width:700%;'></div>
+                        <div class="col-sm" id='parallel_riskscore' style='height:250px;width:700%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="residence box">hihi2</div>
+            <div class="loan_pool box">hihi3</div>
+            <div class="loan_purpose box">hihi3</div>
+
+        </div>
+        </div>
+        </body>
+</footer>
+         </div>
+         </div>
+        </body>   
+
+
+    
+    <footer class="container-fluid bg-grey py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <img src="../data/logo-epay.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>More Information</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        <li> <a href="#"> Team</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </footer>
+
+    <!-- JavaScript and Data -->
+
+    <script src="../script/parallel_single.js"></script>
+    <script src="../script/iv_loanamt.js"></script>
+    <script src="../script/iv_apr.js"></script>
+    <script src="../script/iv_credit.js"></script>
+    <script src="../script/iv_fico.js"></script>
+    <script src="../script/iv_income.js"></script>
+    <script src="../script/iv_loanpool.js"></script>
+    <script src="../script/iv_residence.js"></script>
+    <script src="../script/iv_purpose.js"></script>
+    <script src="../script/iv_riskscore.js"></script>
+    <script src="../script/iv_vantage.js"></script>
+    <script src="../script/parallel_disbursed.js"></script>
+    <script src="../script/parallel_income.js"></script>
+    <script src="../script/parallel_riskscore.js"></script>
+    <script src="../script/parallel_credit.js"></script>
+</body>
+
+</html>
