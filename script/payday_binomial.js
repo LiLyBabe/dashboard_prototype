@@ -9,11 +9,11 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_binomial_data.j
             title: {
                 text: "Binomial Test",
                 // left: 'center',
-                top: '2%',
+                // top: '3%',
                 textStyle: { color: '#ffffff' }
             },
             grid: {
-                left: '3%',
+                left: '5%',
                 right: '3%',
                 top: '15%',
                 bottom: '10%',
