@@ -6,7 +6,7 @@ option_5 = {
   title: {
     text: 'IV (APR)',
     left: 'center',
-    textStyle:{color: '#ffffff'}
+    textStyle: {color: '#ffffff'}
 },
   tooltip: {
                 trigger: 'axis',
