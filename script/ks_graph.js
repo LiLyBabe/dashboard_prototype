@@ -4,7 +4,7 @@ var option_ks;
 
 
 $.get('https://ntmy99.github.io/db_data.io/ks_bad.json', function (baddata) {
-    $.get('https://ntmy99.github.io/db_data.io/ks_good.json', function (good) {
+    $.get('https://ntmy99.github.io/db_data.io/ks_good.json', function (gooddata) {
         var bad_data = baddata
 option_ks = {
   title: {
@@ -47,7 +47,7 @@ tooltip: {
       name: 'Good',
       type: 'bar',
       color: '#6495ED',
-      data: bad_data[1],
+      data: gooddata[1],
       emphasis: {
         focus: 'series'
       },
