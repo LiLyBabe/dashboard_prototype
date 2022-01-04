@@ -63,7 +63,9 @@ option_taddemo = {
     }
   ],
   yAxis: [
-    {
+    { name: 'Number of Default per month',
+      nameLocation: 'middle',
+      nameGap: 50,
       type: 'value',
       splitLine: {
         lineStyle: { color: '#36344E' },

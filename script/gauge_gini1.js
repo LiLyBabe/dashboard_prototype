@@ -1,8 +1,8 @@
-var chartDom_gaugegini1 = document.getElementById('gauge_gini1');
-var myChart_gaugegini1 = echarts.init(gaugegini1);
-var option_gaugegini1;
+var chartDom_gaugegini= document.getElementById('gauge_gini1');
+var myChart_gaugegini = echarts.init(chartDom_gaugegini);
+var option_gaugegini;
 
-option_gaugegini1 = {
+option_gaugegini = {
   series: [
     {
       type: 'gauge',
@@ -47,12 +47,12 @@ option_gaugegini1 = {
         }
       },
       axisLabel: {
-        color: '#464646',
+        color: '#ffffff',
         fontSize: 16,
         distance: -100,
         formatter: function (value) {
           if (value === 0.9) {
-            return 'Too Good';
+            return 'Utopia';
           } else if (value === 0.7) {
             return 'Good';
           } else if (value === 0.5) {
@@ -81,6 +81,7 @@ option_gaugegini1 = {
       data: [
         {
           value: 0.7,
+          color: "ffffff",
           name: 'Gini'
         }
       ]
@@ -88,4 +89,4 @@ option_gaugegini1 = {
   ]
 };
 
-option_gaugegini1 && myChart_gaugegini1.setOption(option_gaugegini1);
+option_gaugegini && myChart_gaugegini.setOption(option_gaugegini);

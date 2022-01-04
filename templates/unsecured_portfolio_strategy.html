@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title> View Portfolio</title>
+    <title> Portfolio Strategy</title>
     <script src="../lib/jquery.min.js"></script>
     <script src="../lib/popper.min.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
@@ -60,26 +60,25 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="unsecured_data_explore.html#unsecured_sva">Single Variate Analysis</a>
-                          <a class="dropdown-item" href="#unsecured_data_explore.html#unsecured_mva"">Multivariate Analysis</a>
+                          <a class="dropdown-item" href="#unsecured_data_explore.html#unsecured_mva">Multivariate Analysis</a>
                       </li>
-                      <li class="nav-item dropdown active">
+                      <li class="nav-item dropdown ">
                           <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
+                            <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting">Basic Reporting</a>                            
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mb-0 h6">View PD Model</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                               <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_gini">Gini</a>
-                              <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_gini_gauge">Gini</a>
                               <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_ks">K-S Distance</a>
                               <a class = "dropdown-item" href = "unsecured_view_pd.html#unsecured_binomial">Binomial Testing</a>
                           </li>
-                          <li class="nav-item dropdown">
+                          <li class="nav-item dropdown active">
                             <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mb-0 h6">Portfolio Strategy</span><span class="arrow arrow-down"></span> 
                             </a>
@@ -90,57 +89,17 @@
                   </div>
                 </nav>
             <div class='container-fluid'>
-                <h3 style ="color: #ffff" id = "basic_reporting"> View Portfolio</h3>
+                <h3 style ="color: #ffff" id = "p_strategy">Portfolio Strategy</h3>
             </div>
-            <div class = container-fluid>
-                <div class = 'row'>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
-                    TOTAL LOANS: 22,444
-                   
-                    </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
-                    BAD LOANS: 7,999
-
-                    </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
-                    GOOD LOANS: 
-                
-                    </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
-                    ACTIVE LOANS: 
-
-                    
-                    </div>
-                </div>
-            </div>
-              <div style = "height: 15px"></div>
-            <div class = 'container-fluid'>
-                <div class = 'row'>
+            <div class = "container-fluid">
+                <div class = "row">
+                    <div class = "col" id = "limitc" style = "height: 700px; background-color: #292929; border-radius: 20px; margin-bottom: 1%;"></div>
                     <div class = "col">
-                        <div class = 'fakegraph'>
-                            <div id = "pie_lg" style='height:400px; width: 100%'></div>
-                        </div>
-                    </div>
-                    <div class = "col">
-                        <div class = 'fakegraph'>
-                            <div id = "pmix" style='height:400px; width: 100%'></div>
-                        </div>
+                        <div id = "scattergb" style = "height: 350px; background-color: #292929; border-radius: 20px; margin-bottom: 1%;"></div>
+                        <div id = "scatter_o" style = "height: 350px; background-color: #292929; border-radius: 20px; margin-bottom: 1%;"></div>
                     </div>
                 </div>
-        </div>
-        <div style = "height: 15px"></div>
-            <div class = 'container-fluid'>
-                    <div class = 'fakegraph'>
-                        <div id = "goodbad" style='height:400px; width: 100%'></div>
-                    </div>
-                </div>
-                <div style = "height: 15px"></div>
-                <div class = 'container-fluid'>
-                            <div class = 'fakegraph'>
-                                <div id = "tad_demo" style='height:400px; width: 100%'></div>
-                            </div>
             </div>
-            <div style = "height: 15px"></div>
         </div>
     </div>
 </body>

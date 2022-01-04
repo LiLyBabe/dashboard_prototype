@@ -76,6 +76,13 @@
                               <a class = "dropdown-item" href = "unsecured_view_pd.html#unsecured_binomial">Binomial Testing</a>
                               <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_ks">K-S Distance</a>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">Portfolio Strategy</span><span class="arrow arrow-down"></span> 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                              <a class="dropdown-item" href="unsecured_portfolio_strategy.html#p_strategy">Limit Control</a>
+                          </li>
                     </ul>
                   </div>
                 </nav>
@@ -88,11 +95,12 @@
             <div class = 'row'>
                     <div class = "col">
                         <button class='btn btn-primary disabled button-subheader' id = "unsecured_gini">Gini</button>
-                        <div id = "gini_exb" style='height:600px; width: 100%'></div>
+                        <div id = "gini_exb" style='height:400px; width: 100%'></div>
+                        
                     </div>
                     <div class = "col" >
-                        <button class='btn btn-primary disabled button-subheader' id = "unsecured_ks">Kolmogorov Smirnov</button>
-                        <div id = 'ks_dist' style='height:600px; width: 100%'></div>
+                            <button class='btn btn-primary disabled button-subheader' id = "unsecured_ginigauge">Gini</button>
+                            <div id = 'gauge_gini1' style='height:400px; width: 100%'></div>
                     </div>
             </div>
         </div>
@@ -100,8 +108,16 @@
     <div style = "height: 15px"></div>
     <div class = 'container-fluid'>
         <div class = 'fakegraph'>
-            <button class='btn btn-primary disabled button-subheader' id = "unsecured_binomial">Binomial</button>
-            <div id = "binomial_u" style='height:600px; width: 100%'></div>
+            <div class = 'row'>
+                    <div class = "col">
+                        <button class='btn btn-primary disabled button-subheader' id = "">Kolmogrov Smirnov</button>
+                        <div id = "ks_dist" style='height:500px; width: 100%'></div>
+                    </div>
+                    <div class = "col" >
+                            <button class='btn btn-primary disabled button-subheader' id = "">Binomial Testing</button>
+                            <div id = 'binomial_u' style='height:500px; width: 100%'></div>
+                    </div>
+            </div>
         </div>
     </div>
 </div>
@@ -148,32 +164,11 @@
     </footer>
 
     <!-- JavaScript and Data -->
-
-
-    <script src="../script/iv_loanamt.js"></script>
-    <script src="../script/iv_loanpool.js"></script>
-    <script src="../script/iv_vantage.js"></script>
-    <script src="../script/iv_purpose.js"></script>
-    <script src="../script/iv_residence.js"></script>
-    
-    <script src="../script/iv_riskscore.js"></script>
-    <script src="../script/iv_apr.js"></script>
-    <script src="../script/iv_credit.js"></script>
-    <script src="../script/iv_all.js"></script>
-    <script src="../script/iv_fico.js"></script>
-    <script src="../script/iv_income.js"></script>
-    <script src="../script/parallel_disbursed.js"></script>
-    <script src="../script/parallel_fico.js"></script>
-    <script src="../script/parallel_income.js"></script>
-    <script src="../script/parallel_riskscore.js"></script>
-    <script src="../script"></script>
-    <script src="../script/parallel_apr.js"></script>
-    <script src="../script/parallel_credit.js"></script>
-    <script src="../script/parallel_vantage.js"></script>
-    <script src="../script/parallel_data.js"></script>
     <script src="../script/gini_exb.js"></script>
     <script src="../script/ks_graph.js"></script>
     <script src="../script/binomial_u.js"></script>
+    <script src="../script/gauge_gini1.js"></script>
+    
 </body>
 
 </html>
