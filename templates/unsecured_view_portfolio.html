@@ -70,14 +70,13 @@
                             <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting">Basic Reporting</a>                            
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mb-0 h6">View PD Model</span><span class="arrow arrow-down"></span> 
+                            <a class="nav-link" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">PD Model Build Report</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                              <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_gini">Gini</a>
-                              <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_gini_gauge">Gini</a>
-                              <a class="dropdown-item" href="unsecured_view_pd.html#unsecured_ks">K-S Distance</a>
-                              <a class = "dropdown-item" href = "unsecured_view_pd.html#unsecured_binomial">Binomial Testing</a>
+                              <a class="dropdown-item" href = "unsecured_pd_report.html#unsecured_gini" >Gini</a>
+                              <a class="dropdown-item" href = "unsecured_pd_report.html#unsecured_binomial">Binomial Testing</a>
+                              <a class="dropdown-item" href = "unsecured_pd_report.html#unsecured_ks">K-S Distance</a>
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,26 +89,25 @@
                   </div>
                 </nav>
             <div class='container-fluid'>
-                <h3 style ="color: #ffff" id = "basic_reporting"> View Portfolio</h3>
+                <h3 style ="color: #ffff" id = "basic_reporting">Portfolio Reporting x  </h3>
             </div>
             <div class = container-fluid>
                 <div class = 'row'>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
-                    TOTAL LOANS: 22,444
-                   
+                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%; height: 100px'>
+                   TOTAL LOANS: 22,444
                     </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
+                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;height: 100px'>
                     BAD LOANS: 7,999
 
                     </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
+                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;height: 100px'>
                     GOOD LOANS: 
                 
                     </div>
-                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;'>
+                    <div class = "col" style='background-color: #ffffff;border-radius: 20px; margin-bottom: 1%;height: 100px'>
                     ACTIVE LOANS: 
 
-                    
+
                     </div>
                 </div>
             </div>
@@ -127,19 +125,22 @@
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
         <div style = "height: 15px"></div>
-            <div class = 'container-fluid'>
+        <div class = 'container-fluid'>
+            <div class = 'row'>
+                <div class = "col">
                     <div class = 'fakegraph'>
                         <div id = "goodbad" style='height:400px; width: 100%'></div>
                     </div>
                 </div>
-                <div style = "height: 15px"></div>
-                <div class = 'container-fluid'>
-                            <div class = 'fakegraph'>
-                                <div id = "tad_demo" style='height:400px; width: 100%'></div>
-                            </div>
+                <div class = "col">
+                    <div class = 'fakegraph'>
+                        <div id = "tad_demo" style='height:400px; width: 100%'></div>
+                    </div>
+                </div>
             </div>
+        </div> 
             <div style = "height: 15px"></div>
         </div>
     </div>

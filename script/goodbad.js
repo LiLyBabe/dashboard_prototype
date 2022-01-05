@@ -6,11 +6,11 @@ option_goodbad = {
   title: {
     text: 'Good Loans vs Bad Loans',
     left: 'center',
+    
     textStyle: { color: '#ffffff' }
   },
   legend: {
     data: ['Good Loans', 'Bad Loans', 'Default Odds'],
-    left: 'left',
     textStyle: {color: '#ffffff'},
   },
   tooltip: {

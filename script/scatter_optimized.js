@@ -42,13 +42,13 @@ option_scattero = {
         name: "Good",
         type: 'scatter',
         data: scatter_o[0],
-        symbolSize: 10,
+        symbolSize: 5,
         color: "#ffcc33"
     },
     {   name: "Bad",
         type: 'scatter',
         data: scatter_o[1],
-        symbolSize: 10,
+        symbolSize: 5,
         color: "#e53315"
     }
   ]
