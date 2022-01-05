@@ -6,11 +6,13 @@ option_goodbad = {
   title: {
     text: 'Good Loans vs Bad Loans',
     left: 'center',
+    top: 10,
     fontSize:10 ,
     textStyle: { color: '#ffffff' }
   },
   legend: {
     data: ['Good Loans', 'Bad Loans', 'Default Odds'],
+    top: 30,
     textStyle: {color: '#ffffff'},
   },
   tooltip: {
@@ -27,7 +29,10 @@ option_goodbad = {
   },
 
   xAxis: [
-    {
+    { name: "Datetime",
+      nameTextStyle: { color: '#ffffff' },
+      nameLocation: 'middle',
+      nameGap: 20,
       type: 'category',
       data: [
         'Jan/16',
@@ -62,7 +67,8 @@ option_goodbad = {
     }
   ],
   yAxis: [
-    {
+    { name: "Number of Loans",
+      nameTextStyle: { color: '#ffffff' },
       type: 'value',
       splitLine: {
         lineStyle: { color: '#36344E' },
@@ -72,7 +78,8 @@ option_goodbad = {
         color: '#ffffff'
       }
     },
-    {
+    { name: "% Odds",
+      nameTextStyle: { color: '#ffffff' },
       type: 'value',
       splitLine: {
         show: false
@@ -88,7 +95,8 @@ option_goodbad = {
         4872, 5122, 5408, 5900, 6557, 7291, 7988, 8840, 10070, 11941, 14024,
         14568, 15019, 15019
       ],
-      type: 'line'
+      type: 'line',
+      symbolSize: 0,
     },
     {
       name: 'Bad Loans',
@@ -97,11 +105,13 @@ option_goodbad = {
         5322, 5487, 5721, 5988, 6271, 6535, 6761, 6976, 7194, 7432, 7628, 7646,
         7647, 7647
       ],
-      type: 'line'
+      type: 'line',
+      symbolSize: 0
     },
     {
       name: 'Default Odds',
       type: 'line',
+      symbolSize: 0,
       data: [
         0.52, 0.52, 0.52, 0.51, 0.49, 0.47, 0.47, 0.48, 0.49, 0.52, 0.52, 0.52,
         0.52, 0.52, 0.52, 0.51, 0.5, 0.49, 0.47, 0.46, 0.44, 0.42, 0.38, 0.35,
