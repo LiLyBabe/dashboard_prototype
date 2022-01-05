@@ -28,15 +28,20 @@ option_pmix = {
       xAxis: [
         {
           type: 'category',
-           axisLabel: { color: '#ffffff' },
+          name: "Credit Rating",
+          nameTextStyle: {color:'#ffffff'} ,
+          nameLocation: 'middle',
+          nameGap: 17,
+          axisLabel: { color: '#ffffff' },
           data: ['A', 'B', 'C', 'D', 'E', 'F', 'G','H','I','J','K','L'],
           splitLine: { show: false }           
         }
       ],
       yAxis: [
-        {
+        { name: "Number of Loans",
+          nameTextStyle: {color:'#ffffff'} ,
           type: 'value',
-           axisLabel: { color: '#ffffff' },
+          axisLabel: { color: '#ffffff' },
           splitLine: { show: false }           
         }
       ],
@@ -45,7 +50,7 @@ option_pmix = {
           name: 'Good Loans',
           type: 'bar',
           stack: 'Loans',
-          color: '#1a7cc5',
+          color: '#ffcc33',
           emphasis: {
             focus: 'series'
           },
@@ -65,7 +70,7 @@ option_pmix = {
         {
           name: 'Bad Loans',
           type: 'bar',
-          color: "#FFA500",
+          color: "#e53315",
           stack: 'Loans',
           emphasis: {
             focus: 'series'
