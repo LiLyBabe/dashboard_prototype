@@ -6,7 +6,7 @@ option_goodbad = {
   title: {
     text: 'Good Loans vs Bad Loans',
     left: 'center',
-    
+    fontSize:10 ,
     textStyle: { color: '#ffffff' }
   },
   legend: {
