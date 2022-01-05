@@ -22,14 +22,21 @@ option_scattergb = {
     textStyle:{color: '#ffffff'}
   },
   xAxis: [
-    {  splitLine: {
+    { name: 'Loan Amount',
+      nameLocation: 'middle',
+      nameTextStyle: { color: '#ffffff' },
+      nameGap: 15,
+      splitLine: {
       show: false
     },
       axisLabel: { color: '#ffffff' }
     }
   ],
   yAxis: [
-    { splitLine: {
+    
+    { name: 'PD',
+      nameTextStyle: { color: '#ffffff' },
+      splitLine: {
       show: false
     },
       axisLabel: {
