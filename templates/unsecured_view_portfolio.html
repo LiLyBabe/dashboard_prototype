@@ -55,23 +55,23 @@
                         <a class="nav-link" href="#"><span class="mb-0 h6">Retail Loan</span></a>
                       </li>
                       <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span> 
+                        <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="unsecured_data_explore.html#unsecured_sva">Single Variate Analysis</a>
-                          <a class="dropdown-item" href="#unsecured_data_explore.html#unsecured_mva"">Multivariate Analysis</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                          <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting" >Basic Reporting</a>                            
                       </li>
                       <li class="nav-item dropdown active">
-                          <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting">Basic Reporting</a>                            
-                        </li>
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mb-0 h6">Feature Engineering</span><span class="arrow arrow-down"></span> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href = "unsecured_data_explore.html#unsecured_sva">Single Variate Analysis</a>
+                          <a class="dropdown-item" href = "unsecured_data_explore.html#unsecured_mva">Multivariate Analysis</a>
+                      </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mb-0 h6">PD Model Build Report</span><span class="arrow arrow-down"></span> 
+                                <span class="mb-0 h6">View PD Model</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                               <a class="dropdown-item" href = "unsecured_pd_report.html#unsecured_gini" >Gini</a>
@@ -94,68 +94,109 @@
             <div class="row">
                                 <div class="col-xl-3 col-md-6">
 									<div class="card text-black bg-light">
+                                        <div class="card-header">
+                                            <div class = "row align-items-center m-b-25">
+                                                <div class="col">
+                                                    <h4 class="m-b-5 text-black">Total Loans</h4>
+                                                </div>
+                                                <div class ="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                        </div>
 										<div class="card-body">
 											<div class="row align-items-center m-b-25">
 												<div class="col">
-													<h4 class="m-b-5 text-black">Total Loans</h6>
-													<h3 class="m-b-0 text-black">22,444</h3>
-												</div>
-												<div class="col-auto">
-													
-												</div>
+                                                    <h5 class="m-b-5 text-black">Total</h5>
+                                                    <h4 class="m-b-5 text-black">22,444</h4>
+                                                </div>
+                                                <div class="col">
+                                                    <h5 class="m-b-5 text-black">Value</h5> 
+                                                    <h4 class="m-b-5 text-black">$2,444,000</h4>   
+                                                </div>
 											</div>
-											<p class="m-b-0 text-black"><span class="label label-danger m-r-10"></span>hehe testing</p>
 										</div>
 									</div>
 								</div>
 								<div class="col-xl-3 col-md-6">
 									<div class="card text-black bg-light">
+                                        <div class="card-header">
+                                            <div class = "row align-items-center m-b-25">
+                                                <div class="col">
+                                                    <h4 class="m-b-5 text-black">Good Loans</h4>
+                                                </div>
+                                                <div class ="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                        </div>
 										<div class="card-body">
 											<div class="row align-items-center m-b-25">
 												<div class="col">
-													<h4 class="m-b-5 text-black">Good Loans</h6>
-													<h3 class="m-b-0 text-black">22,444</h3>
-												</div>
-												<div class="col-auto">
-													
-												</div>
+                                                    <h5 class="m-b-5 text-black">Total</h5>
+                                                    <h4 class="m-b-5 text-black">15,019</h4>
+                                                </div>
+                                                <div class="col">
+                                                    <h5 class="m-b-5 text-black">Value</h5> 
+                                                    <h4 class="m-b-5 text-black">$444,000</h4>   
+                                                </div>
 											</div>
-											<p class="m-b-0 text-black"><span class="label label-danger m-r-10"></span>hehe testing</p>
 										</div>
 									</div>
 								</div>
                                 <div class="col-xl-3 col-md-6">
 									<div class="card text-black bg-light">
+                                        <div class="card-header">
+                                            <div class = "row align-items-center m-b-25">
+                                                <div class="col">
+                                                    <h4 class="m-b-5 text-black">Bad Loans</h4>
+                                                </div>
+                                                <div class ="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                        </div>
 										<div class="card-body">
 											<div class="row align-items-center m-b-25">
 												<div class="col">
-													<h4 class="m-b-5 text-black">Bad Loans</h6>
-													<h3 class="m-b-0 text-black">2,444</h3>
-												</div>
-												<div class="col-auto">
-													
-												</div>
+                                                    <h5 class="m-b-5 text-black">Total</h5>
+                                                    <h4 class="m-b-5 text-black">7647</h4>
+                                                </div>
+                                                <div class="col">
+                                                    <h5 class="m-b-5 text-black">Value</h5> 
+                                                    <h4 class="m-b-5 text-black">$34,000</h4>   
+                                                </div>
 											</div>
-											<p class="m-b-0 text-black"><span class="label label-danger m-r-10"></span>hehe testing</p>
 										</div>
 									</div>
 								</div>
                                 <div class="col-xl-3 col-md-6">
-									<div class="card text-black bg-light">
+									<div class="card border-primary mb-3">
+                                        <div class="card-header">
+                                            <div class = "row align-items-center m-b-25">
+                                                <div class="col">
+                                                    <h4 class="m-b-5 text-black">Active Loans</h4>
+                                                </div>
+                                                <div class ="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                        </div>
 										<div class="card-body">
 											<div class="row align-items-center m-b-25">
 												<div class="col">
-													<h4 class="m-b-5 text-black">Active Loans</h6>
-													<h3 class="m-b-0 text-black">8,444</h3>
-												</div>
-												<div class="col-auto">
-													
-												</div>
+                                                    <h5 class="m-b-5 text-black">Total</h5>
+                                                    <h4 class="m-b-5 text-black">11,402</h4>
+                                                </div>
+                                                <div class="col">
+                                                    <h5 class="m-b-5 text-black">Value</h5> 
+                                                    <h4 class="m-b-5 text-black">$122,444,000</h4>   
+                                                </div>
 											</div>
-											<p class="m-b-0 text-black"><span class="label label-danger m-r-10"></span>hehe testing</p>
 										</div>
 									</div>
 								</div>
+
                             </div>
               <div style = "height: 15px"></div>
             <div class = 'container-fluid'>
@@ -165,7 +206,7 @@
                             <div id = "pie_lg" style='height:400px; width: 100%'></div>
                         </div>
                     </div>
-                    <div class = "col">
+                    <div class = "col" id = "portmix">
                         <div class = 'fakegraph'>
                             <div id = "pmix" style='height:400px; width: 100%'></div>
                         </div>
@@ -175,22 +216,22 @@
         <div style = "height: 15px"></div>
         <div class = 'container-fluid'>
             <div class = 'row'>
-                <div class = "col">
+                <div class = "col" id = "goodbad_graph">
                     <div class = 'fakegraph'>
                         <div id = "goodbad" style='height:400px; width: 100%'></div>
                     </div>
                 </div>
-                <div class = "col">
+                <div class = "col" id = "timeatdefault">
                     <div class = 'fakegraph'>
-                        <div id = "tad_demo" style='height:400px; width: 100%'></div>
+                        <div id = "tad_unsecured" stylqư5e='height:400px; width: 100%'></div>
                     </div>
                 </div>
             </div>
         </div> 
             <div style = "height: 15px"></div>
-        <div class = "container-fluid">
+        <div class = "container-fluid" id = "scatter_goodbad">
             <div class = "fakegraph">
-                <div id = "scattergb"style='height:400px; width: 100%'></div>
+                <div id = "pd_gb"style='height:400px; width: 100%'></div>
             </div>
         </div>
         </div>
@@ -235,40 +276,12 @@
             </div>
         
     </footer>
-
     <!-- JavaScript and Data -->
-
-
-    <script src="../script/iv_loanamt.js"></script>
-    <script src="../script/iv_loanpool.js"></script>
-    <script src="../script/iv_vantage.js"></script>
-    <script src="../script/iv_purpose.js"></script>
-    <script src="../script/iv_residence.js"></script>
-    
-    <script src="../script/iv_riskscore.js"></script>
-    <script src="../script/iv_apr.js"></script>
-    <script src="../script/iv_credit.js"></script>
-    <script src="../script/iv_all.js"></script>
-    <script src="../script/iv_fico.js"></script>
-    <script src="../script/iv_income.js"></script>
-    <script src="../script/parallel_disbursed.js"></script>
-    <script src="../script/parallel_fico.js"></script>
-    <script src="../script/parallel_income.js"></script>
-    <script src="../script/parallel_riskscore.js"></script>
-    <script src="../script/parallel_apr.js"></script>
-    <script src="../script/parallel_credit.js"></script>
-    <script src="../script/parallel_vantage.js"></script>
-    <script src="../script/parallel_data.js"></script>
-    <script src="../script/gini_exb.js"></script>
-    <script src="../script/ks_graph.js"></script>
-    <script src="../script/portfolio_mix.js"></script>
     <script src="../script/pie_lg.js"></script>
+    <script src="../script/scatter_gb.js"></script>
     <script src="../script/goodbad.js"></script>
     <script src="../script/tad_demo.js"></script>
-    <script src="../script/riskp_demo.js"></script>
-    <script src="../script/limit_control.js"></script>
-    <script src="../script/scatter_gb.js"></script>
-    <script src="../script/scatter_optimized.js"></script>
+    <script src="../script/portfolio_mix.js"></script>
 </body>
 
 </html>
