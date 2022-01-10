@@ -41,8 +41,6 @@ option_binomialu = {
   xAxis: {
     type: 'category',
     name: 'Credit Ratings',
-    nameLocation: 'middle',
-    nameGap: '30',
     axisTick: 'false',
     axisLabel: { color: '#ffffff' },
     nameTextStyle: { color: '#ffffff' },
@@ -56,8 +54,6 @@ option_binomialu = {
     name: 'Number of Default',
     axisLabel: { color: '#ffffff' },
     nameTextStyle: { color: '#ffffff' },
-    nameLocation: 'middle',
-    nameGap: 30,
     splitLine: {
       lineStyle: {
         color: '#36344E'

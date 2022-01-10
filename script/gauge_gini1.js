@@ -1,8 +1,8 @@
-var chartDom_gaugegini= document.getElementById('gauge_gini1');
-var myChart_gaugegini = echarts.init(chartDom_gaugegini);
-var option_gaugegini;
+var chartDom_ginig = document.getElementById('unsecuredgini');
+var myChart_ginig = echarts.init(chartDom_ginig);
+var option_ginig;
 
-option_gaugegini = {
+option_ginig = {
   series: [
     {
       type: 'gauge',
@@ -56,11 +56,11 @@ option_gaugegini = {
           } else if (value === 0.7) {
             return 'Good';
           } else if (value === 0.5) {
-            return 'Moderate';
+            return 'Acceptable';
           } else if (value === 0.3) {
             return 'Weak';
           } else if (value === 0.1) {
-            return 'Weak';
+            return 'Very Weak';
           }
           return '';
         }
@@ -80,8 +80,8 @@ option_gaugegini = {
       },
       data: [
         {
-          value: 0.7,
-          color: "ffffff",
+          value: 0.54,
+          color: '#ffffff',
           name: 'Gini'
         }
       ]
@@ -89,4 +89,4 @@ option_gaugegini = {
   ]
 };
 
-option_gaugegini && myChart_gaugegini.setOption(option_gaugegini);
+option_ginig && myChart_ginig.setOption(option_ginig);
