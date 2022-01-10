@@ -138,52 +138,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card text-black bg-light">
-                    <div class="card-header">
-                        <div class = "row align-items-center m-b-25">
-                            <div class="col">
-                                <h4 class="m-b-5 text-black">Bucket Failed</h4>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row align-items-center m-b-25">
-                            <div class="col">
-                                <h5 class="m-b-5 text-black">Total</h5>
-                                <h4 class="m-b-5 text-black">3</h4>
-                            </div>
-                            <div class="col">
-                                <h5 class="m-b-5 text-black">Rating</h5> 
-                                <h4 class="m-b-5 text-black">E,G,H</h4>   
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card border-primary mb-3">
-                    <div class="card-header">
-                        <div class = "row align-items-center m-b-25">
-                            <div class="col">
-                                <h4 class="m-b-5 text-black">Bucket Passed</h4>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row align-items-center m-b-25">
-                            <div class="col">
-                                <h5 class="m-b-5 text-black">Total</h5>
-                                <h4 class="m-b-5 text-black">1</h4>
-                            </div>
-                            <div class="col">
-                                <h5 class="m-b-5 text-black">Rating</h5> 
-                                <h4 class="m-b-5 text-black">F</h4>   
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
         <div style = "height: 15px"></div>
@@ -191,12 +145,12 @@
             <div class = 'row'>
                     <div class = "col">
                         <button class='btn btn-primary disabled button-subheader' id = "unsecured_gini">Gini</button>
-                        <div id = "gini_exb" style='height:400px; width: 100%'></div>
+                        <div id = "gini_exb" style='height:550px; width: 100%'></div>
                         
                     </div>
                     <div class = "col" >
                             <button class='btn btn-primary disabled button-subheader' id = "unsecured_ginigauge">Gini</button>
-                            <div id = 'gauge_gini1' style='height:400px; width: 100%'></div>
+                            <div id = 'unsecuredgini' style='height:550px; width: 100%'></div>
                     </div>
             </div>
         </div>
@@ -208,6 +162,11 @@
                     <div class = "col">
                         <button class='btn btn-primary disabled button-subheader' id = "unsecured_ks">Kolmogrov Smirnov</button>
                         <div id = "ks_dist" style='height:500px; width: 100%'></div>
+                        <div class = 'container'>
+                            <h4 class="m-b-5 text-white" style >Confidence level: 0.99</h4>
+                            <h4 class = "m-b-5 text-white">K-S distance: 0.54</h4>
+                            <h4 class = "m-b-5 text-white">K-S distance: 0.54</h4>
+                        </div>
                     </div>
                     <div class = "col" >
                             <button class='btn btn-primary disabled button-subheader' id = "unsecured_binomial">Binomial Testing</button>
@@ -218,7 +177,6 @@
     </div>
 </div>
 <div style = "height: 15px"></div>
-
 </body>
         
     <footer class="container-fluid bg-grey py-5">
