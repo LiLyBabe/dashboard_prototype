@@ -1,4 +1,4 @@
-var chartDom_scattergb = document.getElementById('scattergb');
+var chartDom_scattergb = document.getElementById('pd_gb');
 var myChart_scattergb = echarts.init(chartDom_scattergb);
 var option_scattergb;
 $.get('https://ntmy99.github.io/db_data.io/scatter_.json', function (data) {

@@ -50,26 +50,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a class="nav-link" ><span class="mb-0 h6">Retail Loan</span></a>
-                      </li>
-                      <li class="nav-item dropdown active">
-                        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span> 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="unsecured_data_explore.html#unsecured_sva">Single Variate Analysis</a>
-                          <a class="dropdown-item" href="unsecured_data_explore.html#unsecured_mva">Multivariate Analysis</a>
+                        <a class="nav-link" href="#"><span class="mb-0 h6">Retail Loan</span></a>
                       </li>
                       <li class="nav-item dropdown">
-                          <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting">Basic Reporting</a>
-                        </li>
+                        <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="mb-0 h6">View Portfolio</span><span class="arrow arrow-down"></span> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                          <a class="dropdown-item" href="unsecured_view_portfolio.html#basic_reporting" >Basic Reporting</a>                            
+                      </li>
+                      <li class="nav-item dropdown active">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mb-0 h6">Feature Engineering</span><span class="arrow arrow-down"></span> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href = "unsecured_data_explore.html#unsecured_sva">Single Variate Analysis</a>
+                          <a class="dropdown-item" href = "unsecured_data_explore.html#unsecured_mva">Multivariate Analysis</a>
+                      </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mb-0 h6">PD Model Build Report</span><span class="arrow arrow-down"></span> 
+                                <span class="mb-0 h6">View PD Model</span><span class="arrow arrow-down"></span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                               <a class="dropdown-item" href = "unsecured_pd_report.html#unsecured_gini" >Gini</a>
@@ -91,6 +91,102 @@
 
     <div class = 'container-fluid'>
         <h3 style ="color: #ffff" id = ""> PD Model Build Report</h3>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card text-black bg-light">
+                    <div class="card-header">
+                        <div class = "row align-items-center m-b-25">
+                            <div class="col">
+                                <h4 class="m-b-5 text-black">Gini value</h4>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-25">
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Value</h5>
+                                <h4 class="m-b-5 text-black">0.5</h4>
+                            </div>
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Type</h5> 
+                                <h4 class="m-b-5 text-black">Moderate</h4>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card text-black bg-light">
+                    <div class="card-header">
+                        <div class = "row align-items-center m-b-25">
+                            <div class="col">
+                                <h4 class="m-b-5 text-black">K-S Value</h4>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-25">
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Value</h5>
+                                <h4 class="m-b-5 text-black">0.67</h4>
+                            </div>
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Type</h5> 
+                                <h4 class="m-b-5 text-black">Good</h4>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card text-black bg-light">
+                    <div class="card-header">
+                        <div class = "row align-items-center m-b-25">
+                            <div class="col">
+                                <h4 class="m-b-5 text-black">Bucket Failed</h4>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-25">
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Total</h5>
+                                <h4 class="m-b-5 text-black">3</h4>
+                            </div>
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Rating</h5> 
+                                <h4 class="m-b-5 text-black">E,G,H</h4>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card border-primary mb-3">
+                    <div class="card-header">
+                        <div class = "row align-items-center m-b-25">
+                            <div class="col">
+                                <h4 class="m-b-5 text-black">Bucket Passed</h4>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-25">
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Total</h5>
+                                <h4 class="m-b-5 text-black">1</h4>
+                            </div>
+                            <div class="col">
+                                <h5 class="m-b-5 text-black">Rating</h5> 
+                                <h4 class="m-b-5 text-black">F</h4>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style = "height: 15px"></div>
         <div class = 'fakegraph'>
             <div class = 'row'>
                     <div class = "col">
