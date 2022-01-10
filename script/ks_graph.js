@@ -28,13 +28,16 @@ tooltip: {
 },
   xAxis: {
     data: bad_data[0],
-    
+    name: "PD range",
+    nameTextStyle: {color:'#ffffff'},
     axisLabel: { color: '#ffffff' },
     splitLine: {
       show: false
     }
   },
-  yAxis: {  axisLabel: { color: '#ffffff' },
+  yAxis: { name:"Number of Loans",          
+           nameTextStyle: {color:'#ffffff'},
+           axisLabel: { color: '#ffffff' },
   splitLine: {
     lineStyle: {
         color: '#36344E'
@@ -46,7 +49,7 @@ tooltip: {
     {
       name: 'Good',
       type: 'bar',
-      color: '#6495ED',
+      color: '#ffcc33',
       data: gooddata[1],
       emphasis: {
         focus: 'series'
@@ -58,7 +61,7 @@ tooltip: {
     {
       name: 'Bad',
       type: 'bar',
-      color: '#FFA500',
+      color: '#e53315',
       data: bad_data[1],
       emphasis: {
         focus: 'series'

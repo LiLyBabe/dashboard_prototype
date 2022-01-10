@@ -2,7 +2,7 @@ var chartDom_gaugegini= document.getElementById('gauge_gini1');
 var myChart_gaugegini = echarts.init(chartDom_gaugegini);
 var option_gaugegini;
 
-option_gaugegini = {
+option_gaugegini =  {
   series: [
     {
       type: 'gauge',
@@ -60,7 +60,7 @@ option_gaugegini = {
           } else if (value === 0.3) {
             return 'Weak';
           } else if (value === 0.1) {
-            return 'Weak';
+            return 'Very Weak';
           }
           return '';
         }
@@ -80,7 +80,7 @@ option_gaugegini = {
       },
       data: [
         {
-          value: 0.7,
+          value: 0.5,
           color: "ffffff",
           name: 'Gini'
         }
@@ -88,5 +88,4 @@ option_gaugegini = {
     }
   ]
 };
-
 option_gaugegini && myChart_gaugegini.setOption(option_gaugegini);
