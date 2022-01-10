@@ -81,8 +81,8 @@ option_ginig = {
       data: [
         {
           value: 0.54,
-          color: '#ffffff',
-          name: 'Gini'
+          name: "Gini",
+          nameTextStyle: {color:'#ffffff'} 
         }
       ]
     }

@@ -27,20 +27,16 @@ $.get('https://ntmy99.github.io/db_data.io/gini_exb.json', function (data) {
             },
             xAxis: {
                 type: 'category',
-                nameLocation: 'middle',
-                nameGap: '30',
                 axisTick: 'false',
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
-                nameLocation: 'middle',
-                nameGap: 20,
+                name: "Total Loans",
                 splitLine: { show: false }            },
             yAxis: {
                 type: 'value',
+                name: "Bad Loans",
                 axisLabel: { color: '#ffffff' },
                 nameTextStyle: { color: '#ffffff' },
-                nameLocation: 'middle',
-                nameGap: 30,
                 splitLine: {
                     lineStyle: {
                         color: '#36344E'

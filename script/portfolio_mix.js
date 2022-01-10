@@ -7,8 +7,12 @@ option_pmix = {
         trigger: 'axis',
         axisPointer: {
           type: 'shadow'
-        }
-      },
+        },
+        formatter: function (params){
+          return params[0].name + '<br/>' + "Good Loans: " + params[0].value + '<br/>' 
+          + "Bad Loans: " + params[1].value + '<br/>' + "Default Odds:" + params[0].value/(params[0].value+params[1].value);
+      }
+  },
       title: {
         text: 'Portfolio Mix',
             left: 'center',
