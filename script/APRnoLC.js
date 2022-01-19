@@ -3,12 +3,8 @@ var myChart8 = echarts.init(chartDom8);
 var option8;
 var $j = jQuery.noConflict();
 
-$.get('https://monex-p.github.io/dashboard_files/NoLCLoanSizePDAPR_theirPD.json', function (data) {
+$.get('https://ntmy99.github.io/db_data.io/EP_surface.json', function (data) {
     var symbolSize = 2.3;
-    var total_return = 0;
-    for (var i = 0; i < data.length; i++) {
-        total_return += parseFloat(data[i].z);
-    }
     option8 = {
         grid3D: {
             axisLine: {
@@ -28,62 +24,21 @@ $.get('https://monex-p.github.io/dashboard_files/NoLCLoanSizePDAPR_theirPD.json'
         },
         xAxis3D: {
             type: 'value',
-            name: 'PD'
+            name: 'x'
         },
         yAxis3D: {
             type: 'value',
-            name: 'Loan Amount'
+            name: 'y'
         },
         zAxis3D: {
             type: 'value',
-            name: 'APR'
+            name: 'z'
         },
-        // graphic: [
-        //     {
-        //         type: 'group',
-        //         right: '10%',
-        //         top: '10%',
-        //         draggable: true,
-        //         children: [
-        //             {
-        //                 type: 'rect',
-        //                 z: 1,
-        //                 left: 'center',
-        //                 top: 'middle',
-        //                 shape: {
-        //                     width: 200,
-        //                     height: 90
-        //                 },
-        //                 style: {
-        //                     fill: '#fff',
-        //                     // stroke: '#555',
-        //                     // lineWidth: 1,
-        //                     // shadowBlur: 6,
-        //                     // shadowOffsetX: 3,
-        //                     // shadowOffsetY: 3,
-        //                     // shadowColor: 'rgba(0,0,0,0.2)'
-        //                 }
-        //             },
-        //             {
-        //                 type: 'text',
-        //                 z: 100,
-        //                 left: 'center',
-        //                 top: 'middle',
-        //                 style: {
-        //                     // fill: '#333',
-        //                     text: [
-        //                         "Portfolio Risk-adjusted \n\n Return: " + parseInt(total_return)
-        //                     ].join('\n'),
-        //                     font: '14px Microsoft YaHei'
-        //                 }
-        //             }
-        //         ]
-        //     }
-        // ],
+       
         visualMap: {
-            min: 0.1,
-            max: 2,
-            dimension: 3,
+            min: 0,
+            max: 2400,
+            dimension: 2,
             calculable:true,
             inRange: {
                 color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
@@ -91,10 +46,9 @@ $.get('https://monex-p.github.io/dashboard_files/NoLCLoanSizePDAPR_theirPD.json'
         },
         dataset: {
             dimensions: [
-                'index',
                 'x',
                 'y',
-                'z',
+                'z'
             ],
             source: data
         },
