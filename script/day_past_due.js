@@ -4,6 +4,13 @@ var dpd_option;
 
 $.get('https://monex-p.github.io/dashboard_prototype/data/day_past_due_data.json', function (dpd_data) {
     dpd_option = {
+        title: {
+            text: 'Day Past Due',
+            textStyle: {
+                color: '#ffffff',
+                fontSize: 15
+            }
+        },
         grid: {
             left: '3%',
             right: '3%',

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CDE Front End</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
+    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+
+</head>
+
+<body style='background-color: #30373F'>
+    <div class='wrapper'>
+        <nav id='sidebar'>
+            <!-- Side navigation -->
+            <div class="sidebar-header">
+                <h3>Credit Decision Making </h3>
+            </div>
+
+            <div class='spacegiver'> </div>
+            <div class='spacegiver'> </div>
+            <div class='spacegiver'> </div>
+            <div class='spacegiver'> </div>
+            <div class='spacegiver'> </div>
+
+            <p> Product Name</p>
+            <select class='customForm' name="form_select" onchange="showDiv(this)">
+                <option value="0" selected> Choose a Product</option>
+                <option value="1">Unsecured Loan</option>
+                <option value="2">Buy Now Pay Later</option>
+                <option value="3">Payday Loan</option>
+            </select>
+
+            <div class='spacegiver'></div>
+
+            <p> PD Model</p>
+            <select class='customForm' name="form_select" onchange="showDiv(this)">
+                <option value="0" selected> Choose a PD Model</option>
+                <option value="1">Unsecured Loan PD Version 1</option>
+                <option value="2">Unsecured Loan PD Version 1.5</option>
+                <option value="3">Unsecured Loan PD Version 2</option>
+            </select>
+
+            <div class='spacegiver'></div>
+
+            <table class='center'>
+                <caption>Product Configuration</caption>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Term (Months)</td>
+                        <td>3</td>
+                        <td>36</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Amount</td>
+                        <td>2000</td>
+                        <td>10000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <label>
+                <p>Limit Control Factor</p>
+            </label>
+            <select onchange="showDiv(this)">
+                <option value="0" selected> -1</option>
+                <option value="1">-0.75</option>
+                <option value="2">-0.5</option>
+                <option value="3">-0.25</option>
+                <option value="4">0.25</option>
+                <option value="5">0.5</option>
+                <option value="6">0.75</option>
+                <option value="7">1</option>
+            </select>
+
+            <!-- <div class='fakegraph'>
+                <div id='' style='height:400px'></div>
+            </div> -->
+
+            <div class='spacegiver'></div>
+
+            <label>
+                <p>Target APR</p>
+            </label>
+            <select onchange="showDiv(this)">
+                <option value="0" selected> -1</option>
+                <option value="1">-0.75</option>
+                <option value="2">-0.5</option>
+                <option value="3">-0.25</option>
+                <option value="4">0.25</option>
+                <option value="5">0.5</option>
+                <option value="6">0.75</option>
+                <option value="7">1</option>
+            </select>
+
+            <div class='spacegiver'></div>
+
+            <label>
+                <p>Target Risk Adjusted Profit/ Loan</p>
+            </label>
+            <select onchange="showDiv(this)">
+                <option value="0" selected> -1</option>
+                <option value="1">-0.75</option>
+                <option value="2">-0.5</option>
+                <option value="3">-0.25</option>
+                <option value="4">0.25</option>
+                <option value="5">0.5</option>
+                <option value="6">0.75</option>
+                <option value="7">1</option>
+            </select>
+        </nav>
+        <div id='content'>
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a class="nav-link" href="#"><span class="mb-0 h6">Credit Decision Making Tool</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="payday_data_exploration.html#single_variate">Single
+                                    Variate Analysis</a>
+                                <a class="dropdown-item" href="payday_data_exploration.html#payday_iv">Information
+                                    Value</a>
+                                <a class="dropdown-item" href="payday_data_exploration.html#parallel_full">Quantitative
+                                    Filter</a>
+                        </li>
+                        <li class="nav-item dropdown nav-item active">
+                            <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">PD Model</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="payday_pd_model.html#payday_gini">Gini Model</a>
+                                <a class="dropdown-item" href="payday_pd_model.html#binomial">Binomial Test</a>
+                                <a class="dropdown-item" href="payday_pd_model.html#kstesting">KS Testing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mb-0 h6">Portfolio Reporting</span><span class="arrow arrow-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="payday_portfolio_reporting.html#dayPastDue">Day Past
+                                    Due</a>
+                        </li>
+                    </ul> -->
+                </div>
+            </nav>
+
+            <!-- Start main content here  -->
+            <div class='container-fluid'>
+
+                <!-- End side tab -->
+                <div>
+                    <p> Loan Application</p>
+                    <div class='fakegraph'>
+                        <p> Customer Information</p>
+                        <table class='center'>
+                            <tbody>
+                                <tr>
+                                    <td>Customer ID</td>
+                                    <td>12345</td>
+                                </tr>
+                                <tr>
+                                    <td>Loan Purpose</td>
+                                    <td>Debt Consolidation</td>
+                                </tr>
+                                <tr>
+                                    <td>FICO Score</td>
+                                    <td>680</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Credit Lines</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>Residence Status</td>
+                                    <td>Own</td>
+                                </tr>
+                                <tr>
+                                    <td>Income</td>
+                                    <td>5500</td>
+                                </tr>
+                                <tr>
+                                    <td>Loan Service Ratio</td>
+                                    <td>0.11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='spacegiver'></div>
+                    <div class='fakegraph'>
+                        <p> Proposed Loan </p>
+                        <table class='center'>
+                            <tbody>
+                                <tr>
+                                    <td> Term</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td> Loan Amount</td>
+                                    <td>8800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='spacegiver'></div>
+
+                    <div class='fakegraph'>
+                        <table class='center'>
+                            <caption> Credit Decision Table</caption>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Proposed Term</th>
+                                    <th>Optimum Term</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Term</td>
+                                    <td>12</td>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>Profit</td>
+                                    <td>135</td>
+                                    <td>140</td>
+                                </tr>
+                                <tr>
+                                    <td>Profit %</td>
+                                    <td>1.7%</td>
+                                    <td>1.7%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='fakegraph'>
+                        <div id='optimum_term' style='height:400px'></div>
+                    </div>
+
+                    <div class='spacegiver'></div>
+
+                    <div class='fakegraph'>
+                        <div id='rarnolc' style='height:400px'></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <footer class="container-fluid bg-grey py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <img src="../data/logo-epay.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>More Information</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        <li> <a href="#"> Team</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </footer>
+
+
+    <script src="../script/optimum_term.js"></script>
+    <script src="../script/RARnoLC.js"></script>
+
+
+
+
+</body>
+
+</html>
