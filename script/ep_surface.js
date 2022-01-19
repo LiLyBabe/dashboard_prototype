@@ -38,16 +38,40 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
         visualMap: {
             // min: -1500,
             // max: 1500,
-            dimension: 3,
+            dimension: 2,
             calculable:true,
             inRange: {
-                color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
+                color: [
+                    '#313695',
+                    '#4575b4',
+                    '#74add1',
+                    '#abd9e9',
+                    '#e0f3f8',
+                    '#ffffbf',
+                    '#fee090',
+                    '#fdae61',
+                    '#f46d43',
+                    '#d73027',
+                    '#a50026'
+                  ]
             }
         },
 
         series: [
             {
-                type: 'surface',
+                type: 'line3D',
+                // symbol: 'arrow',
+                // symbolSize: 15,
+                lineStyle: {
+                  width:25
+                },
+                // wireframe: {
+                //   show:false
+                // },
+                // shading: 'color',
+                itemStyle: {
+                  opacity:1
+                },
                 data: ep_surface_data
             }
         ]
