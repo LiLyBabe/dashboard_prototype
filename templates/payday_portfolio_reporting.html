@@ -29,7 +29,7 @@
 
 <body style='background-color: #30373F'>
     <div class='wrapper'>
-        <div id ='content'>
+        <div id='content'>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,9 +53,12 @@
                                 <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="payday_data_exploration.html#single_variate">Single Variate Analysis</a>
-                                <a class="dropdown-item" href="payday_data_exploration.html#payday_iv">Information Value</a>
-                                <a class="dropdown-item" href="payday_data_exploration.html#parallel_full">Quantitative Filter</a>
+                                <a class="dropdown-item" href="payday_data_exploration.html#single_variate">Single
+                                    Variate Analysis</a>
+                                <a class="dropdown-item" href="payday_data_exploration.html#payday_iv">Information
+                                    Value</a>
+                                <a class="dropdown-item" href="payday_data_exploration.html#parallel_full">Quantitative
+                                    Filter</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
@@ -73,7 +76,8 @@
                                 <span class="mb-0 h6">Portfolio Reporting</span><span class="arrow arrow-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                <a class="dropdown-item" href="payday_portfolio_reporting.html#dayPastDue">Day Past Due</a>
+                                <a class="dropdown-item" href="payday_portfolio_reporting.html#dayPastDue">Day Past
+                                    Due</a>
                         </li>
                     </ul>
                 </div>
@@ -81,11 +85,67 @@
 
             <!-- Start main content here  -->
             <div class='container-fluid'>
-
-                <div class='fakegraph' id='dayPastDue' style='height:400px'> Gini Graph</div>
+                <p> Report Period</p>
+                <form class="form-inline" action="/action_page.php">
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" id="start_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" id="end_date">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
 
                 <div class='spacegiver'></div>
-                
+
+                <div class='row'>
+                    <div class='col-sm'>
+                        <div class='fakegraph' id='payday_loan_group' style='height: 400px'></div>
+                    </div>
+                    <div class='col-sm'>
+                        <div class='fakegraph' id='payday_portfolio_mix' style='height: 400px'> </div>
+                    </div>
+                </div>
+                <div class='spacegiver'></div>
+
+                <div class='fakegraph'> Collection function </div>
+
+                <div class='spacegiver'></div>
+
+                <div class='fakegraph' id='t2d' style='height:400px'></div>
+
+                <div class='spacegiver'></div>
+
+                <div class='row'>
+                    <div class='col-sm'>
+                        <div class='fakegraph' id='payday_risk_pricing' style='height: 400px'></div>
+                    </div>
+                    <div class='col-sm'>
+                        <div class='fakegraph'>Limit Control</div>
+                    </div>
+                </div>
+
+                <div class='spacegiver'></div>
+
+                <div class='row'>
+                    <div class='col-sm'>
+                        <div class='fakegraph'> Current Portfolio</div>
+                    </div>
+                    <div class='col-sm'>
+                        <div class='fakegraph'>Optimized Portfolio</div>
+                    </div>
+                </div>
+
+                <div class='spacegiver'> </div>
+
+
+                <div class='fakegraph' id='payday_overdue' style='height:400px'></div>
+
+
+
+
                 <!-- <div class = 'fakegraph' id = 'binomial' style='height:400px'> Binomial Graph</div> -->
                 <!-- <div id = 'ks'> KS Testing</div> -->
 
@@ -145,7 +205,11 @@
     </footer>
 
 
-    <script src="../script/day_past_due.js"></script>
+    <script src="../script/t2d_graph.js"></script>
+    <script src="../script/payday_loan_group.js"></script>
+    <script src="../script/payday_portfolio_mix.js"></script>
+    <script src="../script/payday_risk_pricing.js"></script>
+    <script src="../script/payday_overdue.js"></script>
     <!-- <script src="../script/payday_binomial.js"></script> -->
 
 

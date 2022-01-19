@@ -8,6 +8,14 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/t2d_data.json', functi
     $.get('https://monex-p.github.io/dashboard_prototype/data/t2d_beta_data.json', function (t2d_beta) {
         option_t2d = {
 
+            title: {
+                text: "Time at Default",
+                textStyle: {
+                    color: "#ffffff",
+                    fontSize: 15
+                }
+            },
+
             grid: {
                 left: '3%',
                 right: '3%',

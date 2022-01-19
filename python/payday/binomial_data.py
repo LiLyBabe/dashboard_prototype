@@ -4,9 +4,6 @@ import string
 import json
 from scipy.stats import binom
 
-# test_set = pd.read_excel(
-#     'D:\Epay\Epay\Dashboard\Python code\Proxy Payday Loan Data Corrected.xlsx', sheet_name='Testing Data')
-
 
 def master_scale(upper_pd_inbound, upper_pd_outbound, no_rating):
     master_scale_df = pd.DataFrame()

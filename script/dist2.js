@@ -10,7 +10,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_distribution_da
             option_2 = {
                 title: {
                     text: attribute_name,
-                    left: 'center',
+                    // left: 'center',
                     textStyle: { color: '#ffffff' , fontSize: 15}
                 },
                 tooltip: {
