@@ -1,48 +1,76 @@
-var chartDom8 = document.getElementById('epsf');
-var myChart8 = echarts.init(chartDom8);
-var option8;
+var chartDom5 = document.getElementById('ep_surface');
+var myChart5 = echarts.init(chartDom5);
+var option5;
 var $j = jQuery.noConflict();
-$.get('https://ntmy99.github.io/db_data.io/test.json', function (data) {
+
+$.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json', function (data) {
+    var symbolSize = 2.3;
     var datas = [];
     for (var x = 1; x < data.length; x++) { //
     datas.push([data[x].x, data[x].y, data[x].z]);
-    }    
-      var option8 = {
-          tooltip: {},
-          backgroundColor: '#fff',
-          visualMap: {
-                min: 0,
-                max: 2400,
-                dimension: 2,
-                inRange: {
-                    color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
+    }  
+    option5 = {
+        grid3D: {
+            axisLine: {
+                lineStyle: {
+                    color: '#fff'
                 }
-          },
-          grid3D: {
-              viewControl: {
-                  //projection: 'orthographic',
-              }
-          },
-          xAxis3D: {
-              type: 'value',
-             // splitLine: {show: false}
+            },
+            axisPointer: {
+                lineStyle: {
+                    color: '#ffbd67'
+                }
+            },
+            viewControl: {
+                // autoRotate: true,
+                projection: 'orthographic'
+            }
+        },
+        xAxis3D: {
+            type: 'value',
+            name: 'Loan Amount'
+        },
+        yAxis3D: {
+            type: 'value',
+            name: 'Term (Months)'
+        },
+        zAxis3D: {
+            type: 'value',
+            name: 'Expected Profit'
+        },
+        visualMap: {
+            // min: -1500,
+            // max: 1500,
+            dimension: 3,
+            calculable:true,
+            inRange: {
+                color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
+            }
+        },
+        // dataset: {
+        //     dimensions: [
+        //         'index',
+        //         'x',
+        //         'y',
+        //         'z',
+        //     ],
+        //     source: data
+        // },
+        series: [
+            {
+                type: 'surface',
+                // symbolSize: symbolSize,
+                // encode: {
+                //     x: 'x',
+                //     y: 'y',
+                //     z: 'z',
+                // }
+                data: datas
+            }
+        ]
+    };
 
-          },
-          yAxis3D: {
-              type: 'value',
-             // splitLine: {show: false}
-          },
-          zAxis3D: {
-              type: 'value',
-              // splitLine: {show: false}
-          },
-          series: [{
-              type: 'surface',
-                      wireframe: {
-            //          show: false
-              },
-              data: datas,
-          }]
-      };
-      myChart8.setOption(option8);
-  });
+    myChart5.setOption(option5);
+});
+
+option5 && myChart5.setOption(option5);
