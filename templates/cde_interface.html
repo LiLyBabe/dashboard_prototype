@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.css">
-    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/cde_stylesheet.css">
 
 </head>
 
@@ -31,9 +31,6 @@
     <div class='wrapper'>
         <nav id='sidebar'>
             <!-- Side navigation -->
-            <div class="sidebar-header">
-                <h3>Credit Decision Making </h3>
-            </div>
 
             <div class='spacegiver'> </div>
             <div class='spacegiver'> </div>
@@ -60,79 +57,80 @@
             </select>
 
             <div class='spacegiver'></div>
+            <div>
+                <table class='center'>
+                    <caption>Product Configuration</caption>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Minimum</th>
+                            <th>Maximum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Term (Months)</td>
+                            <td>3</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Amount</td>
+                            <td>2000</td>
+                            <td>10000</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <table class='center'>
-                <caption>Product Configuration</caption>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Minimum</th>
-                        <th>Maximum</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Term (Months)</td>
-                        <td>3</td>
-                        <td>36</td>
-                    </tr>
-                    <tr>
-                        <td>Loan Amount</td>
-                        <td>2000</td>
-                        <td>10000</td>
-                    </tr>
-                </tbody>
-            </table>
 
-            <label>
-                <p>Limit Control Factor</p>
-            </label>
-            <select onchange="showDiv(this)">
-                <option value="0" selected> -1</option>
-                <option value="1">-0.75</option>
-                <option value="2">-0.5</option>
-                <option value="3">-0.25</option>
-                <option value="4">0.25</option>
-                <option value="5">0.5</option>
-                <option value="6">0.75</option>
-                <option value="7">1</option>
-            </select>
+                <label>
+                    <p>Limit Control Factor</p>
+                </label>
+                <select onchange="showDiv(this)">
+                    <option value="0" selected> -1</option>
+                    <option value="1">-0.75</option>
+                    <option value="2">-0.5</option>
+                    <option value="3">-0.25</option>
+                    <option value="4">0.25</option>
+                    <option value="5">0.5</option>
+                    <option value="6">0.75</option>
+                    <option value="7">1</option>
+                </select>
 
-            <!-- <div class='fakegraph'>
+                <!-- <div class='fakegraph'>
                 <div id='' style='height:400px'></div>
             </div> -->
 
-            <div class='spacegiver'></div>
+                <div class='spacegiver'></div>
 
-            <label>
-                <p>Target APR</p>
-            </label>
-            <select onchange="showDiv(this)">
-                <option value="0" selected> -1</option>
-                <option value="1">-0.75</option>
-                <option value="2">-0.5</option>
-                <option value="3">-0.25</option>
-                <option value="4">0.25</option>
-                <option value="5">0.5</option>
-                <option value="6">0.75</option>
-                <option value="7">1</option>
-            </select>
+                <label>
+                    <p>Target APR</p>
+                </label>
+                <select onchange="showDiv(this)">
+                    <option value="0" selected> -1</option>
+                    <option value="1">-0.75</option>
+                    <option value="2">-0.5</option>
+                    <option value="3">-0.25</option>
+                    <option value="4">0.25</option>
+                    <option value="5">0.5</option>
+                    <option value="6">0.75</option>
+                    <option value="7">1</option>
+                </select>
 
-            <div class='spacegiver'></div>
+                <div class='spacegiver'></div>
 
-            <label>
-                <p>Target Risk Adjusted Profit/ Loan</p>
-            </label>
-            <select onchange="showDiv(this)">
-                <option value="0" selected> -1</option>
-                <option value="1">-0.75</option>
-                <option value="2">-0.5</option>
-                <option value="3">-0.25</option>
-                <option value="4">0.25</option>
-                <option value="5">0.5</option>
-                <option value="6">0.75</option>
-                <option value="7">1</option>
-            </select>
+                <label>
+                    <p>Target Risk Adjusted Profit/ Loan</p>
+                </label>
+                <select onchange="showDiv(this)">
+                    <option value="0" selected> -1</option>
+                    <option value="1">-0.75</option>
+                    <option value="2">-0.5</option>
+                    <option value="3">-0.25</option>
+                    <option value="4">0.25</option>
+                    <option value="5">0.5</option>
+                    <option value="6">0.75</option>
+                    <option value="7">1</option>
+                </select>
         </nav>
         <div id='content'>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
@@ -148,11 +146,11 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto">
                         <li>
-                            <a class="nav-link" href="#"><span class="mb-0 h6">Credit Decision Making Tool</span></a>
+                            <a class="nav-link" href="#"><span class="mb-0 h6">Credit Decision Making</span></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="mb-0 h6">Data Exploration</span><span class="arrow arrow-down"></span>
@@ -183,111 +181,100 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                 <a class="dropdown-item" href="payday_portfolio_reporting.html#dayPastDue">Day Past
                                     Due</a>
-                        </li>
-                    </ul> -->
+                        </li> -->
+                    </ul>
                 </div>
             </nav>
 
             <!-- Start main content here  -->
             <div class='container-fluid'>
 
-                <!-- End side tab -->
                 <div>
                     <p> Loan Application</p>
-                    <div class='fakegraph'>
-                        <p> Customer Information</p>
-                        <table class='center'>
-                            <tbody>
-                                <tr>
-                                    <td>Customer ID</td>
-                                    <td>12345</td>
-                                </tr>
-                                <tr>
-                                    <td>Loan Purpose</td>
-                                    <td>Debt Consolidation</td>
-                                </tr>
-                                <tr>
-                                    <td>FICO Score</td>
-                                    <td>680</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Credit Lines</td>
-                                    <td>12</td>
-                                </tr>
-                                <tr>
-                                    <td>Residence Status</td>
-                                    <td>Own</td>
-                                </tr>
-                                <tr>
-                                    <td>Income</td>
-                                    <td>5500</td>
-                                </tr>
-                                <tr>
-                                    <td>Loan Service Ratio</td>
-                                    <td>0.11</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class='row' style='height:200px'>
+                        <div class='fakegraph col-sm'>
+                            <p> Customer Information</p>
+                            <table class='center'>
+                                <tbody>
+                                    <tr>
+                                        <td>Customer ID</td>
+                                        <td>12345</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loan Purpose</td>
+                                        <td>Debt Consolidation</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FICO Score</td>
+                                        <td>680</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Credit Lines</td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Residence Status</td>
+                                        <td>Own</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Income</td>
+                                        <td>5500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loan Service Ratio</td>
+                                        <td>0.11</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class='fakegraph col-sm'>
+                            <table class='center'>
+                                <p> Credit Decision Table</p>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Proposed</th>
+                                        <th>Optimum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Loan Amount</td>
+                                        <td>8800</td>
+                                        <td>8800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Term</td>
+                                        <td>12</td>
+                                        <td>14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Profit</td>
+                                        <td>135</td>
+                                        <td>140</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Profit %</td>
+                                        <td>1.7%</td>
+                                        <td>1.7%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class='spacegiver'></div>
-                    <div class='fakegraph'>
-                        <p> Proposed Loan </p>
-                        <table class='center'>
-                            <tbody>
-                                <tr>
-                                    <td> Term</td>
-                                    <td>12</td>
-                                </tr>
-                                <tr>
-                                    <td> Loan Amount</td>
-                                    <td>8800</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class='spacegiver'></div>
 
-                    <div class='fakegraph'>
-                        <table class='center'>
-                            <caption> Credit Decision Table</caption>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Proposed Term</th>
-                                    <th>Optimum Term</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Term</td>
-                                    <td>12</td>
-                                    <td>14</td>
-                                </tr>
-                                <tr>
-                                    <td>Profit</td>
-                                    <td>135</td>
-                                    <td>140</td>
-                                </tr>
-                                <tr>
-                                    <td>Profit %</td>
-                                    <td>1.7%</td>
-                                    <td>1.7%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
 
                     <div class='spacegiver'></div>
-
-                    <div class='fakegraph'>
-                        <div id='optimum_term' style='height:400px'></div>
+                    <div class='row'>
+                    <div class='fakegraph col-sm'>
+                        <div id='optimum_term' style='height:350px'></div>
                     </div>
 
-                    <div class='spacegiver'></div>
-
-                    <div class='fakegraph'>
-                        <div id='ep_surface' style='height:400px'></div>
+                    <div class='fakegraph col-sm'>
+                        <div id='ep_surface' style='height:350px'></div>
                     </div>
+                </div>
                 </div>
             </div>
 

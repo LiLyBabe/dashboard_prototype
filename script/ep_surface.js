@@ -10,7 +10,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
         grid3D: {
             axisLine: {
                 lineStyle: {
-                    color: '#fff'
+                    color: '#36344E'
                 }
             },
             axisPointer: {
@@ -18,6 +18,17 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
                     color: '#ffbd67'
                 }
             },
+            splitLine: {
+                lineStyle: {
+                    color: '#36344E',
+                    width: 0.5
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
             // viewControl: {
             //     // autoRotate: true,
             //     projection: 'orthographic'
@@ -25,15 +36,24 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
         },
         xAxis3D: {
             type: 'value',
-            name: 'Loan Amount'
+            name: 'Loan Amount',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
         },
         yAxis3D: {
             type: 'value',
-            name: 'Term (Months)'
+            name: 'Term (Months)',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
         },
         zAxis3D: {
             type: 'value',
-            name: 'Expected Profit'
+            name: 'Expected Profit',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
         },
         visualMap: {
             // min: -1500,
@@ -41,19 +61,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
             dimension: 2,
             calculable:true,
             inRange: {
-                color: [
-                    '#313695',
-                    '#4575b4',
-                    '#74add1',
-                    '#abd9e9',
-                    '#e0f3f8',
-                    '#ffffbf',
-                    '#fee090',
-                    '#fdae61',
-                    '#f46d43',
-                    '#d73027',
-                    '#a50026'
-                  ]
+                color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
             }
         },
 
@@ -63,7 +71,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
                 // symbol: 'arrow',
                 // symbolSize: 15,
                 lineStyle: {
-                  width:25
+                  width:2
                 },
                 // wireframe: {
                 //   show:false
