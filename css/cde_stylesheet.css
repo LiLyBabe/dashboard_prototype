@@ -31,6 +31,26 @@
     transition-delay: 0s, 0s;
 }
 
+.inlineForm{
+    position: relative;
+    background-color: #292929;
+    /* background-clip: padding-box; */
+    /* border: 0.5rem solid #cbece5; */
+    border-radius: 0.5rem;
+    color: #ffffff;
+    /* display: block; */
+    cursor: pointer;
+    height: 2rem;
+    /* line-height: 1.5; */
+    padding: 0.25rem 0.75rem;
+    /* width: 100%; */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition-property: border-color, box-shadow;
+    transition-duration: 0.15s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out;
+    transition-delay: 0s, 0s;
+}
+
 /* select-items {
     border-radius: 10px;
     position: absolute;
@@ -60,12 +80,14 @@
     background-color: #292929;
 }
 .fs-box {
-    background-color: white;
+    background-color: #292929;
+    color: #ffffff;
     margin-left: auto; 
+    /* padding: 2%; */
     display: block;
-    border-radius: 5px;
+    border-radius: 20px;
     border-color: #292929;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
 .button-box {
     background-color: #292929;
@@ -129,8 +151,8 @@
 
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
+    font-size: 1em;
+    font-weight: 200;
     line-height: 1.7em;
     color: #ffffff;
 }
@@ -148,7 +170,7 @@ table {
     letter-spacing: 0.5px;
     color: white;
     width: 95%;
-    height: 90%;
+    height: 75%;
     /* font-family: sans-serif; */
     /* font-size: .8rem; */
     
@@ -157,7 +179,7 @@ table {
 table.center {
     margin-left: auto; 
     margin-right: auto;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
   }
 
 th {
@@ -170,7 +192,7 @@ th {
 td {
     text-align: center;
     border: 1px solid #36344E;
-    padding: 1%;
+    padding: 0%;
     font-size: 0.85vw;
 }
 
@@ -200,15 +222,19 @@ input.right {
     float: right;
     }
 .navbar {
-    padding: 15px 10px;
+    padding: 3px;
     background: #292929;
     border: none;
-    border-radius: 0;
-    margin-bottom: 20px;
+    border-radius: 1rem;
+    margin-bottom: 15px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-btn {
+    margin: 0.2%;
+    /* padding-top: 0px;
+    padding-bottom: 0px; */
+    /* box-sizing: inherit; */
     box-shadow: none;
     outline: none !important;
     border: none;
@@ -234,8 +260,9 @@ input.right {
 
 
 #sidebar {
-    min-width: 550px;
-    max-width: 550px;
+    min-width: 25%;
+    max-width: 25%;
+    padding: 0.5%;
     background: #292929;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);

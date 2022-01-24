@@ -1,48 +1,114 @@
-var chartDom8 = document.getElementById('epsf');
-var myChart8 = echarts.init(chartDom8);
-var option8;
-var $j = jQuery.noConflict();
-$.get('https://ntmy99.github.io/db_data.io/test.json', function (data) {
-    var datas = [];
-    for (var x = 1; x < data.length; x++) { //
-    datas.push([data[x].x, data[x].y, data[x].z]);
-    }    
-      var option8 = {
-          tooltip: {},
-          backgroundColor: '#fff',
-          visualMap: {
-                min: 0,
-                max: 2400,
-                dimension: 2,
-                inRange: {
-                    color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
-                }
-          },
-          grid3D: {
-              viewControl: {
-                  //projection: 'orthographic',
-              }
-          },
-          xAxis3D: {
-              type: 'value',
-             // splitLine: {show: false}
+var chartDomEPSurface = document.getElementById('ep_surface');
+var myChartEPSurface = echarts.init(chartDomEPSurface);
+var option_ep_surface;
+// var $j = jQuery.noConflict();
 
-          },
-          yAxis3D: {
-              type: 'value',
-             // splitLine: {show: false}
-          },
-          zAxis3D: {
-              type: 'value',
-              // splitLine: {show: false}
-          },
-          series: [{
-              type: 'surface',
-                      wireframe: {
-            //          show: false
-              },
-              data: datas,
-          }]
-      };
-      myChart8.setOption(option8);
-  });
+$.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json', function (ep_surface_data) {
+    var symbolSize = 2.3;
+    
+    option_ep_surface = {
+        grid3D: {
+            axisLine: {
+                lineStyle: {
+                    color: '#36344E'
+                }
+            },
+            axisPointer: {
+                lineStyle: {
+                    color: '#ffbd67'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#36344E',
+                    width: 0.5
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+            // viewControl: {
+            //     // autoRotate: true,
+            //     projection: 'orthographic'
+            // }
+        },
+        xAxis3D: {
+            type: 'value',
+            name: 'Loan Amount',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
+        },
+        yAxis3D: {
+            type: 'value',
+            name: 'Term (Months)',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
+        },
+        zAxis3D: {
+            type: 'value',
+            name: 'Expected Profit',
+            nameTextStyle: {
+                color: "#ffffff"
+            }
+        },
+        visualMap: {
+            // min: -1500,
+            // max: 1500,
+            dimension: 2,
+            calculable:true,
+            inRange: {
+                color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
+            }
+        },
+
+        series: [
+            {
+                type: 'line3D',
+                // symbol: 'arrow',
+                // symbolSize: 15,
+                lineStyle: {
+                  width:2
+                },
+                // wireframe: {
+                //   show:false
+                // },
+                // shading: 'color',
+                itemStyle: {
+                  opacity:1
+                },
+                data: ep_surface_data
+            }
+        ]
+    };
+
+    myChartEPSurface.setOption(option_ep_surface);
+});
+
+option_ep_surface && myChartEPSurface.setOption(option_ep_surface);
+
+
+// function to open graph fullscreen 
+document.getElementById("ep_surface_fs").onclick = function () { epFullscreen() };
+var ep = document.getElementById("ep_surface");
+function epFullscreen() {
+    if (ep.requestFullscreen) {
+        ep.requestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    } else if (ep.webkitRequestFullscreen) { /* Safari */
+        ep.webkitRequestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    } else if (ep.msRequestFullscreen) { /* IE11 */
+        ep.msRequestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    }
+}

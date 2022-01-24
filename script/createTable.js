@@ -8,7 +8,8 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_iv_row_data.jso
         var my_index = Object.values(iv_data[first_name]['index'])
 
         var columns;
-        columns = [first_name, "Total", "Bad Loans", "Good Loans", "Good Odds", "Bad Odds", "WoE", "IV"]; // table headers.
+        columns = [first_name, "Total", "Bad Loans", "Good Loans", "Good Odds", "Bad Odds", "WoE", "IV"]; 
+        // table headers FIXED - could change later.
 
         var empTable = document.createElement('table');
 
@@ -32,7 +33,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_iv_row_data.jso
         }
 
 
-        var div = document.getElementById(table_id);
+        var div = document.getElementById(table_id); //Change this
         div.appendChild(empTable);    // add table to a container.
     }
 

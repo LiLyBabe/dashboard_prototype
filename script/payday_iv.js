@@ -26,7 +26,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/payday_iv_data.json', 
     iv_option = {
         title: {
             text: 'Information Value',
-            textStyle: { color: '#ffffff' }
+            textStyle: { color: '#ffffff', fontSize: 15 }
         },
         tooltip: {
             trigger: 'axis',

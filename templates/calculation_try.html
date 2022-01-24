@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title> CDE Dashboard Prototype </title>
+</head>
+
+<body>
+    <h1>CDE Dashboard Prototype</h1>
+
+    <h2> Product Configuration</h2>
+    <h3> Product </h3> 
+
+
+    <p>
+        <label for="priceBox">Cost: </label><input type="text" id="priceBox" value="5" />
+    </p>
+    <p>
+        <label for="sizeBox">Diameter :</label><input type="text" id="sizeBox" value="5" />
+    </p>
+    <p>
+        Result: <label id="result"></label>
+    </p>
+
+    <input type="button" value="Cost PSI" onclick="pizzaCalc()">
+
+    
+    <script type="text/javascript">
+        "use strict"
+        function pizzaCalc() {
+            var size = document.getElementById("sizeBox").value;
+            size = parseFloat(size);
+            var price = document.getElementById("priceBox").value;
+            price = parseFloat(price);
+            var costPerSquareInch = price / (3.14 * (size / 2) ^ 2)
+            alert('Pizza value :' + costPerSquareInch);
+            document.getElementById('result').innerHTML = costPerSquareInch;
+        }
+    </script>
+</body>
+
+</html>
