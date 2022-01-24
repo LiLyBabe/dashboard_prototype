@@ -5,7 +5,7 @@ var option_ep_surface;
 
 $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json', function (ep_surface_data) {
     var symbolSize = 2.3;
- 
+    
     option_ep_surface = {
         grid3D: {
             axisLine: {
@@ -89,3 +89,26 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
 });
 
 option_ep_surface && myChartEPSurface.setOption(option_ep_surface);
+
+
+// function to open graph fullscreen 
+document.getElementById("ep_surface_fs").onclick = function () { epFullscreen() };
+var ep = document.getElementById("ep_surface");
+function epFullscreen() {
+    if (ep.requestFullscreen) {
+        ep.requestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    } else if (ep.webkitRequestFullscreen) { /* Safari */
+        ep.webkitRequestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    } else if (ep.msRequestFullscreen) { /* IE11 */
+        ep.msRequestFullscreen();
+        window.onresize = function() {
+            myChartEPSurface.resize();
+          };
+    }
+}

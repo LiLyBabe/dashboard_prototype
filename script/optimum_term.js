@@ -67,3 +67,26 @@ opt_term_option = {
 myChart_opt_term.setOption(opt_term_option);
 opt_term_option && myChart_opt_term.setOption(opt_term_option);
 
+
+
+// function to open graph fullscreen 
+document.getElementById("opt_term_fs").onclick = function () { optTermFullscreen() };
+var opt_term = document.getElementById("optimum_term");
+function optTermFullscreen() {
+    if (opt_term.requestFullscreen) {
+        opt_term.requestFullscreen();
+        window.onresize = function() {
+            myChart_opt_term.resize();
+          };
+    } else if (opt_term.webkitRequestFullscreen) { /* Safari */
+        opt_term.webkitRequestFullscreen();
+        window.onresize = function() {
+            myChart_opt_term.resize();
+          };
+    } else if (opt_term.msRequestFullscreen) { /* IE11 */
+        opt_term.msRequestFullscreen();
+        window.onresize = function() {
+            myChart_opt_term.resize();
+          };
+    }
+}
