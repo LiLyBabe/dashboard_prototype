@@ -1,8 +1,8 @@
 
 $(document).ready(function () {
-    $.get('https://monex-p.github.io/dashboard_prototype/data/payday_parallel_data.json', function (my_data) {
-        $.get('https://monex-p.github.io/dashboard_prototype/data/payday_parallel_schema.json', function (schema) {
-            var dataSize = 400;
+    $.get('https://ntmy99.github.io/db_data.io/EPAYunsecured_parallel_data.json', function (my_data) {
+        $.get('https://ntmy99.github.io/db_data.io/EPAYunsecured_parallel_schema.json', function (schema) {
+            var dataSize = 1000;
 
             var CATEGORY_DIM;
             for (var i = 0; i < schema.length; i++) {
@@ -19,30 +19,23 @@ $(document).ready(function () {
             }
 
             var parallel_list = [];
-            var my_dict = {
-                dim: 2,
-                name: schema[2].text,
-                nameLocation: 'end',
-                axisLabel: { color: '#ffffff' },
-                nameTextStyle: { color: '#ffffff' },
-                type: 'category',
-            };
-            parallel_list.push(my_dict);
+            for (var i = 2; i < schema.length; i++) {
+                var my_dict = {
+                    dim: i,
+                    name: schema[i].text,
+                    nameLocation: 'end',
+                    axisLabel: { color: '#ffffff' },
+                    nameTextStyle: { color: '#ffffff' }
+                };
+                if (typeof my_data[0][i] === 'string')
+                    my_dict['type'] = 'category';
+                parallel_list.push(my_dict);
+            }
 
-            var my_default = {
-                dim: CATEGORY_DIM,
-                name: schema[CATEGORY_DIM].text,
-                nameLocation: 'end',
-                axisLabel: { color: '#ffffff' },
-                nameTextStyle: { color: '#ffffff' },
-                type: 'category'
-            };
-            parallel_list.push(my_default);
-
-            var chart = echarts.init(document.getElementById('parallel_fico'));
+            var parallel_chart = echarts.init(document.getElementById('unsecured_parallel_all'));
             console.time('render');
-            var myOption = getOption();
-            chart.setOption(myOption);
+            var parallelOption = getOption();
+            parallel_chart.setOption(parallelOption);
             console.timeEnd('render');
 
 
@@ -127,4 +120,3 @@ $(document).ready(function () {
         });
     });
 });
-
