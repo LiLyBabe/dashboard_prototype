@@ -2,6 +2,17 @@ var chartDom_opt_term = document.getElementById('optimum_term');
 var myChart_opt_term = echarts.init(chartDom_opt_term);
 var opt_term_option;
 
+initial_data = [39.8,55.8,70.1,83.7,94.5,103.7,113.2,119.6,124.6,131.1,133.85,135.4,136.1,139.5,138.5,136.8,138.8,
+    135.8,132.1,133.3,128.8,123.7,118.2,118.7,112.7,106.3,106.7,100,93,93.6,86.5,79.2,71.8,72.8,65.4,57.9];
+max_val = Math.max.apply(null,initial_data);
+max_index = initial_data.indexOf(max_val);
+
+initial_data[max_index] = {
+    value: max_val,
+    itemStyle: {
+        color: '#FAC858'
+    }
+}
 
 opt_term_option = {
     title: {
@@ -35,7 +46,7 @@ opt_term_option = {
         axisLabel: { color: '#ffffff' },
         nameTextStyle: { color: '#ffffff' },
         nameLocation: 'middle',
-        nameGap: 35,
+        nameGap: 30,
         splitLine: { show: false },
         data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
     },
@@ -45,23 +56,20 @@ opt_term_option = {
         axisLabel: { color: '#ffffff' },
         nameTextStyle: { color: '#ffffff' },
         nameLocation: 'middle',
-        nameGap: 50,
+        nameGap: 35,
         splitLine: {
             lineStyle: {
                 color: '#36344E'
             },
             show: true,
         },
-        axisLabel: { color: '#ffffff' },
-        nameTextStyle: { color: '#ffffff' }
     },
     series: [
         {
             name: 'Term',
             type: 'bar',
-            data: [39.8,55.8,70.1,83.7,94.5,103.7,113.2,119.6,124.6,131.1,133.85,135.4,136.1,139.5,138.5,136.8,138.8,
-                135.8,132.1,133.3,128.8,123.7,118.2,118.7,112.7,106.3,106.7,100,93,93.6,86.5,79.2,71.8,72.8,65.4,57.9]
-        }
+            data: initial_data
+        },
     ]
 };
 myChart_opt_term.setOption(opt_term_option);
