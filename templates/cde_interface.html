@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>CDE Front End</title>
+    <title>Credit Decision Engine</title>
     <script src="../lib/jquery.min.js"></script>
     <script src="../lib/popper.min.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
@@ -16,9 +16,9 @@
 
     <script src="../lib/jquery-3.5.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks@0.41.1/dist/maptalks.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/deck.gl@7.1.11/dist.min.js"></script>
-    <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script>
+    <!-- <script type="text/javascript" src="../lib/maptalks-deckgllayer.min.js"></script> -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -38,25 +38,34 @@
             <div class='spacegiver'> </div>
             <div class='spacegiver'> </div>
 
-            <select class='customForm' name="form_select" onchange="showDiv(this)">
-                <option value="0" selected> Choose a Product</option>
-                <option value="1">Unsecured Loan</option>
-                <option value="2">Buy Now Pay Later</option>
-                <option value="3">Payday Loan</option>
-            </select>
+            <div>
+                <select class='inlineForm' id="product" name="product"
+                    onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                    <option value="">Choose a Product</option>
+                    <option value="unsecured">Unsecured Loan</option>
+                    <option value="bnpl">Buy Now Pay Later</option>
+                    <option value="payday">Payday Loan</option>
+                </select>
+            </div>
 
             <div class='spacegiver'></div>
 
-            <select class='customForm' name="form_select" onchange="showDiv(this)">
-                <option value="0" selected> Choose a PD Model</option>
-                <option value="1">Unsecured Loan PD Version 1</option>
-                <option value="2">Unsecured Loan PD Version 1.5</option>
-                <option value="3">Unsecured Loan PD Version 2</option>
-            </select>
+            <div>
+                <script type="text/javascript" language="JavaScript">
+                    document.write('<select name="pdmodel" id="pdmodel" class ="inlineForm"><option value="">Choose a PD Model</option></select>')
+                </script>
+                <noscript>
+                    <select id="pdmodel" name="pdmodel">
+                        <option value="version1">Unsecured Loan PD Version 1</option>
+                        <option value="version1.5">Unsecured Loan PD Version 1.5</option>
+                        <option value="version2">Unsecured Loan PD Version 2</option>
+                    </select>
+                </noscript>
+            </div>
 
             <!-- <div class='spacegiver'></div> -->
-            <div>
-                <table class='center'>
+            <div id='product_config'>
+                <table class='center roundedCorners'>
                     <caption>Product Configuration</caption>
                     <thead>
                         <tr>
@@ -68,13 +77,13 @@
                     <tbody>
                         <tr>
                             <td>Term (Months)</td>
-                            <td>3</td>
-                            <td>36</td>
+                            <td><input class = 'prodConfigInput' type="number" id="minTerm" value="3" min="1" max = '36' /></td>
+                            <td><input class = 'prodConfigInput' type="number" id="maxTerm" value="36" min="1" max = '36'/></td>
                         </tr>
                         <tr>
                             <td>Loan Amount</td>
-                            <td>2000</td>
-                            <td>10000</td>
+                            <td><input class = 'prodConfigInput' type="number" id="minLA" value="2000" min="500" max = '10000' step="500"/></td>
+                            <td><input class = 'prodConfigInput' type="number" id="maxLA" value="10000" min="500" max = '10000' step="500"/></td>
                         </tr>
                     </tbody>
                 </table>
@@ -83,24 +92,16 @@
             <label>
                 <p>Limit Control Factor</p>
             </label>
-            <select class='inlineForm' onchange="showDiv(this)">
-                <option value="0" selected> -1</option>
-                <option value="1">-0.75</option>
-                <option value="2">-0.5</option>
-                <option value="3">-0.25</option>
-                <option value="4">0.25</option>
-                <option value="5">0.5</option>
-                <option value="6">0.75</option>
-                <option value="7">1</option>
-            </select>
+            <input class = 'prodConfigInput' type='number' id = 'lc_factor' value='1' min = "-1" max = "1" step ='0.1'> 
 
 
-            <div style='height:200px'></div>
+            <div id='limit_control' style='height:170px'></div>
+            <div class='spacegiver'></div>
 
             <label>
                 <p>Target APR</p>
             </label>
-            <select class='inlineForm' onchange="showDiv(this)">
+            <!-- <select class='inlineForm' onchange="showDiv(this)">
                 <option value="0" selected> 25%</option>
                 <option value="1">50%</option>
                 <option value="2">75%</option>
@@ -109,21 +110,25 @@
                 <option value="5">150%</option>
                 <option value="6">175%</option>
                 <option value="7">200%</option>
-            </select>
+            </select> -->
+            <input class = 'prodConfigInput' type='number' id = 'targetAPR' value='1' min = "0.1" max = "2" step ='0.1'> 
             <div></div>
             <label>
                 <p>Target Expected Profit </p>
             </label>
-            <select class='inlineForm' onchange="showDiv(this)">
-                <option value="0" selected> -1</option>
-                <option value="1">-0.75</option>
-                <option value="2">-0.5</option>
-                <option value="3">-0.25</option>
-                <option value="4">0.25</option>
-                <option value="5">0.5</option>
-                <option value="6">0.75</option>
-                <option value="7">1</option>
-            </select>
+            <!-- <select class='inlineForm' onchange="showDiv(this)">
+                <option value="0" selected> 25%</option>
+                <option value="1">50%</option>
+                <option value="2">75%</option>
+                <option value="3">100%</option>
+                <option value="4">125%</option>
+                <option value="5">150%</option>
+                <option value="6">175%</option>
+                <option value="7">200%</option>
+            </select> -->
+            <input class = 'prodConfigInput' type='number' id = 'targetProfit' value='1' min = "0.1" max = "2" step ='0.1'> 
+
+            <button class='btn' style="background-color: #5470C6; color: #ffffff"> Run Hypothesis  </button>
         </nav>
         <div id='content'>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292929;">
@@ -140,8 +145,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a class="nav-link" href="#"><span class="mb-0 h6">Credit Decision Making</span></a>
+                        <li class='active'>
+                            <a class="nav-link" href="#"><span class="mb-0 h6">Credit Decision Engine</span></a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -182,16 +187,17 @@
             <!-- Start main content here  -->
             <div class='container-fluid'>
 
-                <p> Loan Application</p>
+                <p style='color:#ffffff'> Sample Loan Application</p>
                 <div class='row' style='height:13em'>
                     <div class='col-sm'>
                         <div class='fakegraph'>
-                            <p> Customer Information</p>
-                            <table class='center'>
+                            
+                            <table class='center roundedCorners'>
+                                <p class='tableName'> Customer Information</p>
                                 <tbody>
                                     <tr>
-                                        <td>Customer ID</td>
-                                        <td>12345</td>
+                                        <td style='border-top:none'>Customer ID</td>
+                                        <td style='border-top:none'>12345</td>
                                     </tr>
                                     <tr>
                                         <td>Loan Purpose</td>
@@ -223,8 +229,8 @@
                     </div>
                     <div class='col-sm'>
                         <div class='fakegraph'>
-                            <table class='center'>
-                                <p> Credit Decision Table</p>
+                            <table class='center roundedCorners'>
+                                <p class='tableName'> Credit Decision Table</p>
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -329,9 +335,36 @@
 
     </footer> -->
 
+    <!-- Script for dynamic dropdown list -->
+    <script language="javascript" type="text/javascript">
+        function dynamicdropdown(listindex) {
+            switch (listindex) {
+                case "unsecured":
+                    document.getElementById("pdmodel").options[0] = new Option("Choose a PD Model", "");
+                    document.getElementById("pdmodel").options[1] = new Option("Unsecured Loan PD Version 1", "version1");
+                    document.getElementById("pdmodel").options[2] = new Option("Unsecured Loan PD Version 1.5", "version1.5");
+                    document.getElementById("pdmodel").options[3] = new Option("Unsecured Loan PD Version 2", "version2");
+                    break;
+                case "payday":
+                    document.getElementById("pdmodel").options[0] = new Option("Choose a PD Model", "");
+                    document.getElementById("pdmodel").options[1] = new Option("Payday Loan PD Version 1", "version1");
+                    document.getElementById("pdmodel").options[2] = new Option("Payday Loan PD Version 2", "version2");
+                    document.getElementById("pdmodel").options[3] = new Option("Payday Loan PD Version 3", "version3");
+                    break;
+                case "bnpl":
+                    document.getElementById("pdmodel").options[0] = new Option("Choose a PD Model", "");
+                    document.getElementById("pdmodel").options[1] = new Option("Buy Now Pay Later PD Version 1", "version1");
+                    document.getElementById("pdmodel").options[2] = new Option("Buy Now Pay Later PD Version 2", "version2");
+                    break;
+            }
+            return true;
+        }
+    </script>
+
 
     <script src="../script/optimum_term.js"></script>
     <script src="../script/ep_surface.js"></script>
+    <script src="../script/limit_control_matrix.js"></script>
 
 
 
