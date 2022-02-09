@@ -29,8 +29,12 @@ $(document).ready(function () {
                 };
                 if (typeof my_data[0][i] === 'string')
                     my_dict['type'] = 'category';
+                if (i===3)
+                    my_dict['type'] = 'category';
                 parallel_list.push(my_dict);
             }
+
+            
 
             var parallel_chart = echarts.init(document.getElementById('parallel_full'));
             console.time('render');
