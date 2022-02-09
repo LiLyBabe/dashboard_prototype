@@ -28,11 +28,11 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
                 textStyle: {
                     color: '#ffffff'
                 }
+            },
+            viewControl: {
+                // autoRotate: true,
+                projection: 'orthographic'
             }
-            // viewControl: {
-            //     // autoRotate: true,
-            //     projection: 'orthographic'
-            // }
         },
         xAxis3D: {
             type: 'value',
@@ -60,6 +60,7 @@ $.get('https://monex-p.github.io/dashboard_prototype/data/ep_surface_data.json',
             // max: 1500,
             dimension: 2,
             calculable:true,
+            show:false,
             inRange: {
                 color: ['#fe0300', '#f09a09', '#f5f811', '#00ff0d', '#00fea8', '#0b9df0', '#1710c0']
             }
